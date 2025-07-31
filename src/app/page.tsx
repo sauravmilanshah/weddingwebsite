@@ -15,7 +15,7 @@ import {
   Grid
 } from '@chakra-ui/react';
 
-// Constants
+// Constants  
 const SCROLL_THRESHOLD = 50;
 const COUNTDOWN_UPDATE_INTERVAL = 1000;
 const WEDDING_DATE = '2026-01-14T00:00:00';
