@@ -14,6 +14,13 @@ import {
   Link,
   Grid
 } from '@chakra-ui/react';
+import Timeline from '@mui/lab/Timeline';
+import TimelineItem from '@mui/lab/TimelineItem';
+import TimelineSeparator from '@mui/lab/TimelineSeparator';
+import TimelineConnector from '@mui/lab/TimelineConnector';
+import TimelineContent from '@mui/lab/TimelineContent';
+import TimelineDot from '@mui/lab/TimelineDot';
+import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 
 // Constants  
 const SCROLL_THRESHOLD = 50;
@@ -95,15 +102,15 @@ const IndianWeddingFlowerShower = () => {
   return null;
 };
 
-const Navigation = () => {
+const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setCurrentPage: (page: string) => void }) => {
   const navigation = [
-    { name: 'Wedding Invite', href: '#wedding-invite' },
-    { name: 'Dress Code', href: '#dress-code' },
-    { name: 'Mood Boards', href: '#mood-boards' },
-    { name: 'Logistics', href: '#logistics' },
-    { name: 'Things to do at Oleander', href: '#oleander' },
-    { name: 'Travel Tips for Mumbai', href: '#travel-tips' },
-    { name: 'RSVP', href: '#rsvp' }
+    { name: 'Wedding Invite', href: 'wedding-invite' },
+    { name: 'Dress Code', href: 'dress-code' },
+    { name: 'Mood Boards', href: 'mood-boards' },
+    { name: 'Logistics', href: 'logistics' },
+    { name: 'Things to do at Oleander', href: 'oleander' },
+    { name: 'Travel Tips for Mumbai', href: 'travel-tips' },
+    { name: 'RSVP', href: 'rsvp' }
   ];
 
   const [scrolled, setScrolled] = useState(false);
@@ -141,7 +148,7 @@ const Navigation = () => {
           display={{ base: "none", lg: "block" }}
           transition="all 0.3s ease"
         >
-          <Box position="relative" w="120px" h="120px">
+          <Box position="relative" w="120px" h="120px" onClick={() => setCurrentPage('home')}>
             <Image
               src="/logo-transparent-refined.png"
               alt="Shivani & Saurav Wedding Logo"
@@ -203,9 +210,10 @@ const Navigation = () => {
               >
                 <Flex as="nav" gap={6} wrap="nowrap" align="center">
                   {navigation.slice(0, -1).map((item) => (
-                    <Link
+                    <Button
                       key={item.name}
-                      href={item.href}
+                      onClick={() => setCurrentPage(item.href)}
+                      variant="ghost"
                       px="3"
                       py="2"
                       borderRadius="md"
@@ -214,7 +222,6 @@ const Navigation = () => {
                       color="#1f576e"
                       textShadow="0 1px 2px rgba(255,255,255,0.8)"
                       letterSpacing="0.02em"
-                      textDecoration="none"
                       transition="all 0.2s ease"
                       whiteSpace="nowrap"
                       fontFamily="'Aparajita', serif"
@@ -226,7 +233,7 @@ const Navigation = () => {
                       }}
                     >
                       {item.name}
-                    </Link>
+                    </Button>
                   ))}
                 </Flex>
               </Box>
@@ -453,7 +460,15 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
 };
 
 export default function Home() {
-  const weddingDate = useMemo(() => new Date(WEDDING_DATE), []);
+  const [currentPage, setCurrentPage] = useState('home');
+  
+  const renderCurrentPage = () => {
+    if (currentPage === 'wedding-invite') {
+      return <WeddingInvitePage />;
+    }
+    // For now, return the hero section for all other pages
+    return <HeroSection />;
+  };
 
   return (
     <Box minH="100vh" position="relative" overflow="hidden">
@@ -471,10 +486,19 @@ export default function Home() {
         opacity="0.7"
       />
 
-      <Navigation />
+      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
-      {/* Main Hero Section */}
-      <Box 
+      {renderCurrentPage()}
+    </Box>
+  );
+}
+
+// Hero Section Component
+const HeroSection = () => {
+  const weddingDate = useMemo(() => new Date(WEDDING_DATE), []);
+
+  return (
+    <Box 
         as="main" 
         id="main-content"
         minH="100vh"
@@ -646,6 +670,228 @@ export default function Home() {
           </Box>
         </Container>
       </Box>
+  );
+};
+
+// Wedding Invite Page Component
+const WeddingInvitePage = () => {
+  const timelineData = [
+    {
+      date: "14th January",
+      dayTitle: "Day 1 - Arrival & Mehndi",
+      color: "#2b5a72", // Deeper blue
+      events: [
+        { time: "13:00", name: "Check In" },
+        { time: "16:30", name: "Mehndi" },
+        { time: "20:30", name: "Welcome Dinner" }
+      ]
+    },
+    {
+      date: "15th January", 
+      dayTitle: "Day 2 - Wedding Day",
+      color: "#1f576e", // Signature blue
+      events: [
+        { time: "9:00", name: "Breakfast" },
+        { time: "10:30", name: "Haldi" },
+        { time: "12:00", name: "Lunch" },
+        { time: "16:30", name: "Baarat" },
+        { time: "18:00", name: "Wedding Pheras" },
+        { time: "00:30", name: "After Party" }
+      ]
+    },
+    {
+      date: "16th January",
+      dayTitle: "Day 3 - Sangeet",
+      color: "#1a4a5c", // Darker blue
+      events: [
+        { time: "9:00", name: "Breakfast" },
+        { time: "12:00", name: "Lunch" },
+        { time: "20:30", name: "Sangeet" }
+      ]
+    },
+    {
+      date: "17th January",
+      dayTitle: "Day 4 - Farewell",
+      color: "#0f3a4a", // Darkest blue
+      events: [
+        { time: "9:00", name: "Breakfast" },
+        { time: "11:00", name: "Checkout" }
+      ]
+    }
+  ];
+
+  const DayTimeline = ({ day }: { day: typeof timelineData[0] }) => (
+    <Box
+      w="100%"
+      maxW={{ base: "100%", md: "600px", lg: "650px" }}
+      mx="auto"
+      p={{ base: "4", md: "5" }}
+      bg="rgba(255, 255, 255, 0.12)"
+      borderRadius="2xl"
+      border="1px solid"
+      borderColor="rgba(255, 255, 255, 0.25)"
+      boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.25)"
+      transition="all 0.3s ease"
+      css={{
+        backdropFilter: "blur(20px) saturate(160%)",
+        WebkitBackdropFilter: "blur(20px) saturate(160%)"
+      }}
+      _hover={{
+        bg: "rgba(255, 255, 255, 0.18)",
+        transform: "translateY(-4px)",
+        boxShadow: "0 16px 48px 0 rgba(31, 38, 135, 0.35)",
+      }}
+    >
+      {/* Day Header */}
+      <VStack gap="3" mb="6" textAlign="center">
+        <Text
+          fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+          fontWeight="bold"
+          color={day.color}
+          fontFamily="'Aparajita', serif"
+          textShadow="0 1px 2px rgba(255,255,255,0.8)"
+        >
+          {day.date}
+        </Text>
+        <Text
+          fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+          fontWeight="bold"
+          color="#1f576e"
+          fontFamily="'Aparajita', serif"
+          textShadow="0 1px 2px rgba(255,255,255,0.8)"
+          opacity="0.8"
+        >
+          {day.dayTitle}
+        </Text>
+        <Box w="60%" h="2px" bg={day.color} opacity="0.6" />
+      </VStack>
+
+      {/* Timeline */}
+      <Timeline 
+        position="right" 
+        sx={{ 
+          '& .MuiTimelineItem-root': { 
+            minHeight: 'auto',
+            '&::before': { display: 'none' }
+          },
+          '& .MuiTimelineContent-root': {
+            px: 2,
+            py: 1
+          }
+        }}
+      >
+        {day.events.map((event, eventIndex) => (
+          <TimelineItem key={eventIndex}>
+            <TimelineSeparator>
+              <TimelineDot 
+                sx={{ 
+                  bgcolor: day.color,
+                  border: '2px solid rgba(255, 255, 255, 0.9)',
+                  boxShadow: `0 3px 8px ${day.color}40`,
+                  width: 16,
+                  height: 16
+                }} 
+              />
+              {eventIndex < day.events.length - 1 && (
+                <TimelineConnector 
+                  sx={{ 
+                    bgcolor: day.color,
+                    opacity: 0.4,
+                    width: 2
+                  }} 
+                />
+              )}
+            </TimelineSeparator>
+
+            <TimelineContent>
+              <Box
+                p="4"
+                bg="rgba(255, 255, 255, 0.08)"
+                borderRadius="xl"
+                border="1px solid"
+                borderColor="rgba(255, 255, 255, 0.15)"
+                css={{
+                  backdropFilter: "blur(8px) saturate(120%)",
+                  WebkitBackdropFilter: "blur(8px) saturate(120%)"
+                }}
+                transition="all 0.2s ease"
+                _hover={{
+                  bg: "rgba(255, 255, 255, 0.12)",
+                  transform: "translateX(4px)",
+                }}
+              >
+                <Flex justify="space-between" align="center" gap="4">
+                  <Text
+                    fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+                    fontWeight="bold"
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                    textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                    flex="1"
+                  >
+                    {event.name}
+                  </Text>
+                  <Text
+                    fontSize={{ base: "md", md: "lg", lg: "xl" }}
+                    fontWeight="bold"
+                    color="white"
+                    fontFamily="'Aparajita', serif"
+                    textShadow="0 1px 2px rgba(0,0,0,0.3)"
+                    bg="#1f576e"
+                    px="4"
+                    py="2"
+                    borderRadius="lg"
+                    boxShadow="0 2px 8px rgba(31, 87, 110, 0.3)"
+                    minW="fit-content"
+                  >
+                    {event.time}
+                  </Text>
+                </Flex>
+              </Box>
+            </TimelineContent>
+          </TimelineItem>
+        ))}
+      </Timeline>
     </Box>
   );
-}
+
+  return (
+    <Box 
+      as="main" 
+      minH="100vh"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      px={{ base: "4", md: "6" }}
+      py={{ base: "20", md: "32" }}
+      position="relative"
+      zIndex="10"
+    >
+      <Container maxW={{ base: "100%", md: "7xl" }} px={{ base: "4", md: "6" }}>
+        <VStack gap={{ base: "8", md: "12" }} align="center">
+          {/* Section Title */}
+          <VStack gap="4" textAlign="center">
+            <Heading 
+              fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+              fontWeight="normal"
+              color="#1f576e"
+              textShadow="0 2px 4px rgba(255,255,255,0.8)"
+              fontFamily="'Bernhard Tango', cursive"
+            >
+              Wedding Flow
+            </Heading>
+            <Box w={{ base: "20", md: "32" }} h="2px" bg="#1f576e" opacity="0.6" />
+          </VStack>
+
+          {/* All 4 Timelines Stacked Vertically */}
+          <VStack gap={{ base: "8", md: "10" }} w="100%" align="stretch">
+            {timelineData.map((day, index) => (
+              <DayTimeline key={index} day={day} />
+            ))}
+          </VStack>
+        </VStack>
+      </Container>
+    </Box>
+  );
+};
+
