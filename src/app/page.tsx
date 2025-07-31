@@ -20,7 +20,6 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 
 // Constants  
 const SCROLL_THRESHOLD = 50;
@@ -745,11 +744,12 @@ const WeddingInvitePage = () => {
       {/* Day Header */}
       <VStack gap="3" mb="6" textAlign="center">
         <Text
-          fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+          fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
           fontWeight="bold"
           color={day.color}
-          fontFamily="'Aparajita', serif"
+          fontFamily="'Bernhard Tango', cursive"
           textShadow="0 1px 2px rgba(255,255,255,0.8)"
+          letterSpacing="0.05em"
         >
           {day.date}
         </Text>
