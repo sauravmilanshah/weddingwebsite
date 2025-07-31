@@ -386,13 +386,13 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
   }, [calculateTimeLeft]);
 
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
-    <VStack gap="2">
+    <VStack gap={{ base: "1", md: "2" }}>
       <Box
         bg="rgba(255, 255, 255, 0.16)"
         color="#1f576e"
         borderRadius="xl"
-        p="4"
-        minW="60px"
+        p={{ base: "2", md: "4" }}
+        minW={{ base: "45px", md: "60px" }}
         textAlign="center"
         border="1px solid"
         borderColor="rgba(255, 255, 255, 0.3)"
@@ -410,7 +410,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
         aria-labelledby={`${label.toLowerCase()}-label`}
       >
         <Text 
-          fontSize="2xl" 
+          fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
           fontWeight="bold" 
           fontVariantNumeric="tabular-nums"
           fontFamily="'Aparajita', serif"
@@ -421,7 +421,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
       </Box>
       <Text
         id={`${label.toLowerCase()}-label`}
-        fontSize="xl"
+        fontSize={{ base: "sm", md: "md", lg: "xl" }}
         fontWeight="bold"
         color="#1f576e"
         textTransform="uppercase"
@@ -436,18 +436,19 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
 
   return (
     <HStack 
-      gap="6" 
+      gap={{ base: "2", sm: "4", md: "6" }}
       justify="center" 
       role="timer" 
       aria-live="polite" 
       aria-label="Wedding countdown timer"
+      wrap={{ base: "wrap", md: "nowrap" }}
     >
       <TimeUnit value={timeLeft.days} label="Days" />
-      <Text color="gray.400" fontSize="xl">•</Text>
+      <Text color="gray.400" fontSize={{ base: "md", md: "lg", lg: "xl" }} display={{ base: "none", md: "block" }}>•</Text>
       <TimeUnit value={timeLeft.hours} label="Hours" />
-      <Text color="gray.400" fontSize="xl">•</Text>
+      <Text color="gray.400" fontSize={{ base: "md", md: "lg", lg: "xl" }} display={{ base: "none", md: "block" }}>•</Text>
       <TimeUnit value={timeLeft.minutes} label="Minutes" />
-      <Text color="gray.400" fontSize="xl">•</Text>
+      <Text color="gray.400" fontSize={{ base: "md", md: "lg", lg: "xl" }} display={{ base: "none", md: "block" }}>•</Text>
       <TimeUnit value={timeLeft.seconds} label="Seconds" />
     </HStack>
   );
@@ -489,9 +490,9 @@ export default function Home() {
         zIndex="10"
         role="main"
       >
-        <Container maxW="2xl">
+        <Container maxW={{ base: "100%", sm: "xl", md: "2xl" }} px={{ base: "4", md: "6" }}>
           <Box 
-            p="8"
+            p={{ base: "4", md: "8" }}
             textAlign="center"
             bg="rgba(255, 255, 255, 0.16)"
             borderRadius="3xl"
@@ -510,15 +511,15 @@ export default function Home() {
             }}
           >
             {/* Date Range */}
-            <VStack gap="6" mb="8">
+            <VStack gap={{ base: "3", md: "6" }} mb={{ base: "4", md: "8" }}>
               <VStack gap="4">
                 <VStack gap="0">
                   {/* Top decorative line */}
                   <Box w="133%" h="2px" bg="#1f576e" opacity="0.6" />
                   
-                  <HStack gap="6" align="center" py="4" w="100%">
+                  <HStack gap={{ base: "3", md: "6" }} align="center" py={{ base: "2", md: "4" }} w="100%">
                     <Text 
-                      fontSize="8xl" 
+                      fontSize={{ base: "4xl", sm: "5xl", md: "6xl", lg: "8xl" }}
                       fontWeight="normal" 
                       color="#b8860b"
                       textShadow="0 2px 4px rgba(255,255,255,0.8)"
@@ -529,7 +530,7 @@ export default function Home() {
                       14
                     </Text>
                     <Text 
-                      fontSize="2xl" 
+                      fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
                       fontWeight="bold" 
                       color="#1f576e"
                       textShadow="0 1px 2px rgba(255,255,255,0.8)"
@@ -541,7 +542,7 @@ export default function Home() {
                       to
                     </Text>
                     <Text 
-                      fontSize="8xl" 
+                      fontSize={{ base: "4xl", sm: "5xl", md: "6xl", lg: "8xl" }}
                       fontWeight="normal" 
                       color="#b8860b"
                       textShadow="0 2px 4px rgba(255,255,255,0.8)"
@@ -562,7 +563,7 @@ export default function Home() {
                   textShadow="0 1px 2px rgba(255,255,255,0.8)"
                   fontWeight="bold"
                   letterSpacing="0.25em"
-                  fontSize="3xl"
+                  fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
                   textTransform="uppercase"
                   fontFamily="'Aparajita', serif"
                 >
@@ -572,10 +573,10 @@ export default function Home() {
             </VStack>
 
             {/* Names */}
-            <VStack gap="8" mb="10">
+            <VStack gap={{ base: "4", md: "8" }} mb={{ base: "6", md: "10" }}>
               <VStack gap="4">
                 <Heading 
-                  fontSize={{ base: "4xl", md: "6xl" }}
+                  fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "6xl" }}
                   fontWeight="normal"
                   color="#1f576e"
                   textShadow="0 2px 4px rgba(255,255,255,0.8)"
@@ -594,10 +595,10 @@ export default function Home() {
             </VStack>
 
             {/* Location */}
-            <VStack gap="8" mb="10">
+            <VStack gap={{ base: "4", md: "8" }} mb={{ base: "6", md: "10" }}>
               <VStack gap="1">
                 <Text 
-                  fontSize="2xl"
+                  fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
                   fontWeight="bold"
                   color="#1f576e"
                   textShadow="0 1px 2px rgba(255,255,255,0.8)"
@@ -608,7 +609,7 @@ export default function Home() {
                   Oleander Farms, Karjat
                 </Text>
                 <Text 
-                  fontSize="xl"
+                  fontSize={{ base: "md", md: "lg", lg: "xl" }}
                   fontWeight="bold"
                   color="#1f576e"
                   textShadow="0 1px 2px rgba(255,255,255,0.8)"
@@ -622,19 +623,19 @@ export default function Home() {
             </VStack>
 
             {/* Countdown Timer */}
-            <VStack gap="8">
+            <VStack gap={{ base: "4", md: "8" }}>
               <CountdownTimer targetDate={weddingDate} />
             </VStack>
 
             {/* Call to Action */}
-            <Box mt="10">
+            <Box mt={{ base: "6", md: "10" }}>
               <Button
-                size="xl"
+                size={{ base: "lg", md: "xl" }}
                 bg="#1f576e"
                 color="white"
-                px="10"
-                py="6"
-                fontSize="2xl"
+                px={{ base: "6", md: "10" }}
+                py={{ base: "4", md: "6" }}
+                fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
                 fontWeight="bold"
                 borderRadius="lg"
                 fontFamily="'Aparajita', serif"
