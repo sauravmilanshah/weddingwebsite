@@ -586,11 +586,6 @@ export default function Home() {
                 >
                   Shivani <Text as="span" color="#1f576e" textShadow="0 2px 4px rgba(255,255,255,0.8)" fontFamily="'Bernhard Tango', cursive" fontWeight="normal">&</Text> Saurav
                 </Heading>
-                <HStack gap="6" align="center">
-                  <Box w="12" h="1px" bg="gray.300" />
-                  <Box w="2" h="2" borderRadius="full" bg="gray.400" />
-                  <Box w="12" h="1px" bg="gray.300" />
-                </HStack>
               </VStack>
             </VStack>
 
