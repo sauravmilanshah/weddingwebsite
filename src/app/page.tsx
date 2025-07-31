@@ -36,10 +36,9 @@ const IndianWeddingFlowerShower = () => {
     if (!showPetals) return;
 
     const flowerTypes = [
-      { type: 'rose', colors: ['white', 'red', 'pink'], weight: 25 },
-      { type: 'marigold', colors: ['orange', 'yellow'], weight: 35 },
-      { type: 'jasmine', colors: ['white'], weight: 25 },
-      { type: 'lotus', colors: ['white', 'pink'], weight: 15 }
+      { type: 'white-petal', colors: ['white'], weight: 40 },
+      { type: 'pink-petal', colors: ['pink'], weight: 30 },
+      { type: 'red-petal', colors: ['red'], weight: 30 }
     ];
 
     const createPetal = () => {
@@ -48,10 +47,9 @@ const IndianWeddingFlowerShower = () => {
       // Select flower type based on weight
       const rand = Math.random() * 100;
       let selectedFlower;
-      if (rand < 25) selectedFlower = flowerTypes[0]; // rose
-      else if (rand < 60) selectedFlower = flowerTypes[1]; // marigold  
-      else if (rand < 85) selectedFlower = flowerTypes[2]; // jasmine
-      else selectedFlower = flowerTypes[3]; // lotus
+      if (rand < 40) selectedFlower = flowerTypes[0]; // white
+      else if (rand < 70) selectedFlower = flowerTypes[1]; // pink  
+      else selectedFlower = flowerTypes[2]; // red
 
       const color = selectedFlower.colors[Math.floor(Math.random() * selectedFlower.colors.length)];
       const isSmall = Math.random() > 0.7; // 30% chance of small petals for intensity
