@@ -1,26 +1,401 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Bernhard Tango';
+  src: url('/fonts/Bernhard_Tango_Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Wasted Vindey';
+  src: url('/fonts/Wasted Vindey.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aparajita';
+  src: url('/fonts/aparaj.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aparajita';
+  src: url('/fonts/aparajb.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aparajita';
+  src: url('/fonts/aparajbi.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aparajita';
+  src: url('/fonts/aparaji.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@theme {
+  --font-family-sans: var(--font-inter);
+  --font-family-bernhard: 'Bernhard Tango', cursive;
+  --font-family-wasted: 'Wasted Vindey', cursive;
+  --font-family-aparajita: 'Aparajita', serif;
+  
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0b;
+  --color-muted: #71717a;
+  --color-border: #e4e4e7;
+  --color-accent: #18181b;
+  --color-accent-foreground: #fafafa;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #0a0a0b;
+  --accent: #f4f4f5;
+  --accent-foreground: #0a0a0b;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --ring: #18181b;
+  --radius: 0.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-weight: 400;
+  letter-spacing: -0.011em;
+}
+
+/* Modern Glass Morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Elegant Navigation */
+.nav-blur {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px) saturate(200%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Typography Scale */
+.text-hero {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-subtitle {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* Smooth Animations */
+.fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-delay {
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modern Button Styles */
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #27272a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Elegant Card */
+.card {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Floating Navigation */
+.floating-nav {
+  box-shadow: 
+    0 10px 25px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.floating-nav:hover {
+  box-shadow: 
+    0 20px 40px -5px rgba(0, 0, 0, 0.15),
+    0 8px 15px -3px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  transform: translateY(-1px);
+}
+
+/* Flex utilities */
+.flex-2 {
+  flex: 2;
+}
+
+/* Indian Wedding Flower Petals */
+.flower-petal {
+  position: fixed;
+  top: -30px;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.9;
+  animation: fall linear forwards;
+}
+
+/* Rose Petals - Heart-like shape */
+.flower-petal.rose {
+  width: 18px;
+  height: 16px;
+  position: relative;
+}
+
+.flower-petal.rose::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 18px;
+  height: 26px;
+  border-radius: 18px 18px 0 0;
+  transform: translateX(-50%) rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.flower-petal.rose::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 18px;
+  height: 26px;
+  border-radius: 18px 18px 0 0;
+  transform: translateX(-50%) rotate(45deg);
+  transform-origin: 0 100%;
+}
+
+.flower-petal.rose.white::before,
+.flower-petal.rose.white::after {
+  background: radial-gradient(ellipse at center, #ffffff 0%, #f8fafc 60%, #e2e8f0 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flower-petal.rose.red::before,
+.flower-petal.rose.red::after {
+  background: radial-gradient(ellipse at center, #fca5a5 0%, #ef4444 60%, #dc2626 100%);
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+}
+
+.flower-petal.rose.pink::before,
+.flower-petal.rose.pink::after {
+  background: radial-gradient(ellipse at center, #fbcfe8 0%, #f472b6 60%, #ec4899 100%);
+  box-shadow: 0 2px 4px rgba(236, 72, 153, 0.3);
+}
+
+/* Marigold Petals - Elongated teardrop */
+.flower-petal.marigold {
+  width: 12px;
+  height: 20px;
+  position: relative;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+/* Ensure marigold petals show their colors */
+.flower-petal.marigold::before,
+.flower-petal.marigold::after {
+  display: none;
+}
+
+.flower-petal.marigold.orange {
+  background: linear-gradient(135deg, #fed7aa 0%, #fb923c 30%, #ea580c 70%, #c2410c 100%);
+  box-shadow: 0 3px 6px rgba(234, 88, 12, 0.4), inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.flower-petal.marigold.yellow {
+  background: linear-gradient(135deg, #fef9e7 0%, #e0bc6d 30%, #d4aa5a 70%, #c9a355 100%);
+  box-shadow: 0 3px 6px rgba(224, 188, 109, 0.4), inset 2px 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+/* Jasmine Petals - Small oval */
+.flower-petal.jasmine {
+  width: 10px;
+  height: 14px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+/* Ensure jasmine petals show their colors */
+.flower-petal.jasmine::before,
+.flower-petal.jasmine::after {
+  display: none;
+}
+
+.flower-petal.jasmine.white {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Lotus Petals - Wider, more elegant */
+.flower-petal.lotus {
+  width: 16px;
+  height: 24px;
+  border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
+}
+
+/* Ensure lotus petals show their colors */
+.flower-petal.lotus::before,
+.flower-petal.lotus::after {
+  display: none;
+}
+
+.flower-petal.lotus.white {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 40%, #e2e8f0 100%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), inset 2px 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+.flower-petal.lotus.pink {
+  background: linear-gradient(135deg, #fce7f3 0%, #f9a8d4 40%, #f472b6 100%);
+  box-shadow: 0 3px 6px rgba(244, 114, 182, 0.3), inset 2px 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+/* Small scattered petals for intensity */
+.flower-petal.small {
+  transform: scale(0.6);
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.rose-petal.drift-left {
+  animation: fallLeft linear forwards;
+}
+
+.rose-petal.drift-right {
+  animation: fallRight linear forwards;
+}
+
+@keyframes fallLeft {
+  0% {
+    transform: translateY(-20px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(50vh) translateX(-30px) rotate(180deg);
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) translateX(-60px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fallRight {
+  0% {
+    transform: translateY(-20px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(50vh) translateX(30px) rotate(180deg);
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) translateX(60px) rotate(360deg);
+    opacity: 0;
+  }
 }
