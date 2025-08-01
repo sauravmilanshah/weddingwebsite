@@ -12,7 +12,8 @@ import {
   HStack,
   VStack,
   Link,
-  Grid
+  Grid,
+  useBreakpointValue
 } from '@chakra-ui/react';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -20,6 +21,7 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
+import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 
 // Constants  
 const SCROLL_THRESHOLD = 50;
@@ -277,23 +279,61 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
             </Box>
           </Grid>
 
-          {/* Mobile Menu Button */}
-          <Flex display={{ base: "flex", lg: "none" }} justify="center" p="4">
+          {/* Mobile Layout: Menu Button Left, Logo Center */}
+          <Flex 
+            display={{ base: "flex", lg: "none" }} 
+            justify="space-between" 
+            align="center"
+            p="4"
+            position="relative"
+          >
+            {/* Menu Button - Left Side */}
             <Button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               variant="ghost"
               aria-label="Toggle navigation menu"
-              size="md"
-              p="2"
-              color="gray.700"
-              bg="rgba(255, 255, 255, 0.9)"
+              size="lg"
+              p="4"
+              fontSize="xl"
+              color="#1f576e"
+              bg="rgba(255, 255, 255, 0.16)"
+              border="1px solid"
+              borderColor="rgba(255, 255, 255, 0.3)"
               borderRadius="lg"
+              boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.37)"
+              css={{
+                backdropFilter: "blur(24px) saturate(180%)",
+                WebkitBackdropFilter: "blur(24px) saturate(180%)"
+              }}
               _hover={{
-                bg: "rgba(232, 180, 184, 0.2)",
+                bg: "rgba(255, 255, 255, 0.25)",
+                transform: "translateY(-1px)",
               }}
             >
               {mobileMenuOpen ? '✕' : '☰'}
             </Button>
+            
+            {/* Logo - Center */}
+            <Box position="absolute" left="50%" transform="translateX(-50%)">
+              <Box 
+                position="relative" 
+                w="100px" 
+                h="100px"
+                onClick={() => setCurrentPage('home')}
+                cursor="pointer"
+              >
+                <Image
+                  src="/logo-transparent-refined.png"
+                  alt="Shivani & Saurav Wedding Logo"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                  priority
+                />
+              </Box>
+            </Box>
+            
+            {/* Invisible spacer for balance */}
+            <Box w="72px" h="56px" />
           </Flex>
 
           {/* Mobile Navigation Menu */}
@@ -510,7 +550,7 @@ const HeroSection = () => {
         alignItems="center"
         justifyContent="center"
         px="6"
-        pt="20"
+        pt={{ base: "8", md: "20" }}
         pb="0"
         position="relative"
         zIndex="10"
@@ -602,7 +642,7 @@ const HeroSection = () => {
             <VStack gap={{ base: "4", md: "8" }} mb={{ base: "6", md: "10" }}>
               <VStack gap="4">
                 <Heading 
-                  fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "6xl" }}
+                  fontSize={{ base: "4xl", sm: "5xl", md: "6xl", lg: "8xl" }}
                   fontWeight="normal"
                   color="#1f576e"
                   textShadow="0 2px 4px rgba(255,255,255,0.8)"
@@ -724,12 +764,15 @@ const WeddingInvitePage = () => {
     }
   ];
 
-  const DayTimeline = ({ day }: { day: typeof timelineData[0] }) => (
+  const DayTimeline = ({ day }: { day: typeof timelineData[0] }) => {
+    const timelinePosition = useBreakpointValue({ base: 'left', md: 'alternate' }) || 'left';
+    
+    return (
     <Box
       w="100%"
       maxW={{ base: "100%", md: "600px", lg: "650px" }}
       mx="auto"
-      p={{ base: "4", md: "5" }}
+      p={{ base: "3", md: "5" }}
       bg="rgba(255, 255, 255, 0.12)"
       borderRadius="2xl"
       border="1px solid"
@@ -773,31 +816,40 @@ const WeddingInvitePage = () => {
 
       {/* Timeline */}
       <Timeline 
-        position="alternate" 
+        position={timelinePosition as 'left' | 'alternate'}
         sx={{ 
           '& .MuiTimelineItem-root': { 
-            minHeight: 'auto'
+            minHeight: 'auto',
+            '&:before': {
+              content: timelinePosition === 'left' ? 'none' : '""',
+              padding: 0
+            }
           },
           '& .MuiTimelineContent-root': {
-            px: 2,
-            py: 1
+            px: { base: 2, md: 3 },
+            py: { base: '12px', md: '16px' }
           },
           '& .MuiTimelineOppositeContent-root': {
-            px: 2,
-            py: 1
+            display: timelinePosition === 'left' ? 'none' : 'block',
+            px: { base: 2, md: 3 },
+            py: { base: '12px', md: '16px' }
           }
         }}
       >
         {day.events.map((event, eventIndex) => (
           <TimelineItem key={eventIndex}>
+            {timelinePosition === 'alternate' && (
+              <TimelineOppositeContent />
+            )}
+            
             <TimelineSeparator>
               <TimelineDot 
                 sx={{ 
                   bgcolor: day.color,
                   border: '2px solid rgba(255, 255, 255, 0.9)',
                   boxShadow: `0 3px 8px ${day.color}40`,
-                  width: 16,
-                  height: 16
+                  width: { xs: 12, md: 16 },
+                  height: { xs: 12, md: 16 }
                 }} 
               />
               {eventIndex < day.events.length - 1 && (
@@ -813,7 +865,8 @@ const WeddingInvitePage = () => {
 
             <TimelineContent>
               <Box
-                p="4"
+                w="100%" // Make box take full width of timeline content
+                p={{ base: "3", md: "4" }}
                 bg="rgba(255, 255, 255, 0.08)"
                 borderRadius="xl"
                 border="1px solid"
@@ -825,10 +878,14 @@ const WeddingInvitePage = () => {
                 transition="all 0.2s ease"
                 _hover={{
                   bg: "rgba(255, 255, 255, 0.12)",
-                  transform: "translateX(4px)",
+                  transform: { md: "translateX(4px)" },
                 }}
               >
-                <Flex justify="space-between" align="center" gap="4">
+                <Flex 
+                  justify="space-between" 
+                  align="center" 
+                  gap={{ base: "3", md: "4" }}
+                >
                   <Text
                     fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
                     fontWeight="bold"
@@ -846,8 +903,8 @@ const WeddingInvitePage = () => {
                     fontFamily="'Aparajita', serif"
                     textShadow="0 1px 2px rgba(0,0,0,0.3)"
                     bg="#1f576e"
-                    px="4"
-                    py="2"
+                    px={{ base: "3", md: "4" }}
+                    py={{ base: "2", md: "2" }}
                     borderRadius="lg"
                     boxShadow="0 2px 8px rgba(31, 87, 110, 0.3)"
                     minW="fit-content"
@@ -861,7 +918,8 @@ const WeddingInvitePage = () => {
         ))}
       </Timeline>
     </Box>
-  );
+    );
+  };
 
   return (
     <Box 
@@ -871,11 +929,11 @@ const WeddingInvitePage = () => {
       alignItems="center"
       justifyContent="center"
       px={{ base: "4", md: "6" }}
-      py={{ base: "20", md: "32" }}
+      py={{ base: "28", md: "40" }}
       position="relative"
       zIndex="10"
     >
-      <Container maxW={{ base: "100%", md: "7xl" }} px={{ base: "4", md: "6" }}>
+      <Container maxW="100%" px={{ base: "2", md: "6" }}>
         <VStack gap={{ base: "8", md: "12" }} align="center">
           {/* Section Title */}
           <VStack gap="4" textAlign="center">
