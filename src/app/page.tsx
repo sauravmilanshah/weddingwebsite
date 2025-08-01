@@ -1098,7 +1098,7 @@ const WeddingInvitePage = () => {
                             boxShadow="0 0 12px #C19A6C"
                           />
                           <Text
-                            fontSize={{ base: "sm", md: "md" }}
+                            fontSize={{ base: "md", md: "lg" }}
                             color="#1f576e"
                             fontFamily="'Aparajita', serif"
                             fontWeight="bold"
@@ -1106,7 +1106,7 @@ const WeddingInvitePage = () => {
                             Now: {currentEvent.title}
                           </Text>
                           <Text
-                            fontSize={{ base: "sm", md: "md" }}
+                            fontSize={{ base: "md", md: "lg" }}
                             color="#2b5a72"
                             fontFamily="'Aparajita', serif"
                           >
@@ -1129,7 +1129,7 @@ const WeddingInvitePage = () => {
                           bg="#A6B0A6"
                         />
                         <Text
-                          fontSize={{ base: "sm", md: "md" }}
+                          fontSize={{ base: "md", md: "lg" }}
                           color="#1f576e"
                           fontFamily="'Aparajita', serif"
                           fontWeight="medium"
@@ -1137,7 +1137,7 @@ const WeddingInvitePage = () => {
                           Next: {nextEvent.title}
                         </Text>
                         <Text
-                          fontSize={{ base: "sm", md: "md" }}
+                          fontSize={{ base: "md", md: "lg" }}
                           color="#2b5a72"
                           fontFamily="'Aparajita', serif"
                         >
@@ -1192,9 +1192,8 @@ const WeddingInvitePage = () => {
                       textAlign="center"
                     >
                       <VStack gap="2">
-                        <Text fontSize={{ base: "2xl", md: "3xl" }} mb="1">{dayInfo.emoji}</Text>
                         <Text
-                          fontSize={{ base: "lg", md: "xl" }}
+                          fontSize={{ base: "xl", md: "2xl" }}
                           color={isSelected ? dayInfo.color : "#1f576e"}
                           fontFamily="'Aparajita', serif"
                           fontWeight="bold"
@@ -1202,7 +1201,7 @@ const WeddingInvitePage = () => {
                           {dayInfo.title}
                         </Text>
                         <Text
-                          fontSize={{ base: "sm", md: "md" }}
+                          fontSize={{ base: "md", md: "lg" }}
                           color="#2b5a72"
                           fontFamily="'Aparajita', serif"
                           fontWeight="medium"
@@ -1313,7 +1312,7 @@ const WeddingInvitePage = () => {
                                   <Text fontSize="2xl">{eventData.emoji}</Text>
                                   <VStack align="flex-start" gap="1">
                                     <Text
-                                      fontSize={{ base: "lg", md: "xl" }}
+                                      fontSize={{ base: "xl", md: "2xl" }}
                                       fontFamily="'Aparajita', serif"
                                       fontWeight="bold"
                                       color={isCurrentEvent ? "#C19A6C" : "#1f576e"}
@@ -1321,7 +1320,7 @@ const WeddingInvitePage = () => {
                                       {event.title}
                                     </Text>
                                     <Text
-                                      fontSize={{ base: "sm", md: "md" }}
+                                      fontSize={{ base: "md", md: "lg" }}
                                       color="#2b5a72"
                                       fontFamily="'Aparajita', serif"
                                     >
@@ -1340,7 +1339,7 @@ const WeddingInvitePage = () => {
                                 
                                 {event.description && (
                                   <Text
-                                    fontSize={{ base: "sm", md: "md" }}
+                                    fontSize={{ base: "md", md: "lg" }}
                                     color="gray.600"
                                     fontFamily="'Aparajita', serif"
                                   >
