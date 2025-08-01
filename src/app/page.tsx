@@ -1085,18 +1085,14 @@ const WeddingInvitePage = () => {
                 >
                   <VStack gap="3" align="center">
                     {currentEvent && (
-                      <motion.div
-                        animate={{ opacity: [0.7, 1, 0.7] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        <HStack gap="3" align="center">
-                          <Box
-                            w="8px"
-                            h="8px"
-                            borderRadius="full"
-                            bg="#C19A6C"
-                            boxShadow="0 0 12px #C19A6C"
-                          />
+                      <HStack gap="3" align="center">
+                        <Box
+                          w="8px"
+                          h="8px"
+                          borderRadius="full"
+                          bg="#C19A6C"
+                          boxShadow="0 0 8px rgba(193, 154, 108, 0.6)"
+                        />
                           <Text
                             fontSize={{ base: "md", md: "lg" }}
                             color="#1f576e"
@@ -1116,8 +1112,7 @@ const WeddingInvitePage = () => {
                               hour12: true
                             })}
                           </Text>
-                        </HStack>
-                      </motion.div>
+                      </HStack>
                     )}
                     
                     {nextEvent && (
@@ -1247,11 +1242,13 @@ const WeddingInvitePage = () => {
                       return (
                         <motion.div
                           key={event.id}
-                          initial={{ opacity: 0, x: -30 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 }}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ 
+                            duration: 0.4, 
+                            delay: index * 0.05,
+                            ease: "easeOut"
+                          }}
                         >
                           <Box
                             position="relative"
@@ -1260,25 +1257,24 @@ const WeddingInvitePage = () => {
                               ? "rgba(193, 154, 108, 0.15)" 
                               : "rgba(255, 255, 255, 0.25)"
                             }
-                            backdropFilter="blur(32px) saturate(200%)"
+                            backdropFilter="blur(16px) saturate(150%)"
                             borderRadius="20px"
                             border={isCurrentEvent 
                               ? "2px solid #C19A6C" 
                               : "1px solid rgba(31, 87, 110, 0.2)"
                             }
                             boxShadow={isCurrentEvent 
-                              ? "0 16px 50px rgba(193, 154, 108, 0.25), 0 8px 32px rgba(193, 154, 108, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3)" 
-                              : "0 12px 40px rgba(31, 87, 110, 0.12), 0 4px 20px rgba(31, 87, 110, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.4)"
+                              ? "0 8px 25px rgba(193, 154, 108, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)" 
+                              : "0 4px 15px rgba(31, 87, 110, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4)"
                             }
                             cursor="pointer"
                             onClick={() => handleEventClick(event)}
-                            transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
+                            transition="all 0.3s ease"
                             _hover={{
-                              transform: "translateY(-4px) scale(1.01)",
+                              transform: "translateY(-2px)",
                               boxShadow: isCurrentEvent 
-                                ? "0 24px 70px rgba(193, 154, 108, 0.35), 0 12px 50px rgba(193, 154, 108, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4)" 
-                                : "0 20px 60px rgba(31, 87, 110, 0.18), 0 8px 30px rgba(31, 87, 110, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.5)",
-                              borderColor: isCurrentEvent ? "#C19A6C" : "#1f576e"
+                                ? "0 12px 30px rgba(193, 154, 108, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4)" 
+                                : "0 8px 20px rgba(31, 87, 110, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5)"
                             }}
                             overflow="hidden"
                           >
@@ -1339,46 +1335,32 @@ const WeddingInvitePage = () => {
                               </VStack>
                             </Box>
 
-                            {/* Happening Now Floating Badge */}
+                            {/* Happening Now Badge */}
                             {isCurrentEvent && (
-                              <motion.div
-                                animate={{ 
-                                  y: [0, -2, 0],
-                                  opacity: [0.9, 1, 0.9]
-                                }}
-                                transition={{ 
-                                  duration: 2.5, 
-                                  repeat: Infinity,
-                                  ease: "easeInOut"
-                                }}
-                                style={{
-                                  position: "absolute",
-                                  top: "16px",
-                                  left: "20px",
-                                  zIndex: 3
-                                }}
+                              <Box
+                                position="absolute"
+                                top="4"
+                                left="4"
+                                zIndex="3"
+                                px="3"
+                                py="1.5"
+                                bg="linear-gradient(135deg, #C19A6C, #E8B4B8)"
+                                borderRadius="full"
+                                border="1px solid rgba(255, 255, 255, 0.4)"
+                                boxShadow="0 2px 8px rgba(193, 154, 108, 0.3)"
                               >
-                                <Box
-                                  px="3"
-                                  py="1.5"
-                                  bg="linear-gradient(135deg, #C19A6C, #E8B4B8)"
-                                  borderRadius="full"
-                                  border="1px solid rgba(255, 255, 255, 0.4)"
-                                  boxShadow="0 4px 20px rgba(193, 154, 108, 0.4)"
+                                <Text
+                                  fontSize="xs"
+                                  color="white"
+                                  fontFamily="'Aparajita', serif"
+                                  fontWeight="bold"
+                                  textTransform="uppercase"
+                                  letterSpacing="0.5px"
+                                  textShadow="0 1px 2px rgba(0,0,0,0.2)"
                                 >
-                                  <Text
-                                    fontSize="xs"
-                                    color="white"
-                                    fontFamily="'Aparajita', serif"
-                                    fontWeight="bold"
-                                    textTransform="uppercase"
-                                    letterSpacing="0.5px"
-                                    textShadow="0 1px 2px rgba(0,0,0,0.2)"
-                                  >
-                                    HAPPENING NOW
-                                  </Text>
-                                </Box>
-                              </motion.div>
+                                  HAPPENING NOW
+                                </Text>
+                              </Box>
                             )}
 
                             {/* Subtle Gradient Overlay */}
