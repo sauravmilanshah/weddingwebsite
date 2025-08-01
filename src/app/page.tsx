@@ -312,44 +312,49 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
             >
               <VStack gap="2" align="stretch">
                 {navigation.map((item) => (
-                  <Link
+                  <Button
                     key={item.name}
-                    href={item.href}
+                    onClick={() => {
+                      setCurrentPage(item.href);
+                      setMobileMenuOpen(false);
+                    }}
+                    variant="ghost"
                     p="3"
                     borderRadius="md"
                     fontWeight="medium"
                     color="gray.700"
-                    textDecoration="none"
                     transition="all 0.2s ease"
-                    display="block"
+                    width="full"
+                    justifyContent="flex-start"
                     _hover={{
                       bg: "rgba(232, 180, 184, 0.1)",
                       color: "gray.900",
                     }}
-                    onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
-                  </Link>
+                  </Button>
                 ))}
                 <Box pt="2">
-                  <Link href="#rsvp" textDecoration="none" onClick={() => setMobileMenuOpen(false)}>
-                    <Button
-                      size="md"
-                      width="full"
-                      bg="#E8B4B8"
-                      color="white"
-                      fontWeight="medium"
-                      borderRadius="full"
-                      _hover={{
-                        bg: "#C19A6C",
-                        transform: "translateY(-1px)",
-                        boxShadow: "0 4px 12px rgba(232, 180, 184, 0.4)",
-                      }}
-                      transition="all 0.2s ease"
-                    >
-                      RSVP
-                    </Button>
-                  </Link>
+                  <Button
+                    size="md"
+                    width="full"
+                    bg="#E8B4B8"
+                    color="white"
+                    fontWeight="medium"
+                    borderRadius="full"
+                    _hover={{
+                      bg: "#C19A6C",
+                      transform: "translateY(-1px)",
+                      boxShadow: "0 4px 12px rgba(232, 180, 184, 0.4)",
+                    }}
+                    transition="all 0.2s ease"
+                    onClick={() => {
+                      setCurrentPage('rsvp');
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    RSVP
+                  </Button>
                 </Box>
               </VStack>
             </Box>
@@ -768,13 +773,16 @@ const WeddingInvitePage = () => {
 
       {/* Timeline */}
       <Timeline 
-        position="right" 
+        position="alternate" 
         sx={{ 
           '& .MuiTimelineItem-root': { 
-            minHeight: 'auto',
-            '&::before': { display: 'none' }
+            minHeight: 'auto'
           },
           '& .MuiTimelineContent-root': {
+            px: 2,
+            py: 1
+          },
+          '& .MuiTimelineOppositeContent-root': {
             px: 2,
             py: 1
           }
