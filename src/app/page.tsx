@@ -137,6 +137,7 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
         right="0"
         zIndex="40"
         py={scrolled ? "2" : "4"}
+        transform={(scrolled && currentPage === 'wedding-invite') ? "translateY(-100%)" : "translateY(0)"}
         transition="all 0.3s ease"
         aria-label="Main navigation"
       >
