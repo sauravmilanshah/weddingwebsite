@@ -1252,7 +1252,8 @@ const WeddingInvitePage = () => {
                         >
                           <Box
                             position="relative"
-                            p={{ base: "5", md: "7" }}
+                            p={{ base: "4", md: "5" }}
+                            h={{ base: "180px", md: "200px" }}
                             bg={isCurrentEvent 
                               ? "rgba(193, 154, 108, 0.15)" 
                               : "rgba(255, 255, 255, 0.25)"
@@ -1379,7 +1380,7 @@ const WeddingInvitePage = () => {
                             />
                             
                             {/* Main Content Area */}
-                            <VStack align="flex-start" gap={{ base: "4", md: "5" }} w="100%" pr={{ base: "16", md: "20" }}>
+                            <VStack align="flex-start" gap={{ base: "3", md: "4" }} w="100%" pr={{ base: "16", md: "20" }} h="100%" justify="space-between">
                               {/* Event Header - Left Side */}
                               <HStack gap={{ base: "4", md: "5" }} align="center" w="100%">
                                 {/* Emoji with enhanced styling */}
@@ -1433,34 +1434,41 @@ const WeddingInvitePage = () => {
                                   w="100%"
                                 >
                                   <Text
-                                    fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+                                    fontSize={{ base: "md", md: "lg" }}
                                     color={isCurrentEvent ? "#2b5a72" : "gray.700"}
                                     fontFamily="'Aparajita', serif"
-                                    lineHeight="1.6"
+                                    lineHeight="1.4"
                                     fontWeight="medium"
                                     textShadow="0 1px 2px rgba(255,255,255,0.5)"
+                                    overflow="hidden"
+                                    display="-webkit-box"
+                                    css={{
+                                      WebkitLineClamp: 2,
+                                      WebkitBoxOrient: "vertical"
+                                    }}
                                   >
-                                    {event.description.length > 150 
-                                      ? `${event.description.substring(0, 150)}...` 
-                                      : event.description
-                                    }
+                                    {event.description}
                                   </Text>
                                 </Box>
                               )}
 
-                              {/* Additional Visual Enhancement */}
+                              {/* Click for details hint */}
                               <Box
                                 pl={{ base: "16", md: "19" }}
                                 w="100%"
-                                pt="2"
+                                mt="auto"
                               >
-                                <Box
-                                  w="60px"
-                                  h="2px"
-                                  bg={isCurrentEvent ? "#C19A6C" : "#1f576e"}
-                                  borderRadius="full"
-                                  opacity="0.4"
-                                />
+                                <Text
+                                  fontSize="xs"
+                                  color={isCurrentEvent ? "#C19A6C" : "#1f576e"}
+                                  fontFamily="'Aparajita', serif"
+                                  fontWeight="medium"
+                                  opacity="0.6"
+                                  textTransform="uppercase"
+                                  letterSpacing="0.5px"
+                                >
+                                  Click for details
+                                </Text>
                               </Box>
                             </VStack>
                           </Box>
