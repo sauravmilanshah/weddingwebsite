@@ -729,6 +729,306 @@ const HeroSection = () => {
 
 // Wedding Invite Page Component
 const WeddingInvitePage = () => {
+  const [selectedDay, setSelectedDay] = useState(1);
+  const [selectedEvent, setSelectedEvent] = useState<any>(null);
+  const [isEventModalOpen, setIsEventModalOpen] = useState(false);
+  
+  // Responsive timeline settings
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+  
+  // Event descriptions with fun and quirky content
+  const eventDescriptions = useMemo(() => ({
+    "Check In": {
+      title: "The Great Arrival!",
+      description: "Welcome to paradise! Check into your rooms and get ready for an amazing 4-day celebration. Pro tip: The lobby has amazing welcome drinks!",
+      emoji: "🏨",
+      time: "1:00 PM - 4:00 PM"
+    },
+    "Mehndi": {
+      title: "Henna Magic Time!",
+      description: "Get your hands decorated with beautiful henna designs while enjoying music, snacks, and lots of laughter. The more intricate, the better!",
+      emoji: "🎨", 
+      time: "4:30 PM - 7:30 PM"
+    },
+    "Welcome Dinner": {
+      title: "Let's Feast Together!",
+      description: "Kick off the celebration with a delicious dinner featuring Indian delicacies. Come hungry and ready to mingle!",
+      emoji: "🍽️",
+      time: "7:30 PM - 12:30 AM"
+    },
+    "Breakfast": {
+      title: "Fuel Up for Fun!", 
+      description: "Start your day right with some delicious breakfast! You'll need all the energy you can get for the day ahead.",
+      emoji: "☕",
+      time: "7:00 AM - 10:00 AM"
+    },
+    "Haldi": {
+      title: "Time to Get Messy!",
+      description: "Time to get messy! This turmeric ceremony will leave everyone glowing (and slightly yellow). Wear clothes you don't mind getting stained!",
+      emoji: "💛",
+      time: "10:30 AM - 1:00 PM"
+    },
+    "Lunch": {
+      title: "Refuel & Relax",
+      description: "Take a break from all the festivities and enjoy a hearty lunch. Perfect time to rest up before the main events!",
+      emoji: "🥘",
+      time: "1:00 PM - 4:00 PM"
+    },
+    "Baarat": {
+      title: "The Grand Procession!",
+      description: "Join the groom's epic procession! Expect dancing, music, and maybe even a horse. This is where the real party begins!",
+      emoji: "🐎",
+      time: "4:30 PM - 6:00 PM"
+    },
+    "Wedding Pheras": {
+      title: "The Sacred Moment",
+      description: "Witness the beautiful ceremony as Saurav and Shivani take their vows around the sacred fire. Bring tissues - it's going to be emotional!",
+      emoji: "💍",
+      time: "6:30 PM - 8:30 PM"
+    },
+    "Dinner": {
+      title: "Celebration Feast!",
+      description: "Celebrate the newlyweds with an incredible dinner spread! Dance, eat, and make memories that will last a lifetime.",
+      emoji: "🍽️",
+      time: "8:30 PM - 12:30 AM"
+    },
+    "Sangeet": {
+      title: "Dance Like Nobody's Watching!",
+      description: "The ultimate dance party! Come ready to show off your moves (or learn some new ones). The dance floor will be calling your name!",
+      emoji: "💃",
+      time: "8:30 PM - 12:30 AM"
+    },
+    "After Party": {
+      title: "Keep the Party Going!",
+      description: "For the night owls who aren't ready to call it a night! Keep dancing and celebrating until the sun comes up.",  
+      emoji: "🕺",
+      time: "12:30 AM - 5:00 AM"
+    },
+    "High Tea": {
+      title: "Elegant Afternoon Delight",
+      description: "Enjoy a sophisticated high tea with delicious snacks and conversations. Perfect for those who love a more refined gathering!",
+      emoji: "🫖", 
+      time: "5:00 PM - 7:00 PM"
+    },
+    "Checkout": {
+      title: "Until We Meet Again!",
+      description: "All good things must come to an end. Check out and take with you all the beautiful memories we've created together!",
+      emoji: "👋",
+      time: "10:00 AM - 12:00 PM"
+    }
+  }), []);
+
+  // All events data
+  const allWeddingEvents = useMemo(() => [
+    // Day 1 Events
+    {
+      day: 1,
+      id: "checkin",
+      title: "Check In",
+      since: "2026-01-14T13:00:00",
+      till: "2026-01-14T16:00:00",
+      description: eventDescriptions["Check In"]?.description,
+      color: "#2b5a72"
+    },
+    {
+      day: 1, 
+      id: "mehndi",
+      title: "Mehndi",
+      since: "2026-01-14T16:30:00",
+      till: "2026-01-14T19:30:00",
+      description: eventDescriptions["Mehndi"]?.description,
+      color: "#2b5a72"
+    },
+    {
+      day: 1,
+      id: "welcome-dinner",
+      title: "Welcome Dinner", 
+      since: "2026-01-14T19:30:00",
+      till: "2026-01-15T00:30:00",
+      description: eventDescriptions["Welcome Dinner"]?.description,
+      color: "#2b5a72"
+    },
+    // Day 2 Events
+    {
+      day: 2,
+      id: "breakfast1",
+      title: "Breakfast",
+      since: "2026-01-15T07:00:00", 
+      till: "2026-01-15T10:00:00",
+      description: eventDescriptions["Breakfast"]?.description,
+      color: "#1f576e"
+    },
+    {
+      day: 2,
+      id: "haldi",
+      title: "Haldi",
+      since: "2026-01-15T10:30:00",
+      till: "2026-01-15T13:00:00", 
+      description: eventDescriptions["Haldi"]?.description,
+      color: "#1f576e"
+    },
+    {
+      day: 2,
+      id: "lunch1", 
+      title: "Lunch",
+      since: "2026-01-15T13:00:00",
+      till: "2026-01-15T16:00:00",
+      description: eventDescriptions["Lunch"]?.description,
+      color: "#1f576e"
+    },
+    {
+      day: 2,
+      id: "baarat",
+      title: "Baarat",
+      since: "2026-01-15T16:30:00",
+      till: "2026-01-15T18:00:00",
+      description: eventDescriptions["Baarat"]?.description, 
+      color: "#1f576e"
+    },
+    {
+      day: 2,
+      id: "wedding-pheras",
+      title: "Wedding Pheras",
+      since: "2026-01-15T18:30:00",
+      till: "2026-01-15T20:30:00",
+      description: eventDescriptions["Wedding Pheras"]?.description,
+      color: "#1f576e"
+    },
+    {
+      day: 2,
+      id: "dinner1",
+      title: "Dinner",
+      since: "2026-01-15T20:30:00",
+      till: "2026-01-16T00:30:00",
+      description: eventDescriptions["Dinner"]?.description,
+      color: "#1f576e"
+    },
+    {
+      day: 2, 
+      id: "after-party1",
+      title: "After Party",
+      since: "2026-01-16T00:30:00",
+      till: "2026-01-16T05:00:00",
+      description: eventDescriptions["After Party"]?.description,
+      color: "#1f576e"
+    },
+    // Day 3 Events
+    {
+      day: 3,
+      id: "breakfast2",
+      title: "Breakfast",
+      since: "2026-01-16T07:00:00",
+      till: "2026-01-16T10:00:00",
+      description: eventDescriptions["Breakfast"]?.description,
+      color: "#1a4a5c"
+    },
+    {
+      day: 3,
+      id: "lunch2",
+      title: "Lunch", 
+      since: "2026-01-16T13:00:00",
+      till: "2026-01-16T16:00:00",
+      description: eventDescriptions["Lunch"]?.description,
+      color: "#1a4a5c"
+    },
+    {
+      day: 3,
+      id: "high-tea",
+      title: "High Tea", 
+      since: "2026-01-16T17:00:00",
+      till: "2026-01-16T19:00:00",
+      description: eventDescriptions["High Tea"]?.description,
+      color: "#1a4a5c"
+    },
+    {
+      day: 3,
+      id: "sangeet",
+      title: "Sangeet",
+      since: "2026-01-16T20:30:00",
+      till: "2026-01-17T00:30:00",
+      description: eventDescriptions["Sangeet"]?.description,
+      color: "#1a4a5c"
+    },
+    {
+      day: 3, 
+      id: "after-party2",
+      title: "After Party",
+      since: "2026-01-17T00:30:00",
+      till: "2026-01-17T05:00:00",
+      description: eventDescriptions["After Party"]?.description,
+      color: "#1a4a5c"
+    },
+    // Day 4 Events  
+    {
+      day: 4,
+      id: "breakfast3",
+      title: "Breakfast",
+      since: "2026-01-17T07:00:00",
+      till: "2026-01-17T10:00:00",
+      description: eventDescriptions["Breakfast"]?.description,
+      color: "#0f3a4a"
+    },
+    {
+      day: 4,
+      id: "checkout",
+      title: "Checkout",
+      since: "2026-01-17T10:00:00", 
+      till: "2026-01-17T12:00:00",
+      description: eventDescriptions["Checkout"]?.description,
+      color: "#0f3a4a"
+    }
+  ], [eventDescriptions]);
+
+  // Get current and next events based on real time
+  const getCurrentAndNextEvents = useCallback(() => {
+    const now = new Date();
+    const allEvents = allWeddingEvents.sort((a, b) => 
+      new Date(a.since).getTime() - new Date(b.since).getTime()
+    );
+    
+    let currentEvent = null;
+    let nextEvent = null;
+    
+    for (let i = 0; i < allEvents.length; i++) {
+      const event = allEvents[i];
+      const eventStart = new Date(event.since);
+      const eventEnd = new Date(event.till);
+      
+      if (now >= eventStart && now <= eventEnd) {
+        currentEvent = event;
+        nextEvent = allEvents[i + 1] || null;
+        break;
+      } else if (now < eventStart) {
+        nextEvent = event;
+        break;
+      }
+    }
+    
+    return { currentEvent, nextEvent };
+  }, [allWeddingEvents]);
+
+  const { currentEvent, nextEvent } = getCurrentAndNextEvents();
+
+  // Filter events for selected day
+  const weddingEpg = useMemo(() => {
+    return allWeddingEvents.filter(event => event.day === selectedDay);
+  }, [allWeddingEvents, selectedDay]);
+
+  const handleEventClick = (event: any) => {
+    setSelectedEvent(event);
+    setIsEventModalOpen(true);
+  };
+
   const timelineData = [
     {
       date: "14th January",

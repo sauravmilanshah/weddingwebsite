@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* PrimeReact Theme */
+@import "primereact/resources/themes/lara-light-blue/theme.css";
+@import "primereact/resources/primereact.min.css";
+@import "primeicons/primeicons.css";
+
 @font-face {
   font-family: 'Bernhard Tango';
   src: url('/fonts/Bernhard_Tango_Regular.ttf') format('truetype');
