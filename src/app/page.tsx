@@ -1255,120 +1255,232 @@ const WeddingInvitePage = () => {
                         >
                           <Box
                             position="relative"
-                            p={{ base: "4", md: "6" }}
+                            p={{ base: "5", md: "7" }}
                             bg={isCurrentEvent 
-                              ? "rgba(193, 154, 108, 0.4)" 
-                              : "rgba(255, 255, 255, 0.35)"
+                              ? "rgba(193, 154, 108, 0.15)" 
+                              : "rgba(255, 255, 255, 0.25)"
                             }
-                            backdropFilter="blur(20px) saturate(180%)"
-                            borderRadius="16px"
+                            backdropFilter="blur(32px) saturate(200%)"
+                            borderRadius="20px"
                             border={isCurrentEvent 
-                              ? "3px solid #C19A6C" 
-                              : `2px solid ${event.color}40`
+                              ? "2px solid #C19A6C" 
+                              : "1px solid rgba(31, 87, 110, 0.2)"
                             }
                             boxShadow={isCurrentEvent 
-                              ? "0 0 30px rgba(193, 154, 108, 0.4), 0 8px 32px rgba(193, 154, 108, 0.2)" 
-                              : `0 8px 32px ${event.color}20, inset 0 1px 0 rgba(255, 255, 255, 0.3)`
+                              ? "0 16px 50px rgba(193, 154, 108, 0.25), 0 8px 32px rgba(193, 154, 108, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3)" 
+                              : "0 12px 40px rgba(31, 87, 110, 0.12), 0 4px 20px rgba(31, 87, 110, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.4)"
                             }
                             cursor="pointer"
                             onClick={() => handleEventClick(event)}
-                            transition="all 0.3s ease"
+                            transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
                             _hover={{
-                              transform: "translateY(-2px)",
+                              transform: "translateY(-4px) scale(1.01)",
                               boxShadow: isCurrentEvent 
-                                ? "0 0 40px rgba(193, 154, 108, 0.5), 0 12px 40px rgba(193, 154, 108, 0.3)" 
-                                : `0 12px 40px ${event.color}30, inset 0 1px 0 rgba(255, 255, 255, 0.4)`
+                                ? "0 24px 70px rgba(193, 154, 108, 0.35), 0 12px 50px rgba(193, 154, 108, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4)" 
+                                : "0 20px 60px rgba(31, 87, 110, 0.18), 0 8px 30px rgba(31, 87, 110, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.5)",
+                              borderColor: isCurrentEvent ? "#C19A6C" : "#1f576e"
                             }}
+                            overflow="hidden"
                           >
-                            {/* Happening Now Glow Ring */}
+                            {/* Time Bubble - Top Right */}
+                            <Box
+                              position="absolute"
+                              top={{ base: "4", md: "5" }}
+                              right={{ base: "4", md: "5" }}
+                              px={{ base: "3", md: "4" }}
+                              py={{ base: "2", md: "2.5" }}
+                              bg={isCurrentEvent 
+                                ? "linear-gradient(135deg, #C19A6C, #E8B4B8)" 
+                                : "rgba(31, 87, 110, 0.9)"
+                              }
+                              borderRadius="full"
+                              backdropFilter="blur(12px)"
+                              boxShadow="0 4px 16px rgba(0, 0, 0, 0.15)"
+                              border="1px solid rgba(255, 255, 255, 0.3)"
+                              zIndex="2"
+                            >
+                              <VStack gap="0" align="center">
+                                <Text
+                                  fontSize={{ base: "xs", md: "sm" }}
+                                  fontWeight="bold"
+                                  color="white"
+                                  fontFamily="'Aparajita', serif"
+                                  lineHeight="1"
+                                  textShadow="0 1px 2px rgba(0,0,0,0.2)"
+                                >
+                                  {eventTime.toLocaleTimeString('en-US', {
+                                    hour: 'numeric',
+                                    minute: '2-digit',
+                                    hour12: true
+                                  })}
+                                </Text>
+                                <Text
+                                  fontSize="2xs"
+                                  color="rgba(255, 255, 255, 0.8)"
+                                  fontFamily="'Aparajita', serif"
+                                  lineHeight="1"
+                                >
+                                  to
+                                </Text>
+                                <Text
+                                  fontSize={{ base: "xs", md: "sm" }}
+                                  fontWeight="bold"
+                                  color="white"
+                                  fontFamily="'Aparajita', serif"
+                                  lineHeight="1"
+                                  textShadow="0 1px 2px rgba(0,0,0,0.2)"
+                                >
+                                  {endTime.toLocaleTimeString('en-US', {
+                                    hour: 'numeric',
+                                    minute: '2-digit',
+                                    hour12: true
+                                  })}
+                                </Text>
+                              </VStack>
+                            </Box>
+
+                            {/* Happening Now Floating Badge */}
                             {isCurrentEvent && (
                               <motion.div
                                 animate={{ 
-                                  opacity: [0.5, 1, 0.5],
-                                  scale: [1, 1.02, 1]
+                                  y: [0, -2, 0],
+                                  opacity: [0.9, 1, 0.9]
                                 }}
                                 transition={{ 
-                                  duration: 2, 
+                                  duration: 2.5, 
                                   repeat: Infinity,
                                   ease: "easeInOut"
                                 }}
                                 style={{
                                   position: "absolute",
-                                  top: "-3px",
-                                  left: "-3px", 
-                                  right: "-3px",
-                                  bottom: "-3px",
-                                  borderRadius: "19px",
-                                  background: "linear-gradient(45deg, #C19A6C, #E8B4B8, #C19A6C)",
-                                  filter: "blur(6px)",
-                                  zIndex: -1
+                                  top: "16px",
+                                  left: "20px",
+                                  zIndex: 3
                                 }}
-                              />
-                            )}
-                            
-                            <HStack justify="space-between" align="flex-start" w="100%">
-                              <VStack align="flex-start" gap="3" flex="1">
-                                <HStack gap="3" align="center">
-                                  <Text fontSize="2xl">{eventData.emoji}</Text>
-                                  <VStack align="flex-start" gap="1">
-                                    <Text
-                                      fontSize={{ base: "xl", md: "2xl" }}
-                                      fontFamily="'Aparajita', serif"
-                                      fontWeight="bold"
-                                      color={isCurrentEvent ? "#C19A6C" : "#1f576e"}
-                                    >
-                                      {event.title}
-                                    </Text>
-                                    <Text
-                                      fontSize={{ base: "md", md: "lg" }}
-                                      color="#2b5a72"
-                                      fontFamily="'Aparajita', serif"
-                                    >
-                                      {eventTime.toLocaleTimeString('en-US', {
-                                        hour: 'numeric',
-                                        minute: '2-digit',
-                                        hour12: true
-                                      })} - {endTime.toLocaleTimeString('en-US', {
-                                        hour: 'numeric',
-                                        minute: '2-digit',
-                                        hour12: true
-                                      })}
-                                    </Text>
-                                  </VStack>
-                                </HStack>
-                                
-                                {event.description && (
-                                  <Text
-                                    fontSize={{ base: "md", md: "lg" }}
-                                    color="gray.600"
-                                    fontFamily="'Aparajita', serif"
-                                  >
-                                    {event.description.substring(0, 120)}...
-                                  </Text>
-                                )}
-                              </VStack>
-                              
-                              {isCurrentEvent && (
-                                <motion.div
-                                  animate={{ scale: [1, 1.1, 1] }}
-                                  transition={{ duration: 1.5, repeat: Infinity }}
+                              >
+                                <Box
+                                  px="3"
+                                  py="1.5"
+                                  bg="linear-gradient(135deg, #C19A6C, #E8B4B8)"
+                                  borderRadius="full"
+                                  border="1px solid rgba(255, 255, 255, 0.4)"
+                                  boxShadow="0 4px 20px rgba(193, 154, 108, 0.4)"
                                 >
                                   <Text
                                     fontSize="xs"
-                                    color="#C19A6C"
+                                    color="white"
                                     fontFamily="'Aparajita', serif"
                                     fontWeight="bold"
-                                    px="3"
-                                    py="1"
-                                    bg="rgba(193, 154, 108, 0.2)"
-                                    borderRadius="full"
-                                    border="1px solid #C19A6C"
+                                    textTransform="uppercase"
+                                    letterSpacing="0.5px"
+                                    textShadow="0 1px 2px rgba(0,0,0,0.2)"
                                   >
                                     HAPPENING NOW
                                   </Text>
-                                </motion.div>
+                                </Box>
+                              </motion.div>
+                            )}
+
+                            {/* Subtle Gradient Overlay */}
+                            <Box
+                              position="absolute"
+                              top="0"
+                              left="0"
+                              right="0"
+                              bottom="0"
+                              bg={isCurrentEvent 
+                                ? "linear-gradient(135deg, rgba(193, 154, 108, 0.05) 0%, rgba(232, 180, 184, 0.05) 100%)"
+                                : "linear-gradient(135deg, rgba(31, 87, 110, 0.02) 0%, rgba(255, 255, 255, 0.05) 100%)"
+                              }
+                              borderRadius="20px"
+                              pointerEvents="none"
+                            />
+                            
+                            {/* Main Content Area */}
+                            <VStack align="flex-start" gap={{ base: "4", md: "5" }} w="100%" pr={{ base: "16", md: "20" }}>
+                              {/* Event Header - Left Side */}
+                              <HStack gap={{ base: "4", md: "5" }} align="center" w="100%">
+                                {/* Emoji with enhanced styling */}
+                                <Box
+                                  w={{ base: "12", md: "14" }}
+                                  h={{ base: "12", md: "14" }}
+                                  bg="rgba(31, 87, 110, 0.1)"
+                                  borderRadius="xl"
+                                  display="flex"
+                                  alignItems="center"
+                                  justifyContent="center"
+                                  border="1px solid rgba(31, 87, 110, 0.2)"
+                                  flexShrink="0"
+                                >
+                                  <Text fontSize={{ base: "2xl", md: "3xl" }}>
+                                    {eventData.emoji}
+                                  </Text>
+                                </Box>
+                                
+                                {/* Event Title with Signature Blue */}
+                                <VStack align="flex-start" gap="1" flex="1">
+                                  <Text
+                                    fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+                                    fontFamily="'Bernhard Tango', cursive"
+                                    fontWeight="normal"
+                                    color={isCurrentEvent ? "#C19A6C" : "#1f576e"}
+                                    lineHeight="1.1"
+                                    textShadow="0 2px 4px rgba(255,255,255,0.8)"
+                                    letterSpacing="-0.02em"
+                                  >
+                                    {event.title}
+                                  </Text>
+                                  <Text
+                                    fontSize={{ base: "sm", md: "md" }}
+                                    color="#2b5a72"
+                                    fontFamily="'Aparajita', serif"
+                                    fontWeight="medium"
+                                    textTransform="uppercase"
+                                    letterSpacing="0.1em"
+                                    opacity="0.8"
+                                  >
+                                    {eventData.title || event.title}
+                                  </Text>
+                                </VStack>
+                              </HStack>
+                              
+                              {/* Enlarged Description Content */}
+                              {event.description && (
+                                <Box
+                                  pl={{ base: "16", md: "19" }}
+                                  w="100%"
+                                >
+                                  <Text
+                                    fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+                                    color={isCurrentEvent ? "#2b5a72" : "gray.700"}
+                                    fontFamily="'Aparajita', serif"
+                                    lineHeight="1.6"
+                                    fontWeight="medium"
+                                    textShadow="0 1px 2px rgba(255,255,255,0.5)"
+                                  >
+                                    {event.description.length > 150 
+                                      ? `${event.description.substring(0, 150)}...` 
+                                      : event.description
+                                    }
+                                  </Text>
+                                </Box>
                               )}
-                            </HStack>
+
+                              {/* Additional Visual Enhancement */}
+                              <Box
+                                pl={{ base: "16", md: "19" }}
+                                w="100%"
+                                pt="2"
+                              >
+                                <Box
+                                  w="60px"
+                                  h="2px"
+                                  bg={isCurrentEvent ? "#C19A6C" : "#1f576e"}
+                                  borderRadius="full"
+                                  opacity="0.4"
+                                />
+                              </Box>
+                            </VStack>
                           </Box>
                         </motion.div>
                       );
