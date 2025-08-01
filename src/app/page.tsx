@@ -1253,7 +1253,7 @@ const WeddingInvitePage = () => {
                           <Box
                             position="relative"
                             p={{ base: "4", md: "5" }}
-                            h={{ base: "180px", md: "200px" }}
+                            minH={{ base: "160px", md: "180px" }}
                             bg={isCurrentEvent 
                               ? "rgba(193, 154, 108, 0.15)" 
                               : "rgba(255, 255, 255, 0.25)"
@@ -1380,7 +1380,7 @@ const WeddingInvitePage = () => {
                             />
                             
                             {/* Main Content Area */}
-                            <VStack align="flex-start" gap={{ base: "3", md: "4" }} w="100%" pr={{ base: "16", md: "20" }} h="100%" justify="space-between">
+                            <VStack align="flex-start" gap={{ base: "4", md: "5" }} w="100%" pr={{ base: "16", md: "20" }}>
                               {/* Event Header - Left Side */}
                               <HStack gap={{ base: "4", md: "5" }} align="center" w="100%">
                                 {/* Emoji with enhanced styling */}
@@ -1427,23 +1427,26 @@ const WeddingInvitePage = () => {
                                 </VStack>
                               </HStack>
                               
-                              {/* Enlarged Description Content */}
+                              {/* Description Content */}
                               {event.description && (
                                 <Box
                                   pl={{ base: "16", md: "19" }}
                                   w="100%"
+                                  flex="1"
+                                  display="flex"
+                                  alignItems="flex-start"
                                 >
                                   <Text
-                                    fontSize={{ base: "md", md: "lg" }}
+                                    fontSize={{ base: "lg", md: "xl" }}
                                     color={isCurrentEvent ? "#2b5a72" : "gray.700"}
                                     fontFamily="'Aparajita', serif"
-                                    lineHeight="1.4"
+                                    lineHeight="1.5"
                                     fontWeight="medium"
                                     textShadow="0 1px 2px rgba(255,255,255,0.5)"
                                     overflow="hidden"
                                     display="-webkit-box"
                                     css={{
-                                      WebkitLineClamp: 2,
+                                      WebkitLineClamp: 3,
                                       WebkitBoxOrient: "vertical"
                                     }}
                                   >
@@ -1456,7 +1459,7 @@ const WeddingInvitePage = () => {
                               <Box
                                 pl={{ base: "16", md: "19" }}
                                 w="100%"
-                                mt="auto"
+                                pt="2"
                               >
                                 <Text
                                   fontSize="xs"
