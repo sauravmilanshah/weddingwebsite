@@ -12,16 +12,9 @@ import {
   HStack,
   VStack,
   Link,
-  Grid,
-  useBreakpointValue
+  Grid
 } from '@chakra-ui/react';
-import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineDot from '@mui/lab/TimelineDot';
-import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
+import { motion } from 'framer-motion';
 
 // Constants  
 const SCROLL_THRESHOLD = 50;
@@ -730,21 +723,14 @@ const HeroSection = () => {
 // Wedding Invite Page Component
 const WeddingInvitePage = () => {
   const [selectedDay, setSelectedDay] = useState(1);
-  const [selectedEvent, setSelectedEvent] = useState<any>(null);
+  const [selectedEvent, setSelectedEvent] = useState<{
+    title: string;
+    description: string;
+    since: string;
+    till: string;
+  } | null>(null);
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
   
-  // Responsive timeline settings
-  const [isMobile, setIsMobile] = useState(false);
-  
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
   
   // Event descriptions with fun and quirky content
   const eventDescriptions = useMemo(() => ({
@@ -1024,212 +1010,17 @@ const WeddingInvitePage = () => {
     return allWeddingEvents.filter(event => event.day === selectedDay);
   }, [allWeddingEvents, selectedDay]);
 
-  const handleEventClick = (event: any) => {
+  const handleEventClick = (event: {
+    title: string;
+    description: string;
+    since: string;
+    till: string;
+  }) => {
     setSelectedEvent(event);
     setIsEventModalOpen(true);
   };
 
-  const timelineData = [
-    {
-      date: "14th January",
-      dayTitle: "Day 1 - Arrival & Mehndi",
-      color: "#2b5a72", // Deeper blue
-      events: [
-        { time: "13:00", name: "Check In" },
-        { time: "16:30", name: "Mehndi" },
-        { time: "20:30", name: "Welcome Dinner" }
-      ]
-    },
-    {
-      date: "15th January", 
-      dayTitle: "Day 2 - Wedding Day",
-      color: "#1f576e", // Signature blue
-      events: [
-        { time: "9:00", name: "Breakfast" },
-        { time: "10:30", name: "Haldi" },
-        { time: "12:00", name: "Lunch" },
-        { time: "16:30", name: "Baarat" },
-        { time: "18:00", name: "Wedding Pheras" },
-        { time: "00:30", name: "After Party" }
-      ]
-    },
-    {
-      date: "16th January",
-      dayTitle: "Day 3 - Sangeet",
-      color: "#1a4a5c", // Darker blue
-      events: [
-        { time: "9:00", name: "Breakfast" },
-        { time: "12:00", name: "Lunch" },
-        { time: "20:30", name: "Sangeet" }
-      ]
-    },
-    {
-      date: "17th January",
-      dayTitle: "Day 4 - Farewell",
-      color: "#0f3a4a", // Darkest blue
-      events: [
-        { time: "9:00", name: "Breakfast" },
-        { time: "11:00", name: "Checkout" }
-      ]
-    }
-  ];
 
-  const DayTimeline = ({ day }: { day: typeof timelineData[0] }) => {
-    const timelinePosition = useBreakpointValue({ base: 'left', md: 'alternate' }) || 'left';
-    
-    return (
-    <Box
-      w="100%"
-      maxW={{ base: "100%", md: "600px", lg: "650px" }}
-      mx="auto"
-      p={{ base: "3", md: "5" }}
-      bg="rgba(255, 255, 255, 0.12)"
-      borderRadius="2xl"
-      border="1px solid"
-      borderColor="rgba(255, 255, 255, 0.25)"
-      boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.25)"
-      transition="all 0.3s ease"
-      css={{
-        backdropFilter: "blur(20px) saturate(160%)",
-        WebkitBackdropFilter: "blur(20px) saturate(160%)"
-      }}
-      _hover={{
-        bg: "rgba(255, 255, 255, 0.18)",
-        transform: "translateY(-4px)",
-        boxShadow: "0 16px 48px 0 rgba(31, 38, 135, 0.35)",
-      }}
-    >
-      {/* Day Header */}
-      <VStack gap="3" mb="6" textAlign="center">
-        <Text
-          fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
-          fontWeight="bold"
-          color={day.color}
-          fontFamily="'Bernhard Tango', cursive"
-          textShadow="0 1px 2px rgba(255,255,255,0.8)"
-          letterSpacing="0.05em"
-        >
-          {day.date}
-        </Text>
-        <Text
-          fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
-          fontWeight="bold"
-          color="#1f576e"
-          fontFamily="'Aparajita', serif"
-          textShadow="0 1px 2px rgba(255,255,255,0.8)"
-          opacity="0.8"
-        >
-          {day.dayTitle}
-        </Text>
-        <Box w="60%" h="2px" bg={day.color} opacity="0.6" />
-      </VStack>
-
-      {/* Timeline */}
-      <Timeline 
-        position={timelinePosition as 'left' | 'alternate'}
-        sx={{ 
-          '& .MuiTimelineItem-root': { 
-            minHeight: 'auto',
-            '&:before': {
-              content: timelinePosition === 'left' ? 'none' : '""',
-              padding: 0
-            }
-          },
-          '& .MuiTimelineContent-root': {
-            px: { base: 2, md: 3 },
-            py: { base: '12px', md: '16px' }
-          },
-          '& .MuiTimelineOppositeContent-root': {
-            display: timelinePosition === 'left' ? 'none' : 'block',
-            px: { base: 2, md: 3 },
-            py: { base: '12px', md: '16px' }
-          }
-        }}
-      >
-        {day.events.map((event, eventIndex) => (
-          <TimelineItem key={eventIndex}>
-            {timelinePosition === 'alternate' && (
-              <TimelineOppositeContent />
-            )}
-            
-            <TimelineSeparator>
-              <TimelineDot 
-                sx={{ 
-                  bgcolor: day.color,
-                  border: '2px solid rgba(255, 255, 255, 0.9)',
-                  boxShadow: `0 3px 8px ${day.color}40`,
-                  width: { xs: 12, md: 16 },
-                  height: { xs: 12, md: 16 }
-                }} 
-              />
-              {eventIndex < day.events.length - 1 && (
-                <TimelineConnector 
-                  sx={{ 
-                    bgcolor: day.color,
-                    opacity: 0.4,
-                    width: 2
-                  }} 
-                />
-              )}
-            </TimelineSeparator>
-
-            <TimelineContent>
-              <Box
-                w="100%" // Make box take full width of timeline content
-                p={{ base: "3", md: "4" }}
-                bg="rgba(255, 255, 255, 0.08)"
-                borderRadius="xl"
-                border="1px solid"
-                borderColor="rgba(255, 255, 255, 0.15)"
-                css={{
-                  backdropFilter: "blur(8px) saturate(120%)",
-                  WebkitBackdropFilter: "blur(8px) saturate(120%)"
-                }}
-                transition="all 0.2s ease"
-                _hover={{
-                  bg: "rgba(255, 255, 255, 0.12)",
-                  transform: { md: "translateX(4px)" },
-                }}
-              >
-                <Flex 
-                  justify="space-between" 
-                  align="center" 
-                  gap={{ base: "3", md: "4" }}
-                >
-                  <Text
-                    fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
-                    fontWeight="bold"
-                    color="#1f576e"
-                    fontFamily="'Aparajita', serif"
-                    textShadow="0 1px 2px rgba(255,255,255,0.8)"
-                    flex="1"
-                  >
-                    {event.name}
-                  </Text>
-                  <Text
-                    fontSize={{ base: "md", md: "lg", lg: "xl" }}
-                    fontWeight="bold"
-                    color="white"
-                    fontFamily="'Aparajita', serif"
-                    textShadow="0 1px 2px rgba(0,0,0,0.3)"
-                    bg="#1f576e"
-                    px={{ base: "3", md: "4" }}
-                    py={{ base: "2", md: "2" }}
-                    borderRadius="lg"
-                    boxShadow="0 2px 8px rgba(31, 87, 110, 0.3)"
-                    minW="fit-content"
-                  >
-                    {event.time}
-                  </Text>
-                </Flex>
-              </Box>
-            </TimelineContent>
-          </TimelineItem>
-        ))}
-      </Timeline>
-    </Box>
-    );
-  };
 
   return (
     <Box 
@@ -1244,7 +1035,7 @@ const WeddingInvitePage = () => {
       zIndex="10"
     >
       <Container maxW="100%" px={{ base: "2", md: "6" }}>
-        <VStack gap={{ base: "8", md: "12" }} align="center">
+        <VStack gap="8" w="100%" align="stretch">
           {/* Section Title */}
           <VStack gap="4" textAlign="center">
             <Heading 
@@ -1259,14 +1050,490 @@ const WeddingInvitePage = () => {
             <Box w={{ base: "20", md: "32" }} h="2px" bg="#1f576e" opacity="0.6" />
           </VStack>
 
-          {/* All 4 Timelines Stacked Vertically */}
-          <VStack gap={{ base: "8", md: "10" }} w="100%" align="stretch">
-            {timelineData.map((day, index) => (
-              <DayTimeline key={index} day={day} />
-            ))}
+          {/* Modern Timeline Interface */}
+          <VStack gap="8" w="100%" align="stretch">
+            <Heading
+              fontSize="2xl"
+              color="#1f576e"
+              fontFamily="'Aparajita', serif"
+              textAlign="center"
+              fontWeight="bold"
+            >
+              Wedding Schedule
+            </Heading>
+            
+            {/* Now & Next Sticky Banner */}
+            {(currentEvent || nextEvent) && (
+              <motion.div
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <Box
+                  position="sticky"
+                  top="4"
+                  zIndex="10"
+                  bg="rgba(255, 255, 255, 0.25)"
+                  backdropFilter="blur(20px) saturate(180%)"
+                  borderRadius="16px"
+                  border="2px solid #C19A6C"
+                  boxShadow="0 8px 32px rgba(193, 154, 108, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4)"
+                  p={{ base: "4", md: "6" }}
+                  mb="6"
+                  maxW="500px"
+                  mx="auto"
+                >
+                  <VStack gap="3" align="center">
+                    {currentEvent && (
+                      <motion.div
+                        animate={{ opacity: [0.7, 1, 0.7] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <HStack gap="3" align="center">
+                          <Box
+                            w="8px"
+                            h="8px"
+                            borderRadius="full"
+                            bg="#C19A6C"
+                            boxShadow="0 0 12px #C19A6C"
+                          />
+                          <Text
+                            fontSize={{ base: "sm", md: "md" }}
+                            color="#1f576e"
+                            fontFamily="'Aparajita', serif"
+                            fontWeight="bold"
+                          >
+                            Now: {currentEvent.title}
+                          </Text>
+                          <Text
+                            fontSize={{ base: "sm", md: "md" }}
+                            color="#2b5a72"
+                            fontFamily="'Aparajita', serif"
+                          >
+                            {new Date(currentEvent.since).toLocaleTimeString('en-US', {
+                              hour: 'numeric',
+                              minute: '2-digit',
+                              hour12: true
+                            })}
+                          </Text>
+                        </HStack>
+                      </motion.div>
+                    )}
+                    
+                    {nextEvent && (
+                      <HStack gap="3" align="center">
+                        <Box
+                          w="6px"
+                          h="6px"
+                          borderRadius="full"
+                          bg="#A6B0A6"
+                        />
+                        <Text
+                          fontSize={{ base: "sm", md: "md" }}
+                          color="#1f576e"
+                          fontFamily="'Aparajita', serif"
+                          fontWeight="medium"
+                        >
+                          Next: {nextEvent.title}
+                        </Text>
+                        <Text
+                          fontSize={{ base: "sm", md: "md" }}
+                          color="#2b5a72"
+                          fontFamily="'Aparajita', serif"
+                        >
+                          {new Date(nextEvent.since).toLocaleTimeString('en-US', {
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true
+                          })}
+                        </Text>
+                      </HStack>
+                    )}
+                  </VStack>
+                </Box>
+              </motion.div>
+            )}
+            
+            <HStack gap={{ base: "2", md: "4" }} justify="center" wrap="wrap">
+              {[
+                { day: 1, title: "Jan 14", subtitle: "Mehndi & Welcome", emoji: "🎨", color: "#2b5a72" },
+                { day: 2, title: "Jan 15", subtitle: "Haldi & Wedding", emoji: "💍", color: "#1f576e" },
+                { day: 3, title: "Jan 16", subtitle: "Sangeet & Party", emoji: "💃", color: "#1a4a5c" },
+                { day: 4, title: "Jan 17", subtitle: "Farewell Brunch", emoji: "✈️", color: "#0f3a4a" }
+              ].map((dayInfo, index) => {
+                const isSelected = selectedDay === dayInfo.day;
+                
+                return (
+                  <motion.div
+                    key={dayInfo.day}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Box
+                      p={{ base: "4", md: "6" }}
+                      bg={isSelected ? `${dayInfo.color}20` : "rgba(255, 255, 255, 0.4)"}
+                      borderRadius="xl"
+                      cursor="pointer"
+                      onClick={() => setSelectedDay(dayInfo.day)}
+                      border="2px solid"
+                      borderColor={isSelected ? dayInfo.color : "rgba(31, 87, 110, 0.2)"}
+                      backdropFilter="blur(10px)"
+                      _hover={{ 
+                        bg: isSelected ? `${dayInfo.color}30` : "rgba(255, 255, 255, 0.6)",
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 8px 25px rgba(31, 87, 110, 0.2)"
+                      }}
+                      transition="all 0.3s ease"
+                      boxShadow="0 4px 12px rgba(31, 87, 110, 0.1)"
+                      minW={{ base: "140px", md: "180px" }}
+                      textAlign="center"
+                    >
+                      <VStack gap="2">
+                        <Text fontSize={{ base: "2xl", md: "3xl" }} mb="1">{dayInfo.emoji}</Text>
+                        <Text
+                          fontSize={{ base: "lg", md: "xl" }}
+                          color={isSelected ? dayInfo.color : "#1f576e"}
+                          fontFamily="'Aparajita', serif"
+                          fontWeight="bold"
+                        >
+                          {dayInfo.title}
+                        </Text>
+                        <Text
+                          fontSize={{ base: "sm", md: "md" }}
+                          color="#2b5a72"
+                          fontFamily="'Aparajita', serif"
+                          fontWeight="medium"
+                        >
+                          {dayInfo.subtitle}
+                        </Text>
+                      </VStack>
+                    </Box>
+                  </motion.div>
+                );
+              })}
+            </HStack>
+
+            {/* Main Timeline - Constrained Width on Desktop */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              style={{ 
+                width: "100%",
+                display: "flex",
+                justifyContent: "center"
+              }}
+            >
+              <Box
+                p="6"
+                bg="rgba(255, 255, 255, 0.35)"
+                border="2px solid rgba(31, 87, 110, 0.2)"
+                borderRadius="20px"
+                backdropFilter="blur(20px) saturate(200%)"
+                boxShadow="0 20px 60px rgba(31, 87, 110, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
+                w={{ base: "100%", md: "90%", lg: "80%", xl: "70%" }}
+                maxW="900px"
+              >
+                {/* Vertical Timeline */}
+                <VStack gap="4" align="stretch" w="100%">
+                    {weddingEpg.map((event, index) => {
+                      const isCurrentEvent = currentEvent?.id === event.id;
+                      const eventTime = new Date(event.since);
+                      const endTime = new Date(event.till);
+                      const eventData = eventDescriptions[event.title as keyof typeof eventDescriptions] || { emoji: "🎉", title: event.title };
+                      
+                      return (
+                        <motion.div
+                          key={event.id}
+                          initial={{ opacity: 0, x: -30 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <Box
+                            position="relative"
+                            p={{ base: "4", md: "6" }}
+                            bg={isCurrentEvent 
+                              ? "rgba(193, 154, 108, 0.4)" 
+                              : "rgba(255, 255, 255, 0.35)"
+                            }
+                            backdropFilter="blur(20px) saturate(180%)"
+                            borderRadius="16px"
+                            border={isCurrentEvent 
+                              ? "3px solid #C19A6C" 
+                              : `2px solid ${event.color}40`
+                            }
+                            boxShadow={isCurrentEvent 
+                              ? "0 0 30px rgba(193, 154, 108, 0.4), 0 8px 32px rgba(193, 154, 108, 0.2)" 
+                              : `0 8px 32px ${event.color}20, inset 0 1px 0 rgba(255, 255, 255, 0.3)`
+                            }
+                            cursor="pointer"
+                            onClick={() => handleEventClick(event)}
+                            transition="all 0.3s ease"
+                            _hover={{
+                              transform: "translateY(-2px)",
+                              boxShadow: isCurrentEvent 
+                                ? "0 0 40px rgba(193, 154, 108, 0.5), 0 12px 40px rgba(193, 154, 108, 0.3)" 
+                                : `0 12px 40px ${event.color}30, inset 0 1px 0 rgba(255, 255, 255, 0.4)`
+                            }}
+                          >
+                            {/* Happening Now Glow Ring */}
+                            {isCurrentEvent && (
+                              <motion.div
+                                animate={{ 
+                                  opacity: [0.5, 1, 0.5],
+                                  scale: [1, 1.02, 1]
+                                }}
+                                transition={{ 
+                                  duration: 2, 
+                                  repeat: Infinity,
+                                  ease: "easeInOut"
+                                }}
+                                style={{
+                                  position: "absolute",
+                                  top: "-3px",
+                                  left: "-3px", 
+                                  right: "-3px",
+                                  bottom: "-3px",
+                                  borderRadius: "19px",
+                                  background: "linear-gradient(45deg, #C19A6C, #E8B4B8, #C19A6C)",
+                                  filter: "blur(6px)",
+                                  zIndex: -1
+                                }}
+                              />
+                            )}
+                            
+                            <HStack justify="space-between" align="flex-start" w="100%">
+                              <VStack align="flex-start" gap="3" flex="1">
+                                <HStack gap="3" align="center">
+                                  <Text fontSize="2xl">{eventData.emoji}</Text>
+                                  <VStack align="flex-start" gap="1">
+                                    <Text
+                                      fontSize={{ base: "lg", md: "xl" }}
+                                      fontFamily="'Aparajita', serif"
+                                      fontWeight="bold"
+                                      color={isCurrentEvent ? "#C19A6C" : "#1f576e"}
+                                    >
+                                      {event.title}
+                                    </Text>
+                                    <Text
+                                      fontSize={{ base: "sm", md: "md" }}
+                                      color="#2b5a72"
+                                      fontFamily="'Aparajita', serif"
+                                    >
+                                      {eventTime.toLocaleTimeString('en-US', {
+                                        hour: 'numeric',
+                                        minute: '2-digit',
+                                        hour12: true
+                                      })} - {endTime.toLocaleTimeString('en-US', {
+                                        hour: 'numeric',
+                                        minute: '2-digit',
+                                        hour12: true
+                                      })}
+                                    </Text>
+                                  </VStack>
+                                </HStack>
+                                
+                                {event.description && (
+                                  <Text
+                                    fontSize={{ base: "sm", md: "md" }}
+                                    color="gray.600"
+                                    fontFamily="'Aparajita', serif"
+                                  >
+                                    {event.description.substring(0, 120)}...
+                                  </Text>
+                                )}
+                              </VStack>
+                              
+                              {isCurrentEvent && (
+                                <motion.div
+                                  animate={{ scale: [1, 1.1, 1] }}
+                                  transition={{ duration: 1.5, repeat: Infinity }}
+                                >
+                                  <Text
+                                    fontSize="xs"
+                                    color="#C19A6C"
+                                    fontFamily="'Aparajita', serif"
+                                    fontWeight="bold"
+                                    px="3"
+                                    py="1"
+                                    bg="rgba(193, 154, 108, 0.2)"
+                                    borderRadius="full"
+                                    border="1px solid #C19A6C"
+                                  >
+                                    HAPPENING NOW
+                                  </Text>
+                                </motion.div>
+                              )}
+                            </HStack>
+                          </Box>
+                        </motion.div>
+                      );
+                    })}
+                </VStack>
+              </Box>
+            </motion.div>
           </VStack>
         </VStack>
       </Container>
+
+      {/* Event Details Slide-Up Sheet */}
+      {isEventModalOpen && selectedEvent && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.6)",
+              zIndex: 9998
+            }}
+            onClick={() => setIsEventModalOpen(false)}
+          />
+          
+          {/* Slide-up Sheet */}
+          <motion.div
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ 
+              type: "spring", 
+              damping: 25, 
+              stiffness: 300 
+            }}
+            style={{
+              position: "fixed",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              zIndex: 9999,
+              maxHeight: "85vh"
+            }}
+          >
+            <Box
+              bg="rgba(255, 255, 255, 0.95)"
+              backdropFilter="blur(20px) saturate(180%)"
+              borderTopRadius="24px"
+              border="1px solid rgba(255, 255, 255, 0.3)"
+              boxShadow="0 -10px 40px rgba(0, 0, 0, 0.2)"
+              p={{ base: "6", md: "8" }}
+              maxH="85vh"
+              overflow="auto"
+            >
+              {/* Handle bar */}
+              <Box
+                w="40px"
+                h="4px"
+                bg="rgba(31, 87, 110, 0.3)"
+                borderRadius="full"
+                mx="auto"
+                mb="6"
+              />
+              
+              <VStack gap="6" alignItems="flex-start" w="100%">
+                {/* Header */}
+                <HStack justify="space-between" w="100%">
+                  <VStack align="flex-start" gap="2" flex="1">
+                    <HStack gap="3" align="center">
+                      <Text fontSize="3xl">
+                        {eventDescriptions[selectedEvent.title as keyof typeof eventDescriptions]?.emoji || "🎉"}
+                      </Text>
+                      <Heading 
+                        size="lg" 
+                        color="#1f576e"
+                        fontFamily="'Aparajita', serif"
+                        fontWeight="bold"
+                      >
+                        {selectedEvent.title}
+                      </Heading>
+                    </HStack>
+                    
+                    <Text 
+                      fontSize="md" 
+                      color="#2b5a72"
+                      fontFamily="'Aparajita', serif"
+                      fontWeight="medium"
+                    >
+                      {new Date(selectedEvent.since).toLocaleTimeString('en-US', {
+                        hour: 'numeric',
+                        minute: '2-digit',
+                        hour12: true
+                      })} - {new Date(selectedEvent.till).toLocaleTimeString('en-US', {
+                        hour: 'numeric', 
+                        minute: '2-digit',
+                        hour12: true
+                      })}
+                    </Text>
+                  </VStack>
+                  
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => setIsEventModalOpen(false)}
+                    color="#2b5a72"
+                    borderRadius="full"
+                    p="2"
+                  >
+                    ✕
+                  </Button>
+                </HStack>
+                
+                {/* Description */}
+                {selectedEvent.description && (
+                  <Box
+                    p="4"
+                    bg="rgba(31, 87, 110, 0.05)"
+                    borderRadius="12px"
+                    border="1px solid rgba(31, 87, 110, 0.1)"
+                    w="100%"
+                  >
+                    <Text 
+                      fontSize="md" 
+                      color="gray.700"
+                      lineHeight="1.7"
+                      fontFamily="'Aparajita', serif"
+                    >
+                      {selectedEvent.description}
+                    </Text>
+                  </Box>
+                )}
+                
+                {/* Fun Action Button */}
+                <Button
+                  w="100%"
+                  bg="linear-gradient(135deg, #C19A6C, #E8B4B8)"
+                  color="white"
+                  fontFamily="'Aparajita', serif"
+                  fontWeight="bold"
+                  fontSize="lg"
+                  py="6"
+                  borderRadius="16px"
+                  onClick={() => setIsEventModalOpen(false)}
+                  _hover={{
+                    bg: "linear-gradient(135deg, #B8916A, #D1A4A8)",
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 8px 25px rgba(193, 154, 108, 0.4)"
+                  }}
+                  transition="all 0.3s ease"
+                >
+                  Can&apos;t wait! 🎉
+                </Button>
+              </VStack>
+            </Box>
+          </motion.div>
+        </>
+      )}
     </Box>
   );
 };
