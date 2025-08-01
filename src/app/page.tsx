@@ -146,7 +146,10 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
           top={scrolled ? "calc(50% + 8px)" : "calc(50% + 16px)"}
           left="12"
           transform="translateY(-50%)"
-          display={{ base: "none", lg: "block" }}
+          display={{ 
+            base: "none", 
+            lg: (scrolled && currentPage === 'wedding-invite') ? "none" : "block" 
+          }}
           transition="all 0.3s ease"
         >
           <Box position="relative" w="120px" h="120px" onClick={() => setCurrentPage('home')}>
@@ -314,7 +317,13 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
             </Button>
             
             {/* Logo - Center */}
-            <Box position="absolute" left="50%" transform="translateX(-50%)">
+            <Box 
+              position="absolute" 
+              left="50%" 
+              transform="translateX(-50%)"
+              display={(scrolled && currentPage === 'wedding-invite') ? "none" : "block"}
+              transition="all 0.3s ease"
+            >
               <Box 
                 position="relative" 
                 w="100px" 
