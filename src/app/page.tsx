@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import Image from 'next/image';
 import { 
   Box, 
@@ -190,18 +190,18 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
                 px="6"
                 py="2"
                 borderRadius="2xl"  
-                bg="rgba(255, 255, 255, 0.16)"
+                bg="rgba(255, 255, 255, 0.1)"
                 border="1px solid"
-                borderColor="rgba(255, 255, 255, 0.3)"
-                boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.37)"
+                borderColor="rgba(255, 255, 255, 0.2)"
+                boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
                 w="fit-content"
                 transition="all 0.3s ease"
                 css={{
-                  backdropFilter: "blur(24px) saturate(180%)",
-                  WebkitBackdropFilter: "blur(24px) saturate(180%)"
+                  backdropFilter: "blur(4px) saturate(110%)",
+                  WebkitBackdropFilter: "blur(4px) saturate(110%)"
                 }}
                 _hover={{
-                  bg: "rgba(255, 255, 255, 0.25)",
+                  bg: "rgba(255, 255, 255, 0.15)",
                   boxShadow: "0 20px 40px -5px rgba(31, 38, 135, 0.5)",
                   transform: "translateY(-2px)",
                 }}
@@ -225,7 +225,7 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
                       fontFamily="'Aparajita', serif"
                       _hover={{
                         color: "#1a4d63",
-                        bg: "rgba(255, 255, 255, 0.3)",
+                        bg: "rgba(255, 255, 255, 0.15)",
                         textShadow: "0 2px 4px rgba(255,255,255,0.8)",
                         transform: "translateY(-1px)",
                       }}
@@ -244,18 +244,18 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
                   px="6"
                   py="2"
                   borderRadius="2xl"  
-                  bg="rgba(255, 255, 255, 0.16)"
+                  bg="rgba(255, 255, 255, 0.1)"
                   border="1px solid"
-                  borderColor="rgba(255, 255, 255, 0.3)"
-                  boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.37)"
+                  borderColor="rgba(255, 255, 255, 0.2)"
+                  boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
                   transition="all 0.3s ease"
                   cursor="pointer"
                   css={{
-                    backdropFilter: "blur(24px) saturate(180%)",
-                    WebkitBackdropFilter: "blur(24px) saturate(180%)"
+                    backdropFilter: "blur(4px) saturate(110%)",
+                    WebkitBackdropFilter: "blur(4px) saturate(110%)"
                   }}
                   _hover={{
-                    bg: "rgba(255, 255, 255, 0.3)",
+                    bg: "rgba(255, 255, 255, 0.15)",
                     boxShadow: "0 20px 40px -5px rgba(31, 38, 135, 0.5)",
                     transform: "translateY(-2px)",
                   }}
@@ -293,17 +293,17 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
               p="4"
               fontSize="xl"
               color="#1f576e"
-              bg="rgba(255, 255, 255, 0.16)"
+              bg="rgba(255, 255, 255, 0.1)"
               border="1px solid"
-              borderColor="rgba(255, 255, 255, 0.3)"
+              borderColor="rgba(255, 255, 255, 0.2)"
               borderRadius="lg"
-              boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.37)"
+              boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
               css={{
-                backdropFilter: "blur(24px) saturate(180%)",
-                WebkitBackdropFilter: "blur(24px) saturate(180%)"
+                backdropFilter: "blur(4px) saturate(110%)",
+                WebkitBackdropFilter: "blur(4px) saturate(110%)"
               }}
               _hover={{
-                bg: "rgba(255, 255, 255, 0.25)",
+                bg: "rgba(255, 255, 255, 0.15)",
                 transform: "translateY(-1px)",
               }}
             >
@@ -347,8 +347,8 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
               px="8"
               py="4"
               borderRadius="2xl"
-              bg="rgba(255, 255, 255, 0.9)"
-              backdropFilter="blur(20px)"
+              bg="rgba(255, 255, 255, 0.1)"
+              backdropFilter="blur(4px) saturate(110%)"
               border="1px solid"
               borderColor="rgba(255, 255, 255, 0.2)"
               boxShadow="0 8px 32px rgba(0, 0, 0, 0.1)"
@@ -440,22 +440,22 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
     <VStack gap={{ base: "1", md: "2" }}>
       <Box
-        bg="rgba(255, 255, 255, 0.16)"
+        bg="rgba(255, 255, 255, 0.1)"
         color="#1f576e"
         borderRadius="xl"
         p={{ base: "2", md: "4" }}
         minW={{ base: "45px", md: "60px" }}
         textAlign="center"
         border="1px solid"
-        borderColor="rgba(255, 255, 255, 0.3)"
-        boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.37)"
+        borderColor="rgba(255, 255, 255, 0.2)"
+        boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
         transition="all 0.3s ease"
         css={{
-          backdropFilter: "blur(24px) saturate(180%)",
-          WebkitBackdropFilter: "blur(24px) saturate(180%)"
+          backdropFilter: "blur(4px) saturate(110%)",
+          WebkitBackdropFilter: "blur(4px) saturate(110%)"
         }}
         _hover={{
-          bg: "rgba(255, 255, 255, 0.25)",
+          bg: "rgba(255, 255, 255, 0.15)",
           transform: "translateY(-2px) scale(1.02)",
           boxShadow: "0 20px 40px -5px rgba(31, 38, 135, 0.5)",
         }}
@@ -526,7 +526,7 @@ export default function Home() {
       <Box
         position="absolute"
         inset="0"
-        backgroundImage="url('/wedding-background.png')"
+        backgroundImage={currentPage === 'wedding-invite' ? "url('/backgrndotherpages.png')" : "url('/wedding-background.png')"}
         backgroundSize="cover"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
@@ -563,18 +563,18 @@ const HeroSection = () => {
           <Box 
             p={{ base: "4", md: "8" }}
             textAlign="center"
-            bg="rgba(255, 255, 255, 0.16)"
+            bg="rgba(255, 255, 255, 0.1)"
             borderRadius="3xl"
             border="1px solid"
-            borderColor="rgba(255, 255, 255, 0.3)"
-            boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.37)"
+            borderColor="rgba(255, 255, 255, 0.2)"
+            boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
             transition="all 0.3s ease"
             css={{
-              backdropFilter: "blur(24px) saturate(180%)",
-              WebkitBackdropFilter: "blur(24px) saturate(180%)"
+              backdropFilter: "blur(4px) saturate(110%)",
+              WebkitBackdropFilter: "blur(4px) saturate(110%)"
             }}
             _hover={{
-              bg: "rgba(255, 255, 255, 0.25)",
+              bg: "rgba(255, 255, 255, 0.15)",
               boxShadow: "0 20px 40px -5px rgba(31, 38, 135, 0.5)",
               transform: "translateY(-2px)",
             }}
@@ -730,6 +730,8 @@ const WeddingInvitePage = () => {
     till: string;
   } | null>(null);
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
+  const [dragY, setDragY] = useState(0);
+  const modalRef = useRef<HTMLDivElement>(null);
   
   
   // Event descriptions with fun and quirky content
@@ -1052,15 +1054,6 @@ const WeddingInvitePage = () => {
 
           {/* Modern Timeline Interface */}
           <VStack gap="8" w="100%" align="stretch">
-            <Heading
-              fontSize="2xl"
-              color="#1f576e"
-              fontFamily="'Aparajita', serif"
-              textAlign="center"
-              fontWeight="bold"
-            >
-              Wedding Schedule
-            </Heading>
             
             {/* Now & Next Sticky Banner */}
             {(currentEvent || nextEvent) && (
@@ -1074,7 +1067,7 @@ const WeddingInvitePage = () => {
                   top="4"
                   zIndex="10"
                   bg="rgba(255, 255, 255, 0.25)"
-                  backdropFilter="blur(20px) saturate(180%)"
+                  backdropFilter="blur(4px) saturate(110%)"
                   borderRadius="16px"
                   border="2px solid #C19A6C"
                   boxShadow="0 8px 32px rgba(193, 154, 108, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4)"
@@ -1098,6 +1091,7 @@ const WeddingInvitePage = () => {
                             color="#1f576e"
                             fontFamily="'Aparajita', serif"
                             fontWeight="bold"
+                            textShadow="0 2px 4px rgba(255,255,255,0.8)"
                           >
                             Now: {currentEvent.title}
                           </Text>
@@ -1105,6 +1099,8 @@ const WeddingInvitePage = () => {
                             fontSize={{ base: "md", md: "lg" }}
                             color="#2b5a72"
                             fontFamily="'Aparajita', serif"
+                            fontWeight="bold"
+                            textShadow="0 1px 3px rgba(255,255,255,0.8)"
                           >
                             {new Date(currentEvent.since).toLocaleTimeString('en-US', {
                               hour: 'numeric',
@@ -1127,7 +1123,8 @@ const WeddingInvitePage = () => {
                           fontSize={{ base: "md", md: "lg" }}
                           color="#1f576e"
                           fontFamily="'Aparajita', serif"
-                          fontWeight="medium"
+                          fontWeight="bold"
+                          textShadow="0 2px 4px rgba(255,255,255,0.8)"
                         >
                           Next: {nextEvent.title}
                         </Text>
@@ -1135,6 +1132,8 @@ const WeddingInvitePage = () => {
                           fontSize={{ base: "md", md: "lg" }}
                           color="#2b5a72"
                           fontFamily="'Aparajita', serif"
+                          fontWeight="bold"
+                          textShadow="0 1px 3px rgba(255,255,255,0.8)"
                         >
                           {new Date(nextEvent.since).toLocaleTimeString('en-US', {
                             hour: 'numeric',
@@ -1169,15 +1168,15 @@ const WeddingInvitePage = () => {
                   >
                     <Box
                       p={{ base: "4", md: "6" }}
-                      bg={isSelected ? `${dayInfo.color}20` : "rgba(255, 255, 255, 0.4)"}
+                      bg={isSelected ? `${dayInfo.color}20` : "rgba(255, 255, 255, 0.25)"}
                       borderRadius="xl"
                       cursor="pointer"
                       onClick={() => setSelectedDay(dayInfo.day)}
                       border="2px solid"
                       borderColor={isSelected ? dayInfo.color : "rgba(31, 87, 110, 0.2)"}
-                      backdropFilter="blur(10px)"
+                      backdropFilter="blur(4px) saturate(110%)"
                       _hover={{ 
-                        bg: isSelected ? `${dayInfo.color}30` : "rgba(255, 255, 255, 0.6)",
+                        bg: isSelected ? `${dayInfo.color}30` : "rgba(255, 255, 255, 0.35)",
                         transform: "translateY(-2px)",
                         boxShadow: "0 8px 25px rgba(31, 87, 110, 0.2)"
                       }}
@@ -1189,9 +1188,10 @@ const WeddingInvitePage = () => {
                       <VStack gap="2">
                         <Text
                           fontSize={{ base: "xl", md: "2xl" }}
-                          color={isSelected ? dayInfo.color : "#1f576e"}
+                          color={isSelected ? "#1f576e" : "#1f576e"}
                           fontFamily="'Aparajita', serif"
                           fontWeight="bold"
+                          textShadow="0 2px 6px rgba(255,255,255,0.8)"
                         >
                           {dayInfo.title}
                         </Text>
@@ -1199,7 +1199,8 @@ const WeddingInvitePage = () => {
                           fontSize={{ base: "md", md: "lg" }}
                           color="#2b5a72"
                           fontFamily="'Aparajita', serif"
-                          fontWeight="medium"
+                          fontWeight="bold"
+                          textShadow="0 1px 4px rgba(255,255,255,0.8)"
                         >
                           {dayInfo.subtitle}
                         </Text>
@@ -1223,10 +1224,10 @@ const WeddingInvitePage = () => {
             >
               <Box
                 p="6"
-                bg="rgba(255, 255, 255, 0.35)"
+                bg="rgba(255, 255, 255, 0.25)"
                 border="2px solid rgba(31, 87, 110, 0.2)"
                 borderRadius="20px"
-                backdropFilter="blur(20px) saturate(200%)"
+                backdropFilter="blur(4px) saturate(110%)"
                 boxShadow="0 20px 60px rgba(31, 87, 110, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
                 w={{ base: "100%", md: "90%", lg: "80%", xl: "70%" }}
                 maxW="900px"
@@ -1255,18 +1256,18 @@ const WeddingInvitePage = () => {
                             p={{ base: "4", md: "5" }}
                             minH={{ base: "160px", md: "180px" }}
                             bg={isCurrentEvent 
-                              ? "rgba(193, 154, 108, 0.15)" 
+                              ? "rgba(193, 154, 108, 0.25)" 
                               : "rgba(255, 255, 255, 0.25)"
                             }
-                            backdropFilter="blur(16px) saturate(150%)"
+                            backdropFilter="blur(4px) saturate(110%)"
                             borderRadius="20px"
                             border={isCurrentEvent 
                               ? "2px solid #C19A6C" 
                               : "1px solid rgba(31, 87, 110, 0.2)"
                             }
                             boxShadow={isCurrentEvent 
-                              ? "0 8px 25px rgba(193, 154, 108, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)" 
-                              : "0 4px 15px rgba(31, 87, 110, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4)"
+                              ? "0 8px 25px rgba(193, 154, 108, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)" 
+                              : "0 4px 15px rgba(31, 87, 110, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
                             }
                             cursor="pointer"
                             onClick={() => handleEventClick(event)}
@@ -1274,8 +1275,8 @@ const WeddingInvitePage = () => {
                             _hover={{
                               transform: "translateY(-2px)",
                               boxShadow: isCurrentEvent 
-                                ? "0 12px 30px rgba(193, 154, 108, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4)" 
-                                : "0 8px 20px rgba(31, 87, 110, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5)"
+                                ? "0 12px 30px rgba(193, 154, 108, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)" 
+                                : "0 8px 20px rgba(31, 87, 110, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
                             }}
                             overflow="hidden"
                           >
@@ -1293,7 +1294,7 @@ const WeddingInvitePage = () => {
                               borderRadius="full"
                               backdropFilter="blur(12px)"
                               boxShadow="0 4px 16px rgba(0, 0, 0, 0.15)"
-                              border="1px solid rgba(255, 255, 255, 0.3)"
+                              border="1px solid rgba(255, 255, 255, 0.2)"
                               zIndex="2"
                             >
                               <VStack gap="0" align="center">
@@ -1347,7 +1348,7 @@ const WeddingInvitePage = () => {
                                 py="1.5"
                                 bg="linear-gradient(135deg, #C19A6C, #E8B4B8)"
                                 borderRadius="full"
-                                border="1px solid rgba(255, 255, 255, 0.4)"
+                                border="1px solid rgba(255, 255, 255, 0.2)"
                                 boxShadow="0 2px 8px rgba(193, 154, 108, 0.3)"
                               >
                                 <Text
@@ -1408,7 +1409,7 @@ const WeddingInvitePage = () => {
                                     fontWeight="normal"
                                     color={isCurrentEvent ? "#C19A6C" : "#1f576e"}
                                     lineHeight="1.1"
-                                    textShadow="0 2px 4px rgba(255,255,255,0.8)"
+                                    textShadow="0 2px 6px rgba(255,255,255,0.8)"
                                     letterSpacing="-0.02em"
                                   >
                                     {event.title}
@@ -1417,10 +1418,10 @@ const WeddingInvitePage = () => {
                                     fontSize={{ base: "sm", md: "md" }}
                                     color="#2b5a72"
                                     fontFamily="'Aparajita', serif"
-                                    fontWeight="medium"
+                                    fontWeight="bold"
                                     textTransform="uppercase"
                                     letterSpacing="0.1em"
-                                    opacity="0.8"
+                                    textShadow="0 1px 3px rgba(255,255,255,0.8)"
                                   >
                                     {eventData.title || event.title}
                                   </Text>
@@ -1438,11 +1439,11 @@ const WeddingInvitePage = () => {
                                 >
                                   <Text
                                     fontSize={{ base: "lg", md: "xl" }}
-                                    color={isCurrentEvent ? "#2b5a72" : "gray.700"}
+                                    color={isCurrentEvent ? "#1f576e" : "#2b5a72"}
                                     fontFamily="'Aparajita', serif"
                                     lineHeight="1.5"
-                                    fontWeight="medium"
-                                    textShadow="0 1px 2px rgba(255,255,255,0.5)"
+                                    fontWeight="bold"
+                                    textShadow="0 2px 4px rgba(255,255,255,0.8)"
                                     overflow="hidden"
                                     display="-webkit-box"
                                     css={{
@@ -1465,10 +1466,10 @@ const WeddingInvitePage = () => {
                                   fontSize="xs"
                                   color={isCurrentEvent ? "#C19A6C" : "#1f576e"}
                                   fontFamily="'Aparajita', serif"
-                                  fontWeight="medium"
-                                  opacity="0.6"
+                                  fontWeight="bold"
                                   textTransform="uppercase"
                                   letterSpacing="0.5px"
+                                  textShadow="0 1px 2px rgba(255,255,255,0.8)"
                                 >
                                   Click for details
                                 </Text>
@@ -1485,7 +1486,7 @@ const WeddingInvitePage = () => {
         </VStack>
       </Container>
 
-      {/* Event Details Slide-Up Sheet */}
+      {/* Modern Event Details Modal */}
       {isEventModalOpen && selectedEvent && (
         <>
           {/* Backdrop */}
@@ -1500,21 +1501,32 @@ const WeddingInvitePage = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.6)",
+              backgroundColor: "rgba(0, 0, 0, 0.3)",
+              backdropFilter: "blur(8px)",
               zIndex: 9998
             }}
             onClick={() => setIsEventModalOpen(false)}
           />
           
-          {/* Slide-up Sheet */}
+          {/* Modern Slide-up Modal */}
           <motion.div
+            ref={modalRef}
             initial={{ y: "100%" }}
-            animate={{ y: 0 }}
+            animate={{ y: dragY }}
             exit={{ y: "100%" }}
             transition={{ 
               type: "spring", 
-              damping: 25, 
-              stiffness: 300 
+              damping: 30, 
+              stiffness: 400 
+            }}
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(_, info) => {
+              if (info.offset.y > 150) {
+                setIsEventModalOpen(false);
+              }
+              setDragY(0);
             }}
             style={{
               position: "fixed",
@@ -1522,52 +1534,151 @@ const WeddingInvitePage = () => {
               left: 0,
               right: 0,
               zIndex: 9999,
-              maxHeight: "85vh"
+              maxHeight: "90vh"
             }}
           >
             <Box
-              bg="rgba(255, 255, 255, 0.95)"
-              backdropFilter="blur(20px) saturate(180%)"
-              borderTopRadius="24px"
-              border="1px solid rgba(255, 255, 255, 0.3)"
-              boxShadow="0 -10px 40px rgba(0, 0, 0, 0.2)"
-              p={{ base: "6", md: "8" }}
-              maxH="85vh"
-              overflow="auto"
+              bg="rgba(255, 255, 255, 0.1)"
+              backdropFilter="blur(4px) saturate(110%)"
+              borderTopRadius="28px"
+              boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
+              border="1px solid rgba(255, 255, 255, 0.2)"
+              p={0}
+              maxH="90vh"
+              overflow="hidden"
+              position="relative"
             >
-              {/* Handle bar */}
+              {/* Luxury Handle bar */}
               <Box
-                w="40px"
-                h="4px"
-                bg="rgba(31, 87, 110, 0.3)"
+                w="60px"
+                h="6px"
+                bg="rgba(255, 255, 255, 0.3)"
                 borderRadius="full"
                 mx="auto"
-                mb="6"
+                my="6"
+                cursor="grab"
+                boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
+                border="1px solid rgba(255, 255, 255, 0.4)"
+                position="relative"
+                _active={{ cursor: "grabbing", transform: "scale(1.1)" }}
+                _hover={{ transform: "scale(1.05)", bg: "rgba(255, 255, 255, 0.4)" }}
+                transition="all 0.2s ease"
+                css={{
+                  "&::after": {
+                    content: '""',
+                    position: "absolute",
+                    top: "1px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: "40px",
+                    height: "2px",
+                    background: "rgba(255,255,255,0.6)",
+                    borderRadius: "full"
+                  }
+                }}
               />
               
-              <VStack gap="6" alignItems="flex-start" w="100%">
-                {/* Header */}
-                <HStack justify="space-between" w="100%">
-                  <VStack align="flex-start" gap="2" flex="1">
-                    <HStack gap="3" align="center">
-                      <Text fontSize="3xl">
-                        {eventDescriptions[selectedEvent.title as keyof typeof eventDescriptions]?.emoji || "🎉"}
-                      </Text>
-                      <Heading 
-                        size="lg" 
-                        color="#1f576e"
-                        fontFamily="'Aparajita', serif"
-                        fontWeight="bold"
-                      >
-                        {selectedEvent.title}
-                      </Heading>
-                    </HStack>
-                    
-                    <Text 
-                      fontSize="md" 
+              {/* Balanced Header Section */}
+              <Box
+                bg="rgba(255, 255, 255, 0.08)"
+                backdropFilter="blur(4px) saturate(110%)"
+                p={{ base: "4", md: "5" }}
+                color="#1f576e"
+                position="relative"
+                overflow="hidden"
+                borderTopRadius="28px"
+                boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
+                border="1px solid rgba(255, 255, 255, 0.2)"
+              >
+                {/* Compact Close Button */}
+                <Button
+                  position="absolute"
+                  top="4"
+                  right="4"
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => setIsEventModalOpen(false)}
+                  color="#1f576e"
+                  borderRadius="full"
+                  bg="rgba(255, 255, 255, 0.15)"
+                  w="8"
+                  h="8"
+                  fontSize="sm"
+                  _hover={{
+                    bg: "rgba(255, 255, 255, 0.25)",
+                    transform: "scale(1.1)"
+                  }}
+                  transition="all 0.2s ease"
+                  zIndex="2"
+                >
+                  ✕
+                </Button>
+                
+                {/* Single Line Header */}
+                <HStack w="full" justify="center" align="center" gap="6">
+                  {/* Emoji */}
+                  <Box
+                    fontSize={{ base: "3xl", md: "4xl" }}
+                    bg="rgba(255, 255, 255, 0.12)"
+                    borderRadius="xl"
+                    p={{ base: "2.5", md: "3" }}
+                    backdropFilter="blur(4px) saturate(110%)"
+                    border="1px solid rgba(255, 255, 255, 0.18)"
+                    boxShadow="0 3px 12px rgba(31, 87, 110, 0.1)"
+                    flexShrink="0"
+                  >
+                    {eventDescriptions[selectedEvent.title as keyof typeof eventDescriptions]?.emoji || "🎉"}
+                  </Box>
+                  
+                  {/* Event Title - Center */}
+                  <VStack flex="1" minW="0" textAlign="center" gap="0.5">
+                    <Heading 
+                      fontSize={{ base: "2xl", md: "3xl" }}
+                      color="#1f576e"
+                      fontFamily="'Bernhard Tango', cursive"
+                      fontWeight="700"
+                      textShadow="0 2px 4px rgba(255,255,255,0.8)"
+                      lineHeight="1.1"
+                      whiteSpace="nowrap"
+                      overflow="hidden"
+                      textOverflow="ellipsis"
+                    >
+                      {selectedEvent.title}
+                    </Heading>
+                    <Text
+                      fontSize={{ base: "md", md: "lg" }}
                       color="#2b5a72"
                       fontFamily="'Aparajita', serif"
-                      fontWeight="medium"
+                      fontWeight="600"
+                      textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                      lineHeight="1.3"
+                      whiteSpace="nowrap"
+                      overflow="hidden"
+                      textOverflow="ellipsis"
+                    >
+                      {eventDescriptions[selectedEvent.title as keyof typeof eventDescriptions]?.title || selectedEvent.title}
+                    </Text>
+                  </VStack>
+                  
+                  {/* Time Badge */}
+                  <Box
+                    bg="rgba(255, 255, 255, 0.12)"
+                    backdropFilter="blur(4px) saturate(110%)"
+                    borderRadius="full"
+                    px={{ base: "3", md: "4" }}
+                    py={{ base: "2", md: "2.5" }}
+                    border="1px solid rgba(255, 255, 255, 0.18)"
+                    boxShadow="0 3px 12px rgba(31, 87, 110, 0.1)"
+                    flexShrink="0"
+                  >
+                    <Text 
+                      fontSize={{ base: "xs", md: "sm" }}
+                      color="#1f576e"
+                      fontFamily="'Aparajita', serif"
+                      fontWeight="700"
+                      textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                      textAlign="center"
+                      whiteSpace="nowrap"
                     >
                       {new Date(selectedEvent.since).toLocaleTimeString('en-US', {
                         hour: 'numeric',
@@ -1579,61 +1690,102 @@ const WeddingInvitePage = () => {
                         hour12: true
                       })}
                     </Text>
-                  </VStack>
-                  
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => setIsEventModalOpen(false)}
-                    color="#2b5a72"
-                    borderRadius="full"
-                    p="2"
-                  >
-                    ✕
-                  </Button>
-                </HStack>
-                
-                {/* Description */}
-                {selectedEvent.description && (
-                  <Box
-                    p="4"
-                    bg="rgba(31, 87, 110, 0.05)"
-                    borderRadius="12px"
-                    border="1px solid rgba(31, 87, 110, 0.1)"
-                    w="100%"
-                  >
-                    <Text 
-                      fontSize="md" 
-                      color="gray.700"
-                      lineHeight="1.7"
-                      fontFamily="'Aparajita', serif"
-                    >
-                      {selectedEvent.description}
-                    </Text>
                   </Box>
-                )}
-                
-                {/* Fun Action Button */}
-                <Button
-                  w="100%"
-                  bg="linear-gradient(135deg, #C19A6C, #E8B4B8)"
-                  color="white"
-                  fontFamily="'Aparajita', serif"
-                  fontWeight="bold"
-                  fontSize="lg"
-                  py="6"
-                  borderRadius="16px"
-                  onClick={() => setIsEventModalOpen(false)}
-                  _hover={{
-                    bg: "linear-gradient(135deg, #B8916A, #D1A4A8)",
-                    transform: "translateY(-2px)",
-                    boxShadow: "0 8px 25px rgba(193, 154, 108, 0.4)"
-                  }}
-                  transition="all 0.3s ease"
-                >
-                  Can&apos;t wait! 🎉
-                </Button>
-              </VStack>
+                </HStack>
+              </Box>
+              
+              {/* Content Section */}
+              <Box 
+                p={{ base: "5", md: "6" }} 
+                maxH="60vh" 
+                overflow="auto"
+                bg="rgba(255, 255, 255, 0.08)"
+                backdropFilter="blur(4px) saturate(110%)"
+                position="relative"
+              >
+                <VStack gap="4" align="stretch">
+                  {/* Description */}
+                  {selectedEvent.description && (
+                    <Box>
+                      <Heading
+                        fontSize={{ base: "xl", md: "xl" }}
+                        color="#1f576e"
+                        fontFamily="'Aparajita', serif"
+                        fontWeight="700"
+                        mb="3"
+                        textShadow="0 2px 4px rgba(255,255,255,0.8)"
+                      >
+                        What to Expect
+                      </Heading>
+                      <Box
+                        p={{ base: "5", md: "5" }}
+                        bg="rgba(255, 255, 255, 0.12)"
+                        backdropFilter="blur(4px) saturate(110%)"
+                        borderRadius="xl"
+                        border="1px solid rgba(255, 255, 255, 0.18)"
+                        boxShadow="0 3px 12px 0 rgba(31, 38, 135, 0.15)"
+                        position="relative"
+                        overflow="hidden"
+                        _hover={{
+                          bg: "rgba(255, 255, 255, 0.16)",
+                          boxShadow: "0 6px 20px -2px rgba(31, 38, 135, 0.25)",
+                          transform: "translateY(-1px)",
+                        }}
+                        transition="all 0.3s ease"
+                      >
+                        {/* Decorative element */}
+                        <Box
+                          position="absolute"
+                          top="0"
+                          left="0"
+                          w="4px"
+                          h="100%"
+                          bg="rgba(255, 255, 255, 0.3)"
+                          borderRadius="0 3px 3px 0"
+                        />
+                        <Text 
+                          fontSize={{ base: "lg", md: "lg" }}
+                          color="#1f576e"
+                          lineHeight="1.6"
+                          fontFamily="'Aparajita', serif"
+                          fontWeight="600"
+                          pl="4"
+                          textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                        >
+                          {selectedEvent.description}
+                        </Text>
+                      </Box>
+                    </Box>
+                  )}
+                  
+                  {/* Action Button */}
+                  <Button
+                    w="100%"
+                    size="lg"
+                    bg="linear-gradient(135deg, #C19A6C, #E8B4B8)"
+                    color="white"
+                    fontFamily="'Aparajita', serif"
+                    fontWeight="700"
+                    fontSize={{ base: "xl", md: "xl" }}
+                    py={{ base: "6", md: "6" }}
+                    borderRadius="xl"
+                    onClick={() => setIsEventModalOpen(false)}
+                    boxShadow="0 5px 18px rgba(193, 154, 108, 0.35), 0 2px 8px rgba(193, 154, 108, 0.2)"
+                    border="1px solid rgba(255, 255, 255, 0.2)"
+                    position="sticky"
+                    bottom="0"
+                    mt="5"
+                    _hover={{
+                      bg: "linear-gradient(135deg, #B8916A, #D1A4A8)",
+                      transform: "translateY(-2px)",
+                      boxShadow: "0 8px 25px rgba(193, 154, 108, 0.45), 0 4px 12px rgba(193, 154, 108, 0.25)"
+                    }}
+                    transition="all 0.3s ease"
+                  >
+                    Can&apos;t wait! 🎉
+                  </Button>
+                </VStack>
+              </Box>
             </Box>
           </motion.div>
         </>
