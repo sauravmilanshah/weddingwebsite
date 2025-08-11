@@ -962,7 +962,7 @@ const TravelTipsPage = () => {
                             >
                               {place.name}
                             </Heading>
-                            {place.recommendedBy && (
+                            {'recommendedBy' in place && place.recommendedBy && (
                               <Box
                                 px="3"
                                 py="1"
@@ -972,7 +972,7 @@ const TravelTipsPage = () => {
                                 flexShrink="0"
                               >
                                 <Text fontSize="xs" color="#1f576e" fontWeight="600">
-                                  {place.recommendedBy}'s pick
+                                  {'recommendedBy' in place ? place.recommendedBy : ''}&apos;s pick
                                 </Text>
                               </Box>
                             )}
@@ -983,7 +983,7 @@ const TravelTipsPage = () => {
                           <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
                             {place.description}
                           </Text>
-                          {place.personalNote && (
+                          {'personalNote' in place && place.personalNote && (
                             <Box
                               p="3"
                               bg="rgba(245, 245, 240, 0.2)"
@@ -992,7 +992,7 @@ const TravelTipsPage = () => {
                               borderLeft="4px solid rgba(232, 180, 184, 0.5)"
                             >
                               <Text fontSize="sm" color="#1f576e" fontStyle="italic">
-                                "{place.personalNote}" - {place.recommendedBy}
+                                &quot;{place.personalNote}&quot; - {'recommendedBy' in place ? place.recommendedBy : ''}
                               </Text>
                             </Box>
                           )}
@@ -1111,9 +1111,9 @@ const TravelTipsPage = () => {
                               📍 {item.location}
                             </Text>
                           )}
-                          {item.locations && (
+                          {'locations' in item && (item as {locations: string}).locations && (
                             <Text fontSize="sm" color="#2b5a72" fontWeight="600">
-                              📍 {item.locations}
+                              📍 {(item as {locations: string}).locations}
                             </Text>
                           )}
                           
@@ -1214,7 +1214,7 @@ const TravelTipsPage = () => {
               >
                 These are just our personal favorites! For more detailed itineraries, 
                 specific bookings, or any questions about Mumbai, feel free to reach out to us directly. 
-                We're so excited to share our favorite city with you!
+                We&apos;re so excited to share our favorite city with you!
               </Text>
               <Text 
                 fontSize="sm"
@@ -2345,8 +2345,6 @@ const WeddingInvitePage = () => {
                     borderRadius="xl"
                     border="1px solid rgba(255, 255, 255, 0.25)"
                     p={{ base: "2", md: "2.5" }}
-                    backdropFilter="blur(4px) saturate(110%)"
-                    border="1px solid rgba(255, 255, 255, 0.18)"
                     boxShadow="0 3px 12px rgba(31, 87, 110, 0.1)"
                     flexShrink="0"
                   >
@@ -2388,10 +2386,9 @@ const WeddingInvitePage = () => {
                     bg="rgba(255, 255, 255, 0.18)"
                     backdropFilter="blur(8px) saturate(120%)"
                     borderRadius="full"
-                    border="1px solid rgba(255, 255, 255, 0.25)"
+                    border="1px solid rgba(255, 255, 255, 0.18)"
                     px={{ base: "2.5", md: "3" }}
                     py={{ base: "1.5", md: "2" }}
-                    border="1px solid rgba(255, 255, 255, 0.18)"
                     boxShadow="0 3px 12px rgba(31, 87, 110, 0.1)"
                     flexShrink="0"
                   >
