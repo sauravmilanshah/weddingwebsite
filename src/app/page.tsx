@@ -130,7 +130,7 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
         right="0"
         zIndex="40"
         py={scrolled ? "2" : "4"}
-        transform={(scrolled && currentPage === 'wedding-invite') ? "translateY(-100%)" : "translateY(0)"}
+        transform={scrolled ? "translateY(-100%)" : "translateY(0)"}
         transition="all 0.3s ease"
         aria-label="Main navigation"
       >
@@ -142,7 +142,7 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
           transform="translateY(-50%)"
           display={{ 
             base: "none", 
-            lg: (scrolled && currentPage === 'wedding-invite') ? "none" : "block" 
+            lg: scrolled ? "none" : "block" 
           }}
           transition="all 0.3s ease"
         >
@@ -207,32 +207,64 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
                 }}
               >
                 <Flex as="nav" gap={6} wrap="nowrap" align="center">
-                  {navigation.slice(0, -1).map((item) => (
-                    <Button
-                      key={item.name}
-                      onClick={() => setCurrentPage(item.href)}
-                      variant="ghost"
-                      px="3"
-                      py="2"
-                      borderRadius="md"
-                      fontSize="xl"
-                      fontWeight="bold"
-                      color="#1f576e"
-                      textShadow="0 1px 2px rgba(255,255,255,0.8)"
-                      letterSpacing="0.02em"
-                      transition="all 0.2s ease"
-                      whiteSpace="nowrap"
-                      fontFamily="'Aparajita', serif"
-                      _hover={{
-                        color: "#1a4d63",
-                        bg: "rgba(255, 255, 255, 0.15)",
-                        textShadow: "0 2px 4px rgba(255,255,255,0.8)",
-                        transform: "translateY(-1px)",
-                      }}
-                    >
-                      {item.name}
-                    </Button>
-                  ))}
+                  {/* Home Icon */}
+                  <Button
+                    onClick={() => setCurrentPage('home')}
+                    variant="ghost"
+                    px="3"
+                    py="2"
+                    borderRadius="md"
+                    fontSize="xl"
+                    fontWeight="bold"
+                    color="#1f576e"
+                    textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                    transition="all 0.2s ease"
+                    border={currentPage === 'home' ? "2px solid #C19A6C" : "2px solid transparent"}
+                    boxShadow={currentPage === 'home' ? "0 0 15px rgba(193, 154, 108, 0.4), 0 4px 12px rgba(193, 154, 108, 0.2)" : "none"}
+                    _hover={{
+                      color: "#1a4d63",
+                      bg: "rgba(255, 255, 255, 0.15)",
+                      textShadow: "0 2px 4px rgba(255,255,255,0.8)",
+                      transform: "translateY(-1px)",
+                    }}
+                    aria-label="Go to home page"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                  </Button>
+                  
+                  {navigation.slice(0, -1).map((item) => {
+                    const isActive = currentPage === item.href;
+                    return (
+                      <Button
+                        key={item.name}
+                        onClick={() => setCurrentPage(item.href)}
+                        variant="ghost"
+                        px="3"
+                        py="2"
+                        borderRadius="md"
+                        fontSize="xl"
+                        fontWeight="bold"
+                        color="#1f576e"
+                        textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                        letterSpacing="0.02em"
+                        transition="all 0.2s ease"
+                        whiteSpace="nowrap"
+                        fontFamily="'Aparajita', serif"
+                        border={isActive ? "2px solid #C19A6C" : "2px solid transparent"}
+                        boxShadow={isActive ? "0 0 15px rgba(193, 154, 108, 0.4), 0 4px 12px rgba(193, 154, 108, 0.2)" : "none"}
+                        _hover={{
+                          color: "#1a4d63",
+                          bg: "rgba(255, 255, 255, 0.15)",
+                          textShadow: "0 2px 4px rgba(255,255,255,0.8)",
+                          transform: "translateY(-1px)",
+                        }}
+                      >
+                        {item.name}
+                      </Button>
+                    );
+                  })}
                 </Flex>
               </Box>
             </Box>
@@ -758,8 +790,8 @@ const TravelTipsPage = () => {
   ];
 
   return (
-    <Box position="relative" minH="100vh" pt="20" display="flex" justifyContent="center">
-      <Container maxW="7xl" py={{ base: "8", md: "12" }} centerContent>
+    <Box position="relative" minH="100vh" display="flex" justifyContent="center">
+      <Container maxW="7xl" py={{ base: "28", md: "40" }} centerContent>
         {/* Header */}
         <motion.div
           initial={{ y: -30, opacity: 0 }}
@@ -770,12 +802,13 @@ const TravelTipsPage = () => {
             <Heading 
               fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
               color="#1f576e"
-              fontFamily="Bernhard Tango"
-              fontWeight="700"
+              fontFamily="'Bernhard Tango', cursive"
+              fontWeight="normal"
               textShadow="0 4px 8px rgba(255,255,255,0.8)"
             >
               Travel Tips for Mumbai
             </Heading>
+            <Box w={{ base: "40", md: "48" }} h="2px" bg="#1f576e" opacity="0.6" mx="auto" />
             <Text 
               fontSize={{ base: "lg", md: "xl" }}
               color="#2b5a72"
