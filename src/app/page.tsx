@@ -506,12 +506,704 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
   );
 };
 
+// Travel Tips for Mumbai Page Component
+const TravelTipsPage = () => {
+  const [activeSection, setActiveSection] = useState('hotels');
+  
+  const sections = [
+    { id: 'hotels', name: 'Hotels', icon: '🏨' },
+    { id: 'restaurants', name: 'Restaurants', icon: '🍽️' },
+    { id: 'shopping', name: 'Shopping & Landmarks', icon: '🛍️' },
+    { id: 'experiences', name: 'Unique Experiences', icon: '🎭' },
+    { id: 'practical', name: 'Practical Tips', icon: '✈️' }
+  ];
+
+  const hotels = [
+    {
+      name: "The Taj Mahal Palace",
+      area: "Colaba",
+      description: "Heritage icon with sea views and grand service",
+      highlight: "Award-winning Jiva Spa with many top Mumbai restaurants including Wasabi, Souk",
+      address: "Apollo Bunder, Mumbai 400001 (Colaba)"
+    },
+    {
+      name: "Trident Nariman Point",
+      area: "Marine Drive", 
+      description: "Panoramic bay views, luxury amenities",
+      highlight: "Well-appointed spa with multiple on-site dining options",
+      address: "Marine Drive, Nariman Point, Mumbai 400021"
+    },
+    {
+      name: "Four Seasons Hotel",
+      area: "Worli",
+      description: "Rooftop bar (AER), modern luxury",
+      highlight: "AER rooftop, Opus (pan-Asian)",
+      address: "1/136 Dr. E. Moses Road, Worli, Mumbai 400018"
+    },
+    {
+      name: "Taj President (Vivanta by Taj)",
+      area: "Cuffe Parade",
+      description: "Elegant hotel in prestigious location",
+      highlight: "Classic Taj hospitality with modern amenities",
+      address: "90, Cuffe Parade, Mumbai 400005"
+    },
+    {
+      name: "InterContinental Marine Drive",
+      area: "Marine Drive",
+      description: "Best rooftop views, excellent location",
+      highlight: "Panoramic ocean views with Mediterranean-inspired menu at Dome",
+      address: "135 Marine Drive, Mumbai 400020"
+    }
+  ];
+
+  const restaurants = [
+    {
+      category: "Saurav & Shivani's Personal Favorites",
+      places: [
+        {
+          name: "Trishna",
+          location: "Fort",
+          description: "Old-school, world-famous for butter garlic crab",
+          recommendedBy: "Shivani",
+          personalNote: "The Harjani family has a standing reservation here. Dad orders the same crab dish every single time - we've given up trying to expand his culinary horizons. At this point, the waiters just nod and bring 'the usual' 🦀"
+        },
+        {
+          name: "Gigis",
+          location: "Bandra",
+          description: "Contemporary dining with Bollywood vibes",
+          recommendedBy: "Shivani",
+          personalNote: "Where Bollywood meets food and pretends to be healthy! Perfect for when you want to feel fancy while eating comfort food 🎬"
+        },
+        {
+          name: "Status",
+          location: "Bandra",
+          description: "Classic Mumbai restaurant with traditional Indian cuisine",
+          recommendedBy: "Shivani",
+          personalNote: "Papa's favorite lunch spot! You'll probably find him here on any weekday afternoon, enjoying his thali and sharing stories with the regulars. It's like his second office! 👨‍💼"
+        },
+        {
+          name: "Foo",
+          location: "Bandra",
+          description: "Pan-Asian cuisine with creative presentations",
+          recommendedBy: "Shivani & Saurav",
+          personalNote: "Our 'I don't know what I want to eat' restaurant. The yellow curry and blue rice combo sounds weird but tastes like magic - trust us on this culinary adventure! 🌈"
+        },
+        {
+          name: "Little Italy",
+          location: "Bandra",
+          description: "Italian cuisine in cozy setting",
+          recommendedBy: "Saurav",
+          personalNote: "My childhood obesity headquarters! Mom would drop me here thinking it was healthier than McDonald's. Spoiler alert: their pasta portions could feed a small Italian village 🍝"
+        },
+        {
+          name: "Cream Centre",
+          location: "Multiple locations",
+          description: "Vegetarian Indian-Chinese and continental cuisine",
+          recommendedBy: "Saurav",
+          personalNote: "Home of the legendary Indian nachos that confused my American friends but converted them to the cause. Also, their chole bhatura could end world hunger - one plate feeds approximately 7 people 🌮"
+        },
+        {
+          name: "Peshawri",
+          location: "ITC Grand Central",
+          description: "North Indian cuisine with rustic ambiance",
+          recommendedBy: "Saurav",
+          personalNote: "Their black dal is so good, I've considered writing poetry about it. It's like a warm hug from your grandmother, if your grandmother was a world-class chef 🖤"
+        },
+        {
+          name: "Burma Burma",
+          location: "Multiple locations",
+          description: "Vegetarian Burmese cuisine",
+          recommendedBy: "Saurav",
+          personalNote: "Finally, vegetarian food that doesn't make you miss meat! They've somehow made vegetables exciting - it's basically culinary witchcraft 🥗✨"
+        }
+      ]
+    },
+    {
+      category: "Street Food (Safe for Tourists)",
+      places: [
+        {
+          name: "Elco Pani Puri Centre",
+          location: "Bandra",
+          description: "Hugely popular, clean, all-veg chaat, air-conditioned option"
+        },
+        {
+          name: "Swati Snacks",
+          location: "Tardeo", 
+          description: "Celebrity favorite for regional Gujarati/Maharashtrian snacks in hygienic setting"
+        }
+      ]
+    },
+    {
+      category: "Seafood & Iconic Institutions",
+      places: [
+        {
+          name: "Mahesh Lunch Home",
+          location: "Fort/Juhu",
+          description: "Go-to for Malvani specialties, legendary with locals"
+        },
+        {
+          name: "Gajalee",
+          location: "Vile Parle East",
+          description: "For oysters, crab, and rustic coast vibes"
+        },
+        {
+          name: "Leopold Cafe",
+          location: "Colaba",
+          description: "Iconic, historic, lively eclectic menu, bullet holes from 26/11"
+        }
+      ]
+    },
+    {
+      category: "Rooftop/Views",
+      places: [
+        {
+          name: "AER",
+          location: "Four Seasons, Worli",
+          description: "City and sea vistas, sophisticated cocktails; dress code applies"
+        },
+        {
+          name: "Dome",
+          location: "InterContinental Marine Drive",
+          description: "Panoramic ocean views, Mediterranean-inspired menu"
+        }
+      ]
+    }
+  ];
+
+  const shopping = [
+    {
+      category: "Luxury Shopping",
+      items: [
+        {
+          name: "Palladium Mall",
+          location: "462 Senapati Bapat Marg, Lower Parel, Mumbai 400013",
+          description: "Mumbai's most upscale mall",
+          tip: "Perfect for luxury international brands"
+        }
+      ]
+    },
+    {
+      category: "Culture & Street Shopping",
+      items: [
+        {
+          name: "Kala Ghoda",
+          location: "Fort, Mumbai 400001",
+          description: "Art & culture precinct with boutique shops, galleries, cafes",
+          tip: "Perfect for afternoon gallery hopping and unique finds"
+        },
+        {
+          name: "Colaba Causeway",
+          location: "Colaba, Mumbai 400001",
+          description: "Famous for street shopping, boutiques, and accessories",
+          tip: "Great for souvenirs and local fashion"
+        }
+      ]
+    }
+  ];
+
+  const experiences = [
+    {
+      category: "Must-See Mumbai Landmarks",
+      items: [
+        {
+          name: "Gateway of India",
+          location: "Apollo Bunder, Colaba, Mumbai 400001",
+          description: "Iconic Mumbai landmark and must-see historic monument",
+          tip: "Early morning for fewer crowds and best photos"
+        },
+        {
+          name: "Chhatrapati Shivaji Maharaj Vastu Sangrahalaya",
+          location: "159-161 Mahatma Gandhi Rd, Fort, Mumbai 400023",
+          description: "Classic museum (formerly Prince of Wales Museum) with extensive Indian art and artifacts",
+          tip: "Allow 2-3 hours for a proper visit"
+        },
+        {
+          name: "Marine Drive",
+          location: "Nariman Point, Mumbai 400021",
+          description: "Must-see promenade with iconic 'Queen's Necklace' view",
+          tip: "Perfect for sunset walks, very safe area"
+        }
+      ]
+    },
+    {
+      category: "Art & Culture",
+      items: [
+        {
+          name: "Kala Ghoda Art Precinct",
+          location: "Fort, Mumbai 400001",
+          description: "Arts & culture hub with galleries, cafes, and street art",
+          tip: "Perfect for afternoon exploration and gallery hopping"
+        },
+        {
+          name: "Colaba Causeway",
+          location: "Colaba, Mumbai 400001",
+          description: "Iconic shopping and walking area with street vendors and cafes",
+          tip: "Great for people watching and street food"
+        }
+      ]
+    }
+  ];
+
+  const practicalTips = [
+    {
+      title: "Weather in January 2026", 
+      content: "Perfect weather! Daytime: 28–30°C, Night: 19–22°C. No rain expected - it's the dry season. Pack light cottons and a light jacket for evenings.",
+      icon: "☀️"
+    },
+    {
+      title: "Getting Around Mumbai",
+      content: "Use app-based cabs (Uber/Ola) for transparency and safety. Mumbai is generally very safe for tourists. The areas we've recommended (Colaba, Fort, Marine Drive) are all pedestrian-friendly.",
+      icon: "🚗"
+    }
+  ];
+
+  return (
+    <Box position="relative" minH="100vh" pt="20" display="flex" justifyContent="center">
+      <Container maxW="7xl" py={{ base: "8", md: "12" }} centerContent>
+        {/* Header */}
+        <motion.div
+          initial={{ y: -30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <VStack gap="4" textAlign="center" mb="10">
+            <Heading 
+              fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+              color="#1f576e"
+              fontFamily="Bernhard Tango"
+              fontWeight="700"
+              textShadow="0 4px 8px rgba(255,255,255,0.8)"
+            >
+              Travel Tips for Mumbai
+            </Heading>
+            <Text 
+              fontSize={{ base: "lg", md: "xl" }}
+              color="#2b5a72"
+              maxW="2xl"
+              textShadow="0 2px 4px rgba(255,255,255,0.7)"
+              fontWeight="500"
+            >
+              Our personal guide to exploring the incredible city of Mumbai! 
+              Discover our favorite spots with insider tips from Saurav & Shivani.
+            </Text>
+          </VStack>
+        </motion.div>
+
+        {/* Navigation Pills */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        >
+          <HStack 
+            gap="2" 
+            justify="center" 
+            wrap="wrap" 
+            mb="8"
+            px={{ base: "4", md: "0" }}
+          >
+            {sections.map((section) => (
+              <Button
+                key={section.id}
+                onClick={() => setActiveSection(section.id)}
+                variant={activeSection === section.id ? "solid" : "ghost"}
+                bg={activeSection === section.id ? "rgba(232, 180, 184, 0.2)" : "rgba(255, 255, 255, 0.1)"}
+                color={activeSection === section.id ? "#1f576e" : "#2b5a72"}
+                border="1px solid"
+                borderColor={activeSection === section.id ? "rgba(232, 180, 184, 0.4)" : "rgba(255, 255, 255, 0.2)"}
+                backdropFilter="blur(8px) saturate(120%)"
+                borderRadius="full"
+                px={{ base: "3", md: "4" }}
+                py="2"
+                fontSize={{ base: "sm", md: "md" }}
+                fontWeight="600"
+                _hover={{
+                  bg: "rgba(232, 180, 184, 0.15)",
+                  transform: "translateY(-1px)",
+                  boxShadow: "0 4px 12px rgba(232, 180, 184, 0.2)"
+                }}
+                transition="all 0.3s ease"
+              >
+                <Text mr="1">{section.icon}</Text>
+                {section.name}
+              </Button>
+            ))}
+          </HStack>
+        </motion.div>
+
+        {/* Content Sections */}
+        <motion.div
+          key={activeSection}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          {activeSection === 'hotels' && (
+            <Grid 
+              templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+              gap="6"
+            >
+              {hotels.map((hotel, index) => (
+                <Box
+                  key={index}
+                  p={{ base: "6", md: "8" }}
+                  bg="rgba(255, 255, 255, 0.15)"
+                  backdropFilter="blur(10px) saturate(130%)"
+                  borderRadius="2xl"
+                  border="1px solid rgba(255, 255, 255, 0.2)"
+                  boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+                >
+                  <VStack align="start" gap="4">
+                    <VStack align="start" gap="1" w="full">
+                      <Heading 
+                        fontSize={{ base: "xl", md: "2xl" }}
+                        color="#1f576e"
+                        fontFamily="'Aparajita', serif"
+                      >
+                        {hotel.name}
+                      </Heading>
+                      <Text fontSize="md" color="#2b5a72" fontWeight="600">
+                        📍 {hotel.area}
+                      </Text>
+                      {hotel.address && (
+                        <Text fontSize="sm" color="#2b5a72">
+                          {hotel.address}
+                        </Text>
+                      )}
+                    </VStack>
+                    
+                    <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                      {hotel.description}
+                    </Text>
+                    
+                    <Box
+                      p="3"
+                      bg="rgba(232, 180, 184, 0.1)"
+                      borderRadius="lg"
+                      border="1px solid rgba(232, 180, 184, 0.2)"
+                    >
+                      <Text fontSize="sm" color="#1f576e" fontWeight="600" mb="1">
+                        💫 {hotel.highlight}
+                      </Text>
+                    </Box>
+                  </VStack>
+                </Box>
+              ))}
+            </Grid>
+          )}
+
+          {activeSection === 'restaurants' && (
+            <VStack gap="8" align="stretch">
+              {restaurants.map((category, categoryIndex) => (
+                <Box key={categoryIndex}>
+                  <Heading 
+                    fontSize={{ base: "2xl", md: "3xl" }}
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                    mb="6"
+                    textAlign="center"
+                  >
+                    {category.category}
+                  </Heading>
+                  <Grid 
+                    templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+                    gap="6"
+                  >
+                    {category.places.map((place, placeIndex) => (
+                      <Box
+                        key={placeIndex}
+                        p={{ base: "5", md: "6" }}
+                        bg="rgba(255, 255, 255, 0.15)"
+                        backdropFilter="blur(10px) saturate(130%)"
+                        borderRadius="xl"
+                        border="1px solid rgba(255, 255, 255, 0.2)"
+                        boxShadow="0 6px 24px rgba(31, 87, 110, 0.1)"
+                      >
+                        <VStack align="start" gap="2" w="full">
+                          {place.recommendedBy && (
+                            <Box
+                              px="3"
+                              py="1"
+                              bg="rgba(193, 154, 108, 0.2)"
+                              borderRadius="full"
+                              border="1px solid rgba(193, 154, 108, 0.3)"
+                              alignSelf="flex-end"
+                            >
+                              <Text fontSize="xs" color="#1f576e" fontWeight="600">
+                                {place.recommendedBy}'s pick
+                              </Text>
+                            </Box>
+                          )}
+                          <Heading 
+                            fontSize={{ base: "lg", md: "xl" }}
+                            color="#1f576e"
+                            fontFamily="'Aparajita', serif"
+                          >
+                            {place.name}
+                          </Heading>
+                          <Text fontSize="sm" color="#2b5a72" fontWeight="600">
+                            📍 {place.location}
+                          </Text>
+                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                            {place.description}
+                          </Text>
+                          {place.personalNote && (
+                            <Box
+                              p="3"
+                              bg="rgba(245, 245, 240, 0.2)"
+                              borderRadius="lg"
+                              border="1px solid rgba(245, 245, 240, 0.3)"
+                              borderLeft="4px solid rgba(232, 180, 184, 0.5)"
+                            >
+                              <Text fontSize="sm" color="#1f576e" fontStyle="italic">
+                                "{place.personalNote}" - {place.recommendedBy}
+                              </Text>
+                            </Box>
+                          )}
+                        </VStack>
+                      </Box>
+                    ))}
+                  </Grid>
+                </Box>
+              ))}
+            </VStack>
+          )}
+
+          {activeSection === 'shopping' && (
+            <VStack gap="8" align="stretch">
+              {shopping.map((category, categoryIndex) => (
+                <Box key={categoryIndex}>
+                  <Heading 
+                    fontSize={{ base: "2xl", md: "3xl" }}
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                    mb="6"
+                    textAlign="center"
+                  >
+                    {category.category}
+                  </Heading>
+                  <Grid 
+                    templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+                    gap="6"
+                  >
+                    {category.items.map((item, itemIndex) => (
+                      <Box
+                        key={itemIndex}
+                        p={{ base: "5", md: "6" }}
+                        bg="rgba(255, 255, 255, 0.15)"
+                        backdropFilter="blur(10px) saturate(130%)"
+                        borderRadius="xl"
+                        border="1px solid rgba(255, 255, 255, 0.2)"
+                        boxShadow="0 6px 24px rgba(31, 87, 110, 0.1)"
+                      >
+                        <VStack align="start" gap="3">
+                          <Heading 
+                            fontSize={{ base: "lg", md: "xl" }}
+                            color="#1f576e"
+                            fontFamily="'Aparajita', serif"
+                          >
+                            {item.name}
+                          </Heading>
+                          {item.location && (
+                            <Text fontSize="sm" color="#2b5a72" fontWeight="600">
+                              📍 {item.location}
+                            </Text>
+                          )}
+                          
+                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                            {item.description}
+                          </Text>
+                          
+                          {item.tip && (
+                            <Box
+                              p="2"
+                              bg="rgba(193, 154, 108, 0.1)"
+                              borderRadius="md"
+                              border="1px solid rgba(193, 154, 108, 0.2)"
+                            >
+                              <Text fontSize="sm" color="#1f576e" fontWeight="600">
+                                💡 {item.tip}
+                              </Text>
+                            </Box>
+                          )}
+                        </VStack>
+                      </Box>
+                    ))}
+                  </Grid>
+                </Box>
+              ))}
+            </VStack>
+          )}
+
+          {activeSection === 'experiences' && (
+            <VStack gap="8" align="stretch">
+              {experiences.map((category, categoryIndex) => (
+                <Box key={categoryIndex}>
+                  <Heading 
+                    fontSize={{ base: "2xl", md: "3xl" }}
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                    mb="6"
+                    textAlign="center"
+                  >
+                    {category.category}
+                  </Heading>
+                  <Grid 
+                    templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+                    gap="6"
+                  >
+                    {category.items.map((item, itemIndex) => (
+                      <Box
+                        key={itemIndex}
+                        p={{ base: "5", md: "6" }}
+                        bg="rgba(255, 255, 255, 0.15)"
+                        backdropFilter="blur(10px) saturate(130%)"
+                        borderRadius="xl"
+                        border="1px solid rgba(255, 255, 255, 0.2)"
+                        boxShadow="0 6px 24px rgba(31, 87, 110, 0.1)"
+                      >
+                        <VStack align="start" gap="3">
+                          <Heading 
+                            fontSize={{ base: "lg", md: "xl" }}
+                            color="#1f576e"
+                            fontFamily="'Aparajita', serif"
+                          >
+                            {item.name}
+                          </Heading>
+                          {item.location && (
+                            <Text fontSize="sm" color="#2b5a72" fontWeight="600">
+                              📍 {item.location}
+                            </Text>
+                          )}
+                          {item.locations && (
+                            <Text fontSize="sm" color="#2b5a72" fontWeight="600">
+                              📍 {item.locations}
+                            </Text>
+                          )}
+                          
+                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                            {item.description}
+                          </Text>
+                          
+                          {item.tip && (
+                            <Box
+                              p="2"
+                              bg="rgba(193, 154, 108, 0.1)"
+                              borderRadius="md"
+                              border="1px solid rgba(193, 154, 108, 0.2)"
+                            >
+                              <Text fontSize="sm" color="#1f576e" fontWeight="600">
+                                💡 {item.tip}
+                              </Text>
+                            </Box>
+                          )}
+                        </VStack>
+                      </Box>
+                    ))}
+                  </Grid>
+                </Box>
+              ))}
+            </VStack>
+          )}
+
+          {activeSection === 'practical' && (
+            <Grid 
+              templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+              gap="6"
+            >
+              {practicalTips.map((tip, index) => (
+                <Box
+                  key={index}
+                  p={{ base: "6", md: "8" }}
+                  bg="rgba(255, 255, 255, 0.15)"
+                  backdropFilter="blur(10px) saturate(130%)"
+                  borderRadius="2xl"
+                  border="1px solid rgba(255, 255, 255, 0.2)"
+                  boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+                >
+                  <HStack align="start" gap="4">
+                    <Text fontSize="3xl">{tip.icon}</Text>
+                    <VStack align="start" gap="2" flex="1">
+                      <Heading 
+                        fontSize={{ base: "xl", md: "2xl" }}
+                        color="#1f576e"
+                        fontFamily="'Aparajita', serif"
+                      >
+                        {tip.title}
+                      </Heading>
+                      <Text 
+                        fontSize="md" 
+                        color="#2b5a72" 
+                        lineHeight="1.6"
+                      >
+                        {tip.content}
+                      </Text>
+                    </VStack>
+                  </HStack>
+                </Box>
+              ))}
+            </Grid>
+          )}
+        </motion.div>
+
+        {/* Call to Action */}
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+        >
+          <Box 
+            mt="12" 
+            p={{ base: "6", md: "8" }}
+            bg="rgba(232, 180, 184, 0.15)"
+            backdropFilter="blur(10px) saturate(130%)"
+            borderRadius="2xl"
+            border="1px solid rgba(232, 180, 184, 0.3)"
+            boxShadow="0 8px 32px rgba(232, 180, 184, 0.2)"
+            textAlign="center"
+          >
+            <VStack gap="4">
+              <Heading 
+                fontSize={{ base: "2xl", md: "3xl" }}
+                color="#1f576e"
+                fontFamily="'Aparajita', serif"
+              >
+                Need More Help? 🤗
+              </Heading>
+              <Text 
+                fontSize={{ base: "md", md: "lg" }}
+                color="#2b5a72"
+                maxW="2xl"
+                lineHeight="1.6"
+              >
+                These are just our personal favorites! For more detailed itineraries, 
+                specific bookings, or any questions about Mumbai, feel free to reach out to us directly. 
+                We're so excited to share our favorite city with you!
+              </Text>
+              <Text 
+                fontSize="sm"
+                color="#1f576e"
+                fontStyle="italic"
+                mt="2"
+              >
+                With love, Saurav & Shivani ❤️
+              </Text>
+            </VStack>
+          </Box>
+        </motion.div>
+      </Container>
+    </Box>
+  );
+};
+
 export default function Home() {
   const [currentPage, setCurrentPage] = useState('home');
   
   const renderCurrentPage = () => {
     if (currentPage === 'wedding-invite') {
       return <WeddingInvitePage />;
+    } else if (currentPage === 'travel-tips') {
+      return <TravelTipsPage />;
     }
     // For now, return the hero section for all other pages
     return <HeroSection />;
@@ -526,7 +1218,11 @@ export default function Home() {
       <Box
         position="absolute"
         inset="0"
-        backgroundImage={currentPage === 'wedding-invite' ? "url('/backgrndotherpages.png')" : "url('/wedding-background.png')"}
+        backgroundImage={
+          currentPage === 'wedding-invite' ? "url('/background2.png')" : 
+          currentPage === 'travel-tips' ? "url('/background2.png')" : 
+          "url('/wedding-background.png')"
+        }
         backgroundSize="cover"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
@@ -1066,7 +1762,7 @@ const WeddingInvitePage = () => {
                   position="sticky"
                   top="4"
                   zIndex="10"
-                  bg="rgba(255, 255, 255, 0.25)"
+                  bg="rgba(255, 255, 255, 0.16)"
                   backdropFilter="blur(4px) saturate(110%)"
                   borderRadius="16px"
                   border="2px solid #C19A6C"
@@ -1168,20 +1864,25 @@ const WeddingInvitePage = () => {
                   >
                     <Box
                       p={{ base: "4", md: "6" }}
-                      bg={isSelected ? `${dayInfo.color}20` : "rgba(255, 255, 255, 0.25)"}
+                      bg={isSelected ? "rgba(255, 255, 255, 0.3)" : "rgba(255, 255, 255, 0.16)"}
                       borderRadius="xl"
                       cursor="pointer"
                       onClick={() => setSelectedDay(dayInfo.day)}
                       border="2px solid"
-                      borderColor={isSelected ? dayInfo.color : "rgba(31, 87, 110, 0.2)"}
+                      borderColor={isSelected ? "#C19A6C" : "rgba(255, 255, 255, 0.2)"}
                       backdropFilter="blur(4px) saturate(110%)"
-                      _hover={{ 
-                        bg: isSelected ? `${dayInfo.color}30` : "rgba(255, 255, 255, 0.35)",
+                      _hover={{
+                        bg: isSelected ? "rgba(255, 255, 255, 0.35)" : "rgba(255, 255, 255, 0.2)",
                         transform: "translateY(-2px)",
-                        boxShadow: "0 8px 25px rgba(31, 87, 110, 0.2)"
+                        boxShadow: isSelected 
+                          ? "0 8px 32px rgba(193, 154, 108, 0.4), 0 0 0 1px rgba(193, 154, 108, 0.3)" 
+                          : "0 8px 32px rgba(31, 87, 110, 0.37)"
                       }}
                       transition="all 0.3s ease"
-                      boxShadow="0 4px 12px rgba(31, 87, 110, 0.1)"
+                      boxShadow={isSelected 
+                        ? "0 4px 12px rgba(193, 154, 108, 0.3), 0 0 0 1px rgba(193, 154, 108, 0.2)" 
+                        : "0 4px 12px rgba(31, 87, 110, 0.1)"
+                      }
                       minW={{ base: "140px", md: "180px" }}
                       textAlign="center"
                     >
@@ -1224,8 +1925,8 @@ const WeddingInvitePage = () => {
             >
               <Box
                 p="6"
-                bg="rgba(255, 255, 255, 0.25)"
-                border="2px solid rgba(31, 87, 110, 0.2)"
+                bg="rgba(255, 255, 255, 0.16)"
+                border="2px solid rgba(255, 255, 255, 0.2)"
                 borderRadius="20px"
                 backdropFilter="blur(4px) saturate(110%)"
                 boxShadow="0 20px 60px rgba(31, 87, 110, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
@@ -1255,19 +1956,16 @@ const WeddingInvitePage = () => {
                             position="relative"
                             p={{ base: "4", md: "5" }}
                             minH={{ base: "160px", md: "180px" }}
-                            bg={isCurrentEvent 
-                              ? "rgba(193, 154, 108, 0.25)" 
-                              : "rgba(255, 255, 255, 0.25)"
-                            }
+                            bg="rgba(255, 255, 255, 0.1)"
                             backdropFilter="blur(4px) saturate(110%)"
                             borderRadius="20px"
                             border={isCurrentEvent 
                               ? "2px solid #C19A6C" 
-                              : "1px solid rgba(31, 87, 110, 0.2)"
+                              : "1px solid rgba(31, 87, 110, 0.3)"
                             }
                             boxShadow={isCurrentEvent 
-                              ? "0 8px 25px rgba(193, 154, 108, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)" 
-                              : "0 4px 15px rgba(31, 87, 110, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
+                              ? "0 8px 25px rgba(193, 154, 108, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4)" 
+                              : "0 8px 32px rgba(31, 87, 110, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3)"
                             }
                             cursor="pointer"
                             onClick={() => handleEventClick(event)}
@@ -1275,8 +1973,8 @@ const WeddingInvitePage = () => {
                             _hover={{
                               transform: "translateY(-2px)",
                               boxShadow: isCurrentEvent 
-                                ? "0 12px 30px rgba(193, 154, 108, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)" 
-                                : "0 8px 20px rgba(31, 87, 110, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
+                                ? "0 12px 30px rgba(193, 154, 108, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5)" 
+                                : "0 12px 32px rgba(31, 87, 110, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4)"
                             }}
                             overflow="hidden"
                           >
@@ -1365,20 +2063,6 @@ const WeddingInvitePage = () => {
                               </Box>
                             )}
 
-                            {/* Subtle Gradient Overlay */}
-                            <Box
-                              position="absolute"
-                              top="0"
-                              left="0"
-                              right="0"
-                              bottom="0"
-                              bg={isCurrentEvent 
-                                ? "linear-gradient(135deg, rgba(193, 154, 108, 0.05) 0%, rgba(232, 180, 184, 0.05) 100%)"
-                                : "linear-gradient(135deg, rgba(31, 87, 110, 0.02) 0%, rgba(255, 255, 255, 0.05) 100%)"
-                              }
-                              borderRadius="20px"
-                              pointerEvents="none"
-                            />
                             
                             {/* Main Content Area */}
                             <VStack align="flex-start" gap={{ base: "4", md: "5" }} w="100%" pr={{ base: "16", md: "20" }}>
@@ -1538,21 +2222,22 @@ const WeddingInvitePage = () => {
             }}
           >
             <Box
-              bg="rgba(255, 255, 255, 0.1)"
-              backdropFilter="blur(4px) saturate(110%)"
+              bg="rgba(255, 255, 255, 0.18)"
+              backdropFilter="blur(8px) saturate(120%)"
               borderTopRadius="28px"
               boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
-              border="1px solid rgba(255, 255, 255, 0.2)"
+              border="1px solid rgba(255, 255, 255, 0.25)"
               p={0}
               maxH="90vh"
               overflow="hidden"
               position="relative"
+              mx={{ base: "2", md: "6" }}
             >
               {/* Luxury Handle bar */}
               <Box
                 w="60px"
                 h="6px"
-                bg="rgba(255, 255, 255, 0.3)"
+                bg="rgba(255, 255, 255, 0.35)"
                 borderRadius="full"
                 mx="auto"
                 my="6"
@@ -1580,15 +2265,15 @@ const WeddingInvitePage = () => {
               
               {/* Balanced Header Section */}
               <Box
-                bg="rgba(255, 255, 255, 0.08)"
-                backdropFilter="blur(4px) saturate(110%)"
-                p={{ base: "4", md: "5" }}
+                bg="rgba(255, 255, 255, 0.18)"
+                backdropFilter="blur(8px) saturate(120%)"
+                p={{ base: "3", md: "4" }}
                 color="#1f576e"
                 position="relative"
                 overflow="hidden"
                 borderTopRadius="28px"
                 boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
-                border="1px solid rgba(255, 255, 255, 0.2)"
+                border="1px solid rgba(255, 255, 255, 0.25)"
               >
                 {/* Compact Close Button */}
                 <Button
@@ -1615,13 +2300,15 @@ const WeddingInvitePage = () => {
                 </Button>
                 
                 {/* Single Line Header */}
-                <HStack w="full" justify="center" align="center" gap="6">
+                <HStack w="full" justify="center" align="center" gap={{ base: "2", md: "3" }}>
                   {/* Emoji */}
                   <Box
                     fontSize={{ base: "3xl", md: "4xl" }}
-                    bg="rgba(255, 255, 255, 0.12)"
+                    bg="rgba(255, 255, 255, 0.18)"
+                    backdropFilter="blur(8px) saturate(120%)"
                     borderRadius="xl"
-                    p={{ base: "2.5", md: "3" }}
+                    border="1px solid rgba(255, 255, 255, 0.25)"
+                    p={{ base: "2", md: "2.5" }}
                     backdropFilter="blur(4px) saturate(110%)"
                     border="1px solid rgba(255, 255, 255, 0.18)"
                     boxShadow="0 3px 12px rgba(31, 87, 110, 0.1)"
@@ -1631,7 +2318,7 @@ const WeddingInvitePage = () => {
                   </Box>
                   
                   {/* Event Title - Center */}
-                  <VStack flex="1" minW="0" textAlign="center" gap="0.5">
+                  <VStack flex="0.625" minW="0" textAlign="center" gap="0.5">
                     <Heading 
                       fontSize={{ base: "2xl", md: "3xl" }}
                       color="#1f576e"
@@ -1662,11 +2349,12 @@ const WeddingInvitePage = () => {
                   
                   {/* Time Badge */}
                   <Box
-                    bg="rgba(255, 255, 255, 0.12)"
-                    backdropFilter="blur(4px) saturate(110%)"
+                    bg="rgba(255, 255, 255, 0.18)"
+                    backdropFilter="blur(8px) saturate(120%)"
                     borderRadius="full"
-                    px={{ base: "3", md: "4" }}
-                    py={{ base: "2", md: "2.5" }}
+                    border="1px solid rgba(255, 255, 255, 0.25)"
+                    px={{ base: "2.5", md: "3" }}
+                    py={{ base: "1.5", md: "2" }}
                     border="1px solid rgba(255, 255, 255, 0.18)"
                     boxShadow="0 3px 12px rgba(31, 87, 110, 0.1)"
                     flexShrink="0"
@@ -1696,11 +2384,10 @@ const WeddingInvitePage = () => {
               
               {/* Content Section */}
               <Box 
-                p={{ base: "5", md: "6" }} 
+                p={{ base: "4", md: "5" }} 
                 maxH="60vh" 
                 overflow="auto"
-                bg="rgba(255, 255, 255, 0.08)"
-                backdropFilter="blur(4px) saturate(110%)"
+                bg="transparent"
                 position="relative"
               >
                 <VStack gap="4" align="stretch">
@@ -1718,16 +2405,16 @@ const WeddingInvitePage = () => {
                         What to Expect
                       </Heading>
                       <Box
-                        p={{ base: "5", md: "5" }}
-                        bg="rgba(255, 255, 255, 0.12)"
-                        backdropFilter="blur(4px) saturate(110%)"
+                        p="3"
+                        bg="rgba(255, 255, 255, 0.18)"
+                        backdropFilter="blur(8px) saturate(120%)"
                         borderRadius="xl"
-                        border="1px solid rgba(255, 255, 255, 0.18)"
+                        border="1px solid rgba(255, 255, 255, 0.25)"
                         boxShadow="0 3px 12px 0 rgba(31, 38, 135, 0.15)"
                         position="relative"
                         overflow="hidden"
                         _hover={{
-                          bg: "rgba(255, 255, 255, 0.16)",
+                          bg: "rgba(255, 255, 255, 0.25)",
                           boxShadow: "0 6px 20px -2px rgba(31, 38, 135, 0.25)",
                           transform: "translateY(-1px)",
                         }}
@@ -1740,7 +2427,7 @@ const WeddingInvitePage = () => {
                           left="0"
                           w="4px"
                           h="100%"
-                          bg="rgba(255, 255, 255, 0.3)"
+                          bg="rgba(255, 255, 255, 0.35)"
                           borderRadius="0 3px 3px 0"
                         />
                         <Text 
@@ -1759,31 +2446,30 @@ const WeddingInvitePage = () => {
                   )}
                   
                   {/* Action Button */}
-                  <Button
-                    w="100%"
-                    size="lg"
-                    bg="linear-gradient(135deg, #C19A6C, #E8B4B8)"
-                    color="white"
-                    fontFamily="'Aparajita', serif"
-                    fontWeight="700"
-                    fontSize={{ base: "xl", md: "xl" }}
-                    py={{ base: "6", md: "6" }}
-                    borderRadius="xl"
-                    onClick={() => setIsEventModalOpen(false)}
-                    boxShadow="0 5px 18px rgba(193, 154, 108, 0.35), 0 2px 8px rgba(193, 154, 108, 0.2)"
-                    border="1px solid rgba(255, 255, 255, 0.2)"
-                    position="sticky"
-                    bottom="0"
-                    mt="5"
-                    _hover={{
-                      bg: "linear-gradient(135deg, #B8916A, #D1A4A8)",
-                      transform: "translateY(-2px)",
-                      boxShadow: "0 8px 25px rgba(193, 154, 108, 0.45), 0 4px 12px rgba(193, 154, 108, 0.25)"
-                    }}
-                    transition="all 0.3s ease"
-                  >
-                    Can&apos;t wait! 🎉
-                  </Button>
+                  <Flex justify="center" mt="5">
+                    <Button
+                      size="md"
+                      bg="linear-gradient(135deg, #C19A6C, #E8B4B8)"
+                      color="white"
+                      fontFamily="'Aparajita', serif"
+                      fontWeight="600"
+                      fontSize="md"
+                      px="6"
+                      py="3"
+                      borderRadius="xl"
+                      onClick={() => setIsEventModalOpen(false)}
+                      boxShadow="0 4px 12px rgba(193, 154, 108, 0.3), 0 2px 6px rgba(193, 154, 108, 0.2)"
+                      border="1px solid rgba(255, 255, 255, 0.2)"
+                      _hover={{
+                        bg: "linear-gradient(135deg, #B8916A, #D1A4A8)",
+                        transform: "translateY(-1px)",
+                        boxShadow: "0 6px 18px rgba(193, 154, 108, 0.4), 0 3px 8px rgba(193, 154, 108, 0.25)"
+                      }}
+                      transition="all 0.3s ease"
+                    >
+                      Can&apos;t wait! 🎉
+                    </Button>
+                  </Flex>
                 </VStack>
               </Box>
             </Box>
