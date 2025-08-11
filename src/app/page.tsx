@@ -919,28 +919,31 @@ const TravelTipsPage = () => {
                         border="1px solid rgba(255, 255, 255, 0.2)"
                         boxShadow="0 6px 24px rgba(31, 87, 110, 0.1)"
                       >
-                        <VStack align="start" gap="2" w="full">
-                          {place.recommendedBy && (
-                            <Box
-                              px="3"
-                              py="1"
-                              bg="rgba(193, 154, 108, 0.2)"
-                              borderRadius="full"
-                              border="1px solid rgba(193, 154, 108, 0.3)"
-                              alignSelf="flex-end"
+                        <VStack align="start" gap="3" w="full">
+                          <HStack justify="space-between" align="start" w="full">
+                            <Heading 
+                              fontSize={{ base: "xl", md: "2xl" }}
+                              color="#1f576e"
+                              fontFamily="'Aparajita', serif"
+                              flex="1"
                             >
-                              <Text fontSize="xs" color="#1f576e" fontWeight="600">
-                                {place.recommendedBy}'s pick
-                              </Text>
-                            </Box>
-                          )}
-                          <Heading 
-                            fontSize={{ base: "lg", md: "xl" }}
-                            color="#1f576e"
-                            fontFamily="'Aparajita', serif"
-                          >
-                            {place.name}
-                          </Heading>
+                              {place.name}
+                            </Heading>
+                            {place.recommendedBy && (
+                              <Box
+                                px="3"
+                                py="1"
+                                bg="rgba(193, 154, 108, 0.2)"
+                                borderRadius="full"
+                                border="1px solid rgba(193, 154, 108, 0.3)"
+                                flexShrink="0"
+                              >
+                                <Text fontSize="xs" color="#1f576e" fontWeight="600">
+                                  {place.recommendedBy}'s pick
+                                </Text>
+                              </Box>
+                            )}
+                          </HStack>
                           <Text fontSize="sm" color="#2b5a72" fontWeight="600">
                             📍 {place.location}
                           </Text>
