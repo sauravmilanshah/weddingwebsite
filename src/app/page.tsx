@@ -791,7 +791,7 @@ const TravelTipsPage = () => {
 
   return (
     <Box position="relative" minH="100vh" display="flex" justifyContent="center">
-      <Container maxW="7xl" py={{ base: "28", md: "40" }} centerContent>
+      <Container maxW="7xl" py={{ base: "28", md: "40" }} px={{ base: "4", md: "6", lg: "8" }} centerContent>
         {/* Header */}
         <motion.div
           initial={{ y: -30, opacity: 0 }}
