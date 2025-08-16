@@ -97,7 +97,7 @@ const IndianWeddingFlowerShower = () => {
 
 const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setCurrentPage: (page: string) => void }) => {
   const navigation = [
-    { name: 'Wedding Invite', href: 'wedding-invite' },
+    { name: 'Wedding Flow', href: 'wedding-invite' },
     { name: 'Dress Code', href: 'dress-code' },
     { name: 'Logistics', href: 'logistics' },
     { name: 'Things to do at Oleander', href: 'oleander' },
@@ -1697,7 +1697,7 @@ export default function Home() {
       return <OleanderPage />;
     }
     // For now, return the hero section for all other pages
-    return <HeroSection />;
+    return <HeroSection setCurrentPage={setCurrentPage} />;
   };
 
   return (
@@ -1819,6 +1819,11 @@ export default function Home() {
                 </a>
               </Text>
               <Text>
+                <a href="https://www.flaticon.com/free-icons/idea" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Idea icons by Good Ware - Flaticon
+                </a>
+              </Text>
+              <Text>
                 <a href="https://www.flaticon.com/free-icons/turmeric" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
                   Turmeric icons by juicy_fish - Flaticon
                 </a>
@@ -1852,7 +1857,7 @@ export default function Home() {
 }
 
 // Hero Section Component
-const HeroSection = () => {
+const HeroSection = ({ setCurrentPage }: { setCurrentPage: (page: string) => void }) => {
   const weddingDate = useMemo(() => new Date(WEDDING_DATE), []);
 
   return (
@@ -2021,6 +2026,7 @@ const HeroSection = () => {
                   boxShadow: "0 4px 12px rgba(31,87,110,0.5)",
                 }}
                 transition="all 0.2s ease"
+                onClick={() => setCurrentPage('wedding-invite')}
               >
                 View Details
               </Button>
@@ -2095,7 +2101,7 @@ const DressCodePage = () => {
                     style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
                   />
                   <Heading 
-                    fontSize={{ base: "xl", md: "2xl" }}
+                    fontSize={{ base: "2xl", md: "3xl" }}
                     color="#1f576e"
                     fontFamily="'Aparajita', serif"
                   >
@@ -2122,13 +2128,15 @@ const DressCodePage = () => {
                 color="#2b5a72"
                 lineHeight="1.7"
               >
-                Think sophisticated fusion with a playful twist! We&apos;re talking rich jewel tones, elegant silhouettes with an Indian flair, and outfits that can transition from henna artistry to dinner dancing. 
+                Think sophisticated fusion with a playful twist! We&apos;re talking rich jewel tones, elegant silhouettes with an Indian flair, and outfits that can transition from henna artistry to dinner dancing.{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   Darker colors work best
-                </Text> as they won&apos;t show henna stains, and 
+                </Text>
+                {' '}as they won&apos;t show henna stains, and{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   Indo-western styles
-                </Text> give you the perfect blend of comfort and cultural celebration.
+                </Text>
+                {' '}give you the perfect blend of comfort and cultural celebration.
               </Text>
               
               <VStack align="start" gap="3" w="full">
@@ -2168,16 +2176,13 @@ const DressCodePage = () => {
               >
                 <VStack align="start" gap="3">
                   <HStack gap="2">
-                    <Box w="20px" h="20px" color="#C19A6C">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        {/* Light bulb */}
-                        <path d="M9 21h6"/>
-                        <path d="M12 17h0"/>
-                        <path d="M12 3c3.3 0 6 2.7 6 6 0 2-1 3.8-2.5 5l-1.5 2h-4l-1.5-2C7 12.8 6 11 6 9c0-3.3 2.7-6 6-6z"/>
-                        {/* Light rays */}
-                        <path d="M12 1v2M21 9h-2M5 9H3M18.5 3.5l-1.4 1.4M6.9 4.9L5.5 3.5"/>
-                      </svg>
-                    </Box>
+                    <Image 
+                      src="/lightbulb.png" 
+                      alt="Lightbulb inspiration icon" 
+                      width={24} 
+                      height={24}
+                      style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                    />
                     <Text 
                       fontSize="md" 
                       color="#1f576e" 
@@ -2232,7 +2237,7 @@ const DressCodePage = () => {
                     style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
                   />
                   <Heading 
-                    fontSize={{ base: "xl", md: "2xl" }}
+                    fontSize={{ base: "2xl", md: "3xl" }}
                     color="#1f576e"
                     fontFamily="'Aparajita', serif"
                   >
@@ -2259,7 +2264,7 @@ const DressCodePage = () => {
                 color="#2b5a72"
                 lineHeight="1.7"
               >
-                Embrace the Mediterranean coastal vibe with effortless elegance! Picture yourself strolling through a Spanish courtyard - light, flowing fabrics that catch the breeze, natural textures, and that relaxed sophistication that says 
+                Embrace the Mediterranean coastal vibe with effortless elegance! Picture yourself strolling through a Spanish courtyard - light, flowing fabrics that catch the breeze, natural textures, and that relaxed sophistication that says{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   &apos;vacation chic meets cultural celebration.&apos;
                 </Text>
@@ -2302,16 +2307,13 @@ const DressCodePage = () => {
               >
                 <VStack align="start" gap="3">
                   <HStack gap="2">
-                    <Box w="20px" h="20px" color="#C19A6C">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        {/* Light bulb */}
-                        <path d="M9 21h6"/>
-                        <path d="M12 17h0"/>
-                        <path d="M12 3c3.3 0 6 2.7 6 6 0 2-1 3.8-2.5 5l-1.5 2h-4l-1.5-2C7 12.8 6 11 6 9c0-3.3 2.7-6 6-6z"/>
-                        {/* Light rays */}
-                        <path d="M12 1v2M21 9h-2M5 9H3M18.5 3.5l-1.4 1.4M6.9 4.9L5.5 3.5"/>
-                      </svg>
-                    </Box>
+                    <Image 
+                      src="/lightbulb.png" 
+                      alt="Lightbulb inspiration icon" 
+                      width={24} 
+                      height={24}
+                      style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                    />
                     <Text 
                       fontSize="md" 
                       color="#1f576e" 
@@ -2366,7 +2368,7 @@ const DressCodePage = () => {
                     style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
                   />
                   <Heading 
-                    fontSize={{ base: "xl", md: "2xl" }}
+                    fontSize={{ base: "2xl", md: "3xl" }}
                     color="#1f576e"
                     fontFamily="'Aparajita', serif"
                   >
@@ -2393,13 +2395,15 @@ const DressCodePage = () => {
                 color="#2b5a72"
                 lineHeight="1.7"
               >
-                Step into the sacred circle of eternal love with timeless Indian elegance! This is the moment where traditions come alive - think classic silhouettes, rich fabrics, and those 
+                Step into the sacred circle of eternal love with timeless Indian elegance! This is the moment where traditions come alive - think classic silhouettes, rich fabrics, and those{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   traditional light colors
-                </Text> that have blessed countless generations of couples. Picture yourself as part of a beautiful tapestry of culture, where every thread tells a story of heritage and 
+                </Text>
+                {' '}that have blessed countless generations of couples. Picture yourself as part of a beautiful tapestry of culture, where every thread tells a story of heritage and{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   formal reverence
-                </Text> for this most sacred of ceremonies.
+                </Text>
+                {' '}for this most sacred of ceremonies.
               </Text>
               
               <VStack align="start" gap="3" w="full">
@@ -2439,16 +2443,13 @@ const DressCodePage = () => {
               >
                 <VStack align="start" gap="3">
                   <HStack gap="2">
-                    <Box w="20px" h="20px" color="#C19A6C">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        {/* Light bulb */}
-                        <path d="M9 21h6"/>
-                        <path d="M12 17h0"/>
-                        <path d="M12 3c3.3 0 6 2.7 6 6 0 2-1 3.8-2.5 5l-1.5 2h-4l-1.5-2C7 12.8 6 11 6 9c0-3.3 2.7-6 6-6z"/>
-                        {/* Light rays */}
-                        <path d="M12 1v2M21 9h-2M5 9H3M18.5 3.5l-1.4 1.4M6.9 4.9L5.5 3.5"/>
-                      </svg>
-                    </Box>
+                    <Image 
+                      src="/lightbulb.png" 
+                      alt="Lightbulb inspiration icon" 
+                      width={24} 
+                      height={24}
+                      style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                    />
                     <Text 
                       fontSize="md" 
                       color="#1f576e" 
@@ -2503,7 +2504,7 @@ const DressCodePage = () => {
                     style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
                   />
                   <Heading 
-                    fontSize={{ base: "xl", md: "2xl" }}
+                    fontSize={{ base: "2xl", md: "3xl" }}
                     color="#1f576e"
                     fontFamily="'Aparajita', serif"
                   >
@@ -2530,10 +2531,11 @@ const DressCodePage = () => {
                 color="#2b5a72"
                 lineHeight="1.7"
               >
-                Time to turn up the heat and dance the night away! Picture yourself stepping into a chic club - think sleek silhouettes, bold statement pieces, and that perfect balance of 
+                Time to turn up the heat and dance the night away! Picture yourself stepping into a chic club - think sleek silhouettes, bold statement pieces, and that perfect balance of{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   sophisticated edge
-                </Text> meets high-energy nightlife. We&apos;re talking outfits that can handle the dance floor while still looking effortlessly cool under those 
+                </Text>
+                {' '}meets high-energy nightlife. We&apos;re talking outfits that can handle the dance floor while still looking effortlessly cool under those{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   neon lights
                 </Text>. This is your moment to embrace that chic clubbing aesthetic where fashion meets function!
@@ -2576,16 +2578,13 @@ const DressCodePage = () => {
               >
                 <VStack align="start" gap="3">
                   <HStack gap="2">
-                    <Box w="20px" h="20px" color="#C19A6C">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        {/* Light bulb */}
-                        <path d="M9 21h6"/>
-                        <path d="M12 17h0"/>
-                        <path d="M12 3c3.3 0 6 2.7 6 6 0 2-1 3.8-2.5 5l-1.5 2h-4l-1.5-2C7 12.8 6 11 6 9c0-3.3 2.7-6 6-6z"/>
-                        {/* Light rays */}
-                        <path d="M12 1v2M21 9h-2M5 9H3M18.5 3.5l-1.4 1.4M6.9 4.9L5.5 3.5"/>
-                      </svg>
-                    </Box>
+                    <Image 
+                      src="/lightbulb.png" 
+                      alt="Lightbulb inspiration icon" 
+                      width={24} 
+                      height={24}
+                      style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                    />
                     <Text 
                       fontSize="md" 
                       color="#1f576e" 
@@ -2640,7 +2639,7 @@ const DressCodePage = () => {
                     style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
                   />
                   <Heading 
-                    fontSize={{ base: "xl", md: "2xl" }}
+                    fontSize={{ base: "2xl", md: "3xl" }}
                     color="#1f576e"
                     fontFamily="'Aparajita', serif"
                   >
@@ -2667,13 +2666,15 @@ const DressCodePage = () => {
                 color="#2b5a72"
                 lineHeight="1.7"
               >
-                Get ready for an evening of music, dance, and pure celebration! The Sangeet is where black tie elegance meets festivity - think 
+                Get ready for an evening of music, dance, and pure celebration! The Sangeet is where black tie elegance meets festivity - think{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   sophisticated glamour
-                </Text> with rich, darker tones that command attention. Picture yourself moving gracefully through the evening in outfits that exude formal elegance while honoring the celebratory spirit. We&apos;re talking about that perfect balance of 
+                </Text>
+                {' '}with rich, darker tones that command attention. Picture yourself moving gracefully through the evening in outfits that exude formal elegance while honoring the celebratory spirit. We&apos;re talking about that perfect balance of{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   black tie sophistication
-                </Text> and festive energy, where every step you take adds to the magic of this musical celebration!
+                </Text>
+                {' '}and festive energy, where every step you take adds to the magic of this musical celebration!
               </Text>
               
               <VStack align="start" gap="3" w="full">
@@ -2713,16 +2714,13 @@ const DressCodePage = () => {
               >
                 <VStack align="start" gap="3">
                   <HStack gap="2">
-                    <Box w="20px" h="20px" color="#C19A6C">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        {/* Light bulb */}
-                        <path d="M9 21h6"/>
-                        <path d="M12 17h0"/>
-                        <path d="M12 3c3.3 0 6 2.7 6 6 0 2-1 3.8-2.5 5l-1.5 2h-4l-1.5-2C7 12.8 6 11 6 9c0-3.3 2.7-6 6-6z"/>
-                        {/* Light rays */}
-                        <path d="M12 1v2M21 9h-2M5 9H3M18.5 3.5l-1.4 1.4M6.9 4.9L5.5 3.5"/>
-                      </svg>
-                    </Box>
+                    <Image 
+                      src="/lightbulb.png" 
+                      alt="Lightbulb inspiration icon" 
+                      width={24} 
+                      height={24}
+                      style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                    />
                     <Text 
                       fontSize="md" 
                       color="#1f576e" 
