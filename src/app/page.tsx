@@ -11,7 +11,6 @@ import {
   Button,
   HStack,
   VStack,
-  Link,
   Grid
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
@@ -100,11 +99,9 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
   const navigation = [
     { name: 'Wedding Invite', href: 'wedding-invite' },
     { name: 'Dress Code', href: 'dress-code' },
-    { name: 'Mood Boards', href: 'mood-boards' },
     { name: 'Logistics', href: 'logistics' },
     { name: 'Things to do at Oleander', href: 'oleander' },
-    { name: 'Travel Tips for Mumbai', href: 'travel-tips' },
-    { name: 'RSVP', href: 'rsvp' }
+    { name: 'Travel Tips for Mumbai', href: 'travel-tips' }
   ];
 
   const [scrolled, setScrolled] = useState(false);
@@ -234,7 +231,7 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
                     </svg>
                   </Button>
                   
-                  {navigation.slice(0, -1).map((item) => {
+                  {navigation.map((item) => {
                     const isActive = currentPage === item.href;
                     return (
                       <Button
@@ -269,43 +266,6 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
               </Box>
             </Box>
 
-            {/* RSVP Button - Right - Column 3 */}  
-            <Box py="2" display="flex" justifyContent="center">
-              <Link href="#rsvp" textDecoration="none">
-                <Box
-                  px="6"
-                  py="2"
-                  borderRadius="2xl"  
-                  bg="rgba(255, 255, 255, 0.1)"
-                  border="1px solid"
-                  borderColor="rgba(255, 255, 255, 0.2)"
-                  boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
-                  transition="all 0.3s ease"
-                  cursor="pointer"
-                  css={{
-                    backdropFilter: "blur(4px) saturate(110%)",
-                    WebkitBackdropFilter: "blur(4px) saturate(110%)"
-                  }}
-                  _hover={{
-                    bg: "rgba(255, 255, 255, 0.15)",
-                    boxShadow: "0 20px 40px -5px rgba(31, 38, 135, 0.5)",
-                    transform: "translateY(-2px)",
-                  }}
-                >
-                  <Text
-                    fontSize="xl"
-                    fontWeight="bold"
-                    color="#1f576e"
-                    textShadow="0 2px 4px rgba(255,255,255,0.8)"
-                    letterSpacing="0.1em"
-                    textAlign="center"
-                    fontFamily="'Aparajita', serif"
-                  >
-                    RSVP
-                  </Text>
-                </Box>
-              </Link>
-            </Box>
           </Grid>
 
           {/* Mobile Layout: Menu Button Left, Logo Center */}
@@ -409,28 +369,6 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
                     {item.name}
                   </Button>
                 ))}
-                <Box pt="2">
-                  <Button
-                    size="md"
-                    width="full"
-                    bg="#E8B4B8"
-                    color="white"
-                    fontWeight="medium"
-                    borderRadius="full"
-                    _hover={{
-                      bg: "#C19A6C",
-                      transform: "translateY(-1px)",
-                      boxShadow: "0 4px 12px rgba(232, 180, 184, 0.4)",
-                    }}
-                    transition="all 0.2s ease"
-                    onClick={() => {
-                      setCurrentPage('rsvp');
-                      setMobileMenuOpen(false);
-                    }}
-                  >
-                    RSVP
-                  </Button>
-                </Box>
               </VStack>
             </Box>
           )}
@@ -1746,10 +1684,13 @@ const TravelTipsPage = () => {
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [showIconCredits, setShowIconCredits] = useState(false);
   
   const renderCurrentPage = () => {
     if (currentPage === 'wedding-invite') {
       return <WeddingInvitePage />;
+    } else if (currentPage === 'dress-code') {
+      return <DressCodePage />;
     } else if (currentPage === 'travel-tips') {
       return <TravelTipsPage />;
     } else if (currentPage === 'oleander') {
@@ -1770,6 +1711,7 @@ export default function Home() {
         inset="0"
         backgroundImage={
           currentPage === 'wedding-invite' ? "url('/background2.png')" : 
+          currentPage === 'dress-code' ? "url('/background2.png')" : 
           currentPage === 'travel-tips' ? "url('/background2.png')" : 
           currentPage === 'oleander' ? "url('/background2.png')" :
           "url('/wedding-background.png')"
@@ -1783,6 +1725,88 @@ export default function Home() {
       <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
       {renderCurrentPage()}
+
+      {/* Collapsible Icon Attribution */}
+      <Box
+        position="fixed"
+        bottom="2"
+        right="2"
+        zIndex="1000"
+        opacity="0.6"
+        _hover={{ opacity: "1" }}
+        transition="all 0.2s"
+      >
+        {/* Toggle Button */}
+        <Text
+          fontSize="xs"
+          color="#666"
+          bg="rgba(255, 255, 255, 0.9)"
+          px="2"
+          py="1"
+          borderRadius="md"
+          cursor="pointer"
+          userSelect="none"
+          _hover={{ bg: "rgba(255, 255, 255, 1)" }}
+          onClick={() => setShowIconCredits(!showIconCredits)}
+        >
+          Icons by Flaticon {showIconCredits ? '▲' : '▼'}
+        </Text>
+        
+        {/* Expandable Credits */}
+        {showIconCredits && (
+          <Box
+            position="absolute"
+            bottom="100%"
+            right="0"
+            mb="1"
+            bg="rgba(255, 255, 255, 0.95)"
+            backdropFilter="blur(8px)"
+            borderRadius="lg"
+            border="1px solid rgba(0, 0, 0, 0.1)"
+            boxShadow="0 4px 12px rgba(0, 0, 0, 0.15)"
+            p="3"
+            maxW="280px"
+            minW="260px"
+          >
+            <Text
+              fontSize="xs"
+              color="#333"
+              fontWeight="600"
+              mb="2"
+              textAlign="center"
+            >
+              Icon Credits
+            </Text>
+            <VStack gap="1" fontSize="xx-small" color="#666" align="stretch">
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/turmeric" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Turmeric icons by juicy_fish - Flaticon
+                </a>
+              </Text>
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/henna-painted-hand" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Henna icons by Design View - Flaticon
+                </a>
+              </Text>
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/night-club" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  DJ icons by surang - Flaticon
+                </a>
+              </Text>
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/wedding" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Wedding icons by Freepik - Flaticon
+                </a>
+              </Text>
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/dancing" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Dancing icons by Freepik - Flaticon
+                </a>
+              </Text>
+            </VStack>
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 }
@@ -1964,6 +1988,739 @@ const HeroSection = () => {
           </Box>
         </Container>
       </Box>
+  );
+};
+
+// Dress Code Page Component
+const DressCodePage = () => {
+  return (
+    <Box position="relative" minH="100vh" display="flex" justifyContent="center">
+      <Container maxW="7xl" py={{ base: "28", md: "40" }} px={{ base: "4", md: "6", lg: "8" }} centerContent>
+        {/* Header */}
+        <motion.div
+          initial={{ y: -30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <Box textAlign="center" mb={{ base: "12", md: "16" }}>
+            <Heading 
+              fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+              color="#1f576e"
+              fontFamily="'Bernhard Tango', cursive"
+              fontWeight="normal"
+              mb="4"
+              textShadow="0 4px 8px rgba(255,255,255,0.8)"
+              textAlign="center"
+            >
+              Dress Code Guide
+            </Heading>
+            <Box w={{ base: "40", md: "48" }} h="2px" bg="#1f576e" opacity="0.6" mx="auto" />
+            <Text 
+              fontSize={{ base: "lg", md: "xl" }}
+              color="#2b5a72"
+              maxW="3xl"
+              mx="auto"
+              lineHeight="1.6"
+            >
+              Look fabulous while celebrating our special moments! Here&apos;s what to wear for each event.
+            </Text>
+          </Box>
+        </motion.div>
+
+        {/* Events */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        >
+          <VStack gap="8" align="stretch" w="full" maxW="4xl">
+          
+          {/* Mehendi & Welcome Dinner */}
+          <Box
+            p={{ base: "6", md: "8" }}
+            bg="rgba(255, 255, 255, 0.15)"
+            backdropFilter="blur(10px) saturate(130%)"
+            borderRadius="2xl"
+            border="1px solid rgba(255, 255, 255, 0.2)"
+            boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+          >
+            <VStack align="start" gap="6">
+              <VStack align="start" gap="3" w="full">
+                <HStack gap="3">
+                  <Image 
+                    src="/mehndi.png" 
+                    alt="Mehndi hand with henna design" 
+                    width={24} 
+                    height={24}
+                    style={{ filter: 'brightness(0) saturate(100%) invert(74%) sepia(18%) saturate(466%) hue-rotate(314deg) brightness(96%) contrast(88%)' }}
+                  />
+                  <Heading 
+                    fontSize={{ base: "xl", md: "2xl" }}
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                  >
+                    Mehendi & Welcome Dinner
+                  </Heading>
+                </HStack>
+                
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  fontWeight="600"
+                  bg="rgba(232, 180, 184, 0.1)"
+                  px="3"
+                  py="2"
+                  borderRadius="lg"
+                  border="1px solid rgba(232, 180, 184, 0.2)"
+                >
+                  Indo-Western • Darker Colors
+                </Text>
+              </VStack>
+              
+              <Text 
+                fontSize={{ base: "md", md: "lg" }}
+                color="#2b5a72"
+                lineHeight="1.7"
+              >
+                Think sophisticated fusion with a playful twist! We&apos;re talking rich jewel tones, elegant silhouettes with an Indian flair, and outfits that can transition from henna artistry to dinner dancing. 
+                <Text as="span" fontWeight="600" color="#1f576e">
+                  Darker colors work best
+                </Text> as they won&apos;t show henna stains, and 
+                <Text as="span" fontWeight="600" color="#1f576e">
+                  Indo-western styles
+                </Text> give you the perfect blend of comfort and cultural celebration.
+              </Text>
+              
+              <VStack align="start" gap="3" w="full">
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  lineHeight="1.7"
+                >
+                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Jodhpuri suits or bandgalas with darker jewel tones, kurta bundis with dhoti pants, or embroidered shirts with palazzo pants.
+                </Text>
+                
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  lineHeight="1.7"
+                >
+                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Flowing palazzo pants with embroidered kurtas, stylish dhoti pants with crop tops, or elegant sarees with contemporary blouses.
+                </Text>
+              </VStack>
+              
+              <Text 
+                fontSize={{ base: "md", md: "lg" }}
+                color="#2b5a72"
+                lineHeight="1.7"
+                fontStyle="italic"
+              >
+                The goal? Look effortlessly chic while getting your hands beautifully decorated!
+              </Text>
+              
+              {/* Mood Board Link */}
+              <Box 
+                p="4"
+                bg="rgba(193, 154, 108, 0.1)"
+                borderRadius="xl"
+                border="1px solid rgba(193, 154, 108, 0.3)"
+                w="full"
+              >
+                <VStack align="start" gap="3">
+                  <HStack gap="2">
+                    <Box w="20px" h="20px" color="#C19A6C">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        {/* Light bulb */}
+                        <path d="M9 21h6"/>
+                        <path d="M12 17h0"/>
+                        <path d="M12 3c3.3 0 6 2.7 6 6 0 2-1 3.8-2.5 5l-1.5 2h-4l-1.5-2C7 12.8 6 11 6 9c0-3.3 2.7-6 6-6z"/>
+                        {/* Light rays */}
+                        <path d="M12 1v2M21 9h-2M5 9H3M18.5 3.5l-1.4 1.4M6.9 4.9L5.5 3.5"/>
+                      </svg>
+                    </Box>
+                    <Text 
+                      fontSize="md" 
+                      color="#1f576e" 
+                      fontWeight="600"
+                    >
+                      Need Inspiration?
+                    </Text>
+                  </HStack>
+                  <Text fontSize="sm" color="#2b5a72" mb="2">
+                    Check out our curated mood board for outfit ideas and color palettes!
+                  </Text>
+                  <Button
+                    onClick={() => window.open('https://pin.it/3fmALZdZj', '_blank')}
+                    size="sm"
+                    px="6"
+                    py="3"
+                    bg="#C19A6C"
+                    color="white"
+                    _hover={{
+                      bg: "#A6825A",
+                      transform: "translateY(-1px)",
+                      boxShadow: "0 4px 12px rgba(193, 154, 108, 0.3)"
+                    }}
+                    transition="all 0.2s ease"
+                    borderRadius="lg"
+                    fontWeight="600"
+                  >
+                    View Mood Board →
+                  </Button>
+                </VStack>
+              </Box>
+            </VStack>
+          </Box>
+
+          {/* Haldi */}
+          <Box
+            p={{ base: "6", md: "8" }}
+            bg="rgba(255, 255, 255, 0.15)"
+            backdropFilter="blur(10px) saturate(130%)"
+            borderRadius="2xl"
+            border="1px solid rgba(255, 255, 255, 0.2)"
+            boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+          >
+            <VStack align="start" gap="6">
+              <VStack align="start" gap="3" w="full">
+                <HStack gap="3">
+                  <Image 
+                    src="/turmeric.png" 
+                    alt="Bowl of turmeric powder" 
+                    width={24} 
+                    height={24}
+                    style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                  />
+                  <Heading 
+                    fontSize={{ base: "xl", md: "2xl" }}
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                  >
+                    Haldi Ceremony
+                  </Heading>
+                </HStack>
+                
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  fontWeight="600"
+                  bg="rgba(245, 245, 240, 0.1)"
+                  px="3"
+                  py="2"
+                  borderRadius="lg"
+                  border="1px solid rgba(245, 245, 240, 0.2)"
+                >
+                  Spanish Style • Light & Breezy
+                </Text>
+              </VStack>
+              
+              <Text 
+                fontSize={{ base: "md", md: "lg" }}
+                color="#2b5a72"
+                lineHeight="1.7"
+              >
+                Embrace the Mediterranean coastal vibe with effortless elegance! Picture yourself strolling through a Spanish courtyard - light, flowing fabrics that catch the breeze, natural textures, and that relaxed sophistication that says 
+                <Text as="span" fontWeight="600" color="#1f576e">
+                  &apos;vacation chic meets cultural celebration.&apos;
+                </Text>
+              </Text>
+              
+              <VStack align="start" gap="3" w="full">
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  lineHeight="1.7"
+                >
+                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Linen pants with crisp shirts or Spanish-inspired kurta bundis. Light colors, breathable fabrics, effortlessly dapper.
+                </Text>
+                
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  lineHeight="1.7"
+                >
+                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Summer dresses that flow with movement or light kurtis in soft, natural fabrics.
+                </Text>
+              </VStack>
+              
+              <Text 
+                fontSize={{ base: "md", md: "lg" }}
+                color="#2b5a72"
+                lineHeight="1.7"
+                fontStyle="italic"
+              >
+                The goal? Look like you belong in a dreamy Spanish villa while celebrating this joyful turmeric ceremony!
+              </Text>
+              
+              {/* Mood Board Link */}
+              <Box 
+                p="4"
+                bg="rgba(193, 154, 108, 0.1)"
+                borderRadius="xl"
+                border="1px solid rgba(193, 154, 108, 0.3)"
+                w="full"
+              >
+                <VStack align="start" gap="3">
+                  <HStack gap="2">
+                    <Box w="20px" h="20px" color="#C19A6C">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        {/* Light bulb */}
+                        <path d="M9 21h6"/>
+                        <path d="M12 17h0"/>
+                        <path d="M12 3c3.3 0 6 2.7 6 6 0 2-1 3.8-2.5 5l-1.5 2h-4l-1.5-2C7 12.8 6 11 6 9c0-3.3 2.7-6 6-6z"/>
+                        {/* Light rays */}
+                        <path d="M12 1v2M21 9h-2M5 9H3M18.5 3.5l-1.4 1.4M6.9 4.9L5.5 3.5"/>
+                      </svg>
+                    </Box>
+                    <Text 
+                      fontSize="md" 
+                      color="#1f576e" 
+                      fontWeight="600"
+                    >
+                      Need Inspiration?
+                    </Text>
+                  </HStack>
+                  <Text fontSize="sm" color="#2b5a72" mb="2">
+                    Get inspired by Mediterranean elegance and Spanish coastal style!
+                  </Text>
+                  <Button
+                    onClick={() => window.open('https://pin.it/3fmALZdZj', '_blank')}
+                    size="sm"
+                    px="6"
+                    py="3"
+                    bg="#C19A6C"
+                    color="white"
+                    _hover={{
+                      bg: "#A6825A",
+                      transform: "translateY(-1px)",
+                      boxShadow: "0 4px 12px rgba(193, 154, 108, 0.3)"
+                    }}
+                    transition="all 0.2s ease"
+                    borderRadius="lg"
+                    fontWeight="600"
+                  >
+                    View Mood Board →
+                  </Button>
+                </VStack>
+              </Box>
+            </VStack>
+          </Box>
+
+          {/* Wedding Pheras */}
+          <Box
+            p={{ base: "6", md: "8" }}
+            bg="rgba(255, 255, 255, 0.15)"
+            backdropFilter="blur(10px) saturate(130%)"
+            borderRadius="2xl"
+            border="1px solid rgba(255, 255, 255, 0.2)"
+            boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+          >
+            <VStack align="start" gap="6">
+              <VStack align="start" gap="3" w="full">
+                <HStack gap="3">
+                  <Image 
+                    src="/hindu-wedding.png" 
+                    alt="Hindu wedding mandap" 
+                    width={32} 
+                    height={32}
+                    style={{ filter: 'brightness(0) saturate(100%) invert(74%) sepia(18%) saturate(466%) hue-rotate(314deg) brightness(96%) contrast(88%)' }}
+                  />
+                  <Heading 
+                    fontSize={{ base: "xl", md: "2xl" }}
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                  >
+                    Wedding Pheras
+                  </Heading>
+                </HStack>
+                
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  fontWeight="600"
+                  bg="rgba(193, 154, 108, 0.1)"
+                  px="3"
+                  py="2"
+                  borderRadius="lg"
+                  border="1px solid rgba(193, 154, 108, 0.2)"
+                >
+                  Traditional • Light Colors
+                </Text>
+              </VStack>
+              
+              <Text 
+                fontSize={{ base: "md", md: "lg" }}
+                color="#2b5a72"
+                lineHeight="1.7"
+              >
+                Step into the sacred circle of eternal love with timeless Indian elegance! This is the moment where traditions come alive - think classic silhouettes, rich fabrics, and those 
+                <Text as="span" fontWeight="600" color="#1f576e">
+                  traditional light colors
+                </Text> that have blessed countless generations of couples. Picture yourself as part of a beautiful tapestry of culture, where every thread tells a story of heritage and 
+                <Text as="span" fontWeight="600" color="#1f576e">
+                  formal reverence
+                </Text> for this most sacred of ceremonies.
+              </Text>
+              
+              <VStack align="start" gap="3" w="full">
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  lineHeight="1.7"
+                >
+                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Classic sherwanis in ivory, cream, or soft gold, traditional achkans with silk churidars, or elegant kurta pajamas in pastel tones with rich embroidery.
+                </Text>
+                
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  lineHeight="1.7"
+                >
+                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Traditional sarees in light silks, lehengas in soft pastels with intricate work, or elegant anarkalis in ivory, blush, or champagne with traditional embellishments.
+                </Text>
+              </VStack>
+              
+              <Text 
+                fontSize={{ base: "md", md: "lg" }}
+                color="#2b5a72"
+                lineHeight="1.7"
+                fontStyle="italic"
+              >
+                The goal? Honor the sacred traditions while looking absolutely radiant in colors that symbolize new beginnings and pure love!
+              </Text>
+              
+              {/* Mood Board Link */}
+              <Box 
+                p="4"
+                bg="rgba(193, 154, 108, 0.1)"
+                borderRadius="xl"
+                border="1px solid rgba(193, 154, 108, 0.3)"
+                w="full"
+              >
+                <VStack align="start" gap="3">
+                  <HStack gap="2">
+                    <Box w="20px" h="20px" color="#C19A6C">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        {/* Light bulb */}
+                        <path d="M9 21h6"/>
+                        <path d="M12 17h0"/>
+                        <path d="M12 3c3.3 0 6 2.7 6 6 0 2-1 3.8-2.5 5l-1.5 2h-4l-1.5-2C7 12.8 6 11 6 9c0-3.3 2.7-6 6-6z"/>
+                        {/* Light rays */}
+                        <path d="M12 1v2M21 9h-2M5 9H3M18.5 3.5l-1.4 1.4M6.9 4.9L5.5 3.5"/>
+                      </svg>
+                    </Box>
+                    <Text 
+                      fontSize="md" 
+                      color="#1f576e" 
+                      fontWeight="600"
+                    >
+                      Need Inspiration?
+                    </Text>
+                  </HStack>
+                  <Text fontSize="sm" color="#2b5a72" mb="2">
+                    Discover timeless Indian wedding elegance with traditional silhouettes and auspicious colors!
+                  </Text>
+                  <Button
+                    onClick={() => window.open('https://pin.it/4x34dvlVF', '_blank')}
+                    size="sm"
+                    px="6"
+                    py="3"
+                    bg="#C19A6C"
+                    color="white"
+                    _hover={{
+                      bg: "#A6825A",
+                      transform: "translateY(-1px)",
+                      boxShadow: "0 4px 12px rgba(193, 154, 108, 0.3)"
+                    }}
+                    transition="all 0.2s ease"
+                    borderRadius="lg"
+                    fontWeight="600"
+                  >
+                    View Mood Board →
+                  </Button>
+                </VStack>
+              </Box>
+            </VStack>
+          </Box>
+
+          {/* After Party */}
+          <Box
+            p={{ base: "6", md: "8" }}
+            bg="rgba(255, 255, 255, 0.15)"
+            backdropFilter="blur(10px) saturate(130%)"
+            borderRadius="2xl"
+            border="1px solid rgba(255, 255, 255, 0.2)"
+            boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+          >
+            <VStack align="start" gap="6">
+              <VStack align="start" gap="3" w="full">
+                <HStack gap="3">
+                  <Image 
+                    src="/dj.png" 
+                    alt="DJ with headphones" 
+                    width={32} 
+                    height={32}
+                    style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
+                  />
+                  <Heading 
+                    fontSize={{ base: "xl", md: "2xl" }}
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                  >
+                    After Party
+                  </Heading>
+                </HStack>
+                
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  fontWeight="600"
+                  bg="rgba(193, 154, 108, 0.1)"
+                  px="3"
+                  py="2"
+                  borderRadius="lg"
+                  border="1px solid rgba(193, 154, 108, 0.2)"
+                >
+                  Chic Clubbing • Sleek & Bold
+                </Text>
+              </VStack>
+              
+              <Text 
+                fontSize={{ base: "md", md: "lg" }}
+                color="#2b5a72"
+                lineHeight="1.7"
+              >
+                Time to turn up the heat and dance the night away! Picture yourself stepping into a chic club - think sleek silhouettes, bold statement pieces, and that perfect balance of 
+                <Text as="span" fontWeight="600" color="#1f576e">
+                  sophisticated edge
+                </Text> meets high-energy nightlife. We&apos;re talking outfits that can handle the dance floor while still looking effortlessly cool under those 
+                <Text as="span" fontWeight="600" color="#1f576e">
+                  neon lights
+                </Text>. This is your moment to embrace that chic clubbing aesthetic where fashion meets function!
+              </Text>
+              
+              <VStack align="start" gap="3" w="full">
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  lineHeight="1.7"
+                >
+                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Stylish shirts with cool jackets, well-fitted dark pants or trendy chinos, statement accessories, and comfortable yet stylish shoes perfect for dancing the night away.
+                </Text>
+                
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  lineHeight="1.7"
+                >
+                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Bodycon dresses with interesting textures, chic jumpsuits or co-ord sets, bold accessories that catch the light, and comfortable heels or trendy sneakers that can handle the dance floor.
+                </Text>
+              </VStack>
+              
+              <Text 
+                fontSize={{ base: "md", md: "lg" }}
+                color="#2b5a72"
+                lineHeight="1.7"
+                fontStyle="italic"
+              >
+                The goal? Look effortlessly cool while you dance, laugh, and celebrate into the early hours - think nightlife glamour with serious style!
+              </Text>
+              
+              {/* Mood Board Link */}
+              <Box 
+                p="4"
+                bg="rgba(193, 154, 108, 0.1)"
+                borderRadius="xl"
+                border="1px solid rgba(193, 154, 108, 0.3)"
+                w="full"
+              >
+                <VStack align="start" gap="3">
+                  <HStack gap="2">
+                    <Box w="20px" h="20px" color="#C19A6C">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        {/* Light bulb */}
+                        <path d="M9 21h6"/>
+                        <path d="M12 17h0"/>
+                        <path d="M12 3c3.3 0 6 2.7 6 6 0 2-1 3.8-2.5 5l-1.5 2h-4l-1.5-2C7 12.8 6 11 6 9c0-3.3 2.7-6 6-6z"/>
+                        {/* Light rays */}
+                        <path d="M12 1v2M21 9h-2M5 9H3M18.5 3.5l-1.4 1.4M6.9 4.9L5.5 3.5"/>
+                      </svg>
+                    </Box>
+                    <Text 
+                      fontSize="md" 
+                      color="#1f576e" 
+                      fontWeight="600"
+                    >
+                      Need Inspiration?
+                    </Text>
+                  </HStack>
+                  <Text fontSize="sm" color="#2b5a72" mb="2">
+                    Get inspired by sleek nightlife fashion and chic club aesthetics!
+                  </Text>
+                  <Button
+                    onClick={() => window.open('[MOOD_BOARD_URL]', '_blank')}
+                    size="sm"
+                    px="6"
+                    py="3"
+                    bg="#C19A6C"
+                    color="white"
+                    _hover={{
+                      bg: "#A6825A",
+                      transform: "translateY(-1px)",
+                      boxShadow: "0 4px 12px rgba(193, 154, 108, 0.3)"
+                    }}
+                    transition="all 0.2s ease"
+                    borderRadius="lg"
+                    fontWeight="600"
+                  >
+                    View Mood Board →
+                  </Button>
+                </VStack>
+              </Box>
+            </VStack>
+          </Box>
+
+          {/* Sangeet */}
+          <Box
+            p={{ base: "6", md: "8" }}
+            bg="rgba(255, 255, 255, 0.15)"
+            backdropFilter="blur(10px) saturate(130%)"
+            borderRadius="2xl"
+            border="1px solid rgba(255, 255, 255, 0.2)"
+            boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+          >
+            <VStack align="start" gap="6">
+              <VStack align="start" gap="3" w="full">
+                <HStack gap="3">
+                  <Image 
+                    src="/dancing.png" 
+                    alt="Dancing couple" 
+                    width={32} 
+                    height={32}
+                    style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                  />
+                  <Heading 
+                    fontSize={{ base: "xl", md: "2xl" }}
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                  >
+                    Sangeet
+                  </Heading>
+                </HStack>
+                
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  fontWeight="600"
+                  bg="rgba(193, 154, 108, 0.1)"
+                  px="3"
+                  py="2"
+                  borderRadius="lg"
+                  border="1px solid rgba(193, 154, 108, 0.2)"
+                >
+                  Black Tie Elegance • Formal & Festive
+                </Text>
+              </VStack>
+              
+              <Text 
+                fontSize={{ base: "md", md: "lg" }}
+                color="#2b5a72"
+                lineHeight="1.7"
+              >
+                Get ready for an evening of music, dance, and pure celebration! The Sangeet is where black tie elegance meets festivity - think 
+                <Text as="span" fontWeight="600" color="#1f576e">
+                  sophisticated glamour
+                </Text> with rich, darker tones that command attention. Picture yourself moving gracefully through the evening in outfits that exude formal elegance while honoring the celebratory spirit. We&apos;re talking about that perfect balance of 
+                <Text as="span" fontWeight="600" color="#1f576e">
+                  black tie sophistication
+                </Text> and festive energy, where every step you take adds to the magic of this musical celebration!
+              </Text>
+              
+              <VStack align="start" gap="3" w="full">
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  lineHeight="1.7"
+                >
+                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Sharp blazers with ties in dark, rich colors for a polished black tie look, or elegant Indian formal wear like bandhgalas in deep jewel tones with sophisticated styling.
+                </Text>
+                
+                <Text 
+                  fontSize={{ base: "md", md: "lg" }}
+                  color="#2b5a72"
+                  lineHeight="1.7"
+                >
+                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Flowing long gowns in luxurious dark fabrics with elegant draping, or sophisticated sarees in rich, darker silks with intricate work and graceful styling.
+                </Text>
+              </VStack>
+              
+              <Text 
+                fontSize={{ base: "md", md: "lg" }}
+                color="#2b5a72"
+                lineHeight="1.7"
+                fontStyle="italic"
+              >
+                The goal? Strike the perfect pose between black tie elegance and festive celebration - think sophisticated glamour meets cultural richness in beautiful dark tones!
+              </Text>
+              
+              {/* Mood Board Link */}
+              <Box 
+                p="4"
+                bg="rgba(193, 154, 108, 0.1)"
+                borderRadius="xl"
+                border="1px solid rgba(193, 154, 108, 0.3)"
+                w="full"
+              >
+                <VStack align="start" gap="3">
+                  <HStack gap="2">
+                    <Box w="20px" h="20px" color="#C19A6C">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        {/* Light bulb */}
+                        <path d="M9 21h6"/>
+                        <path d="M12 17h0"/>
+                        <path d="M12 3c3.3 0 6 2.7 6 6 0 2-1 3.8-2.5 5l-1.5 2h-4l-1.5-2C7 12.8 6 11 6 9c0-3.3 2.7-6 6-6z"/>
+                        {/* Light rays */}
+                        <path d="M12 1v2M21 9h-2M5 9H3M18.5 3.5l-1.4 1.4M6.9 4.9L5.5 3.5"/>
+                      </svg>
+                    </Box>
+                    <Text 
+                      fontSize="md" 
+                      color="#1f576e" 
+                      fontWeight="600"
+                    >
+                      Need Inspiration?
+                    </Text>
+                  </HStack>
+                  <Text fontSize="sm" color="#2b5a72" mb="2">
+                    Explore elegant black tie formal wear and sophisticated dark glamour for the perfect Sangeet look!
+                  </Text>
+                  <Button
+                    onClick={() => window.open('https://pin.it/4Jn7azbCs', '_blank')}
+                    size="sm"
+                    px="6"
+                    py="3"
+                    bg="#C19A6C"
+                    color="white"
+                    _hover={{
+                      bg: "#A6825A",
+                      transform: "translateY(-1px)",
+                      boxShadow: "0 4px 12px rgba(193, 154, 108, 0.3)"
+                    }}
+                    transition="all 0.2s ease"
+                    borderRadius="lg"
+                    fontWeight="600"
+                  >
+                    View Mood Board →
+                  </Button>
+                </VStack>
+              </Box>
+            </VStack>
+          </Box>
+
+          </VStack>
+        </motion.div>
+      </Container>
+    </Box>
   );
 };
 
@@ -3027,4 +3784,16 @@ const WeddingInvitePage = () => {
     </Box>
   );
 };
+
+/*
+ * Icon Attribution:
+ * 
+ * turmeric.png: Turmeric icons created by juicy_fish - Flaticon
+ * mehendi.png: Henna-painted-hand icons created by Design View - Flaticon
+ * dj.png: Night club icons created by surang - Flaticon
+ * hindu-wedding.png: Wedding icons created by Freepik - Flaticon
+ * dancing.png: Dancing icons created by Freepik - Flaticon
+ * 
+ * All icons used under Flaticon licensing terms.
+ */
 
