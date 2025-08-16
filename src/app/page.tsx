@@ -547,8 +547,7 @@ const OleanderPage = () => {
     { id: 'activities', name: 'Activities & Recreation', icon: '🎯' },
     { id: 'dining', name: 'Dining Experiences', icon: '🍽️' },
     { id: 'wellness', name: 'Wellness & Relaxation', icon: '🧘' },
-    { id: 'attractions', name: 'Unique Attractions', icon: '✨' },
-    { id: 'venues', name: 'Wedding Event Layout', icon: '💒' }
+    { id: 'attractions', name: 'Unique Attractions', icon: '✨' }
   ];
 
   const activities = [
@@ -677,50 +676,6 @@ const OleanderPage = () => {
     }
   ];
 
-  const venues = [
-    {
-      name: "Hill Top Venue",
-      type: "Outdoor Ceremony",
-      capacity: "200-350 guests",
-      bestFor: "Main Ceremony, Reception",
-      description: "Elevated venue with breathtaking panoramic valley views"
-    },
-    {
-      name: "Lakeside Lawn",
-      type: "Grand Outdoor",
-      capacity: "200-1500 guests",
-      bestFor: "Main Ceremony, Reception",
-      description: "Lush lawns by the lake with customizable decor options"
-    },
-    {
-      name: "Common House Microbrewery",
-      type: "Chic Indoor",
-      capacity: "100-150 guests",
-      bestFor: "Mehendi, Cocktail, Sangeet",
-      description: "Modern brewery ambiance perfect for lively celebrations"
-    },
-    {
-      name: "Splash Bar & Kitchen",
-      type: "Poolside",
-      capacity: "140 guests",
-      bestFor: "Welcome Party, After Party",
-      description: "Indoor/outdoor venue with poolside charm and relaxed vibe"
-    },
-    {
-      name: "The Veranda",
-      type: "Semi-Outdoor",
-      capacity: "160-180 guests",
-      bestFor: "Mehendi, Haldi",
-      description: "Covered open space perfect for colorful, casual celebrations"
-    },
-    {
-      name: "The Den",
-      type: "Intimate Indoor",
-      capacity: "70-80 guests",
-      bestFor: "Private Ceremonies",
-      description: "Cozy, private, and elegant space for intimate gatherings"
-    }
-  ];
 
   return (
     <Box position="relative" minH="100vh" display="flex" justifyContent="center">
@@ -1043,83 +998,6 @@ const OleanderPage = () => {
             </Grid>
           )}
 
-          {activeSection === 'venues' && (
-            <VStack gap="8" align="stretch">
-              <Box textAlign="center">
-                <Heading 
-                  fontSize={{ base: "2xl", md: "3xl" }}
-                  color="#1f576e"
-                  fontFamily="'Aparajita', serif"
-                  mb="4"
-                >
-                  Wedding Event Layout & Venues
-                </Heading>
-                <Text 
-                  fontSize={{ base: "md", md: "lg" }}
-                  color="#2b5a72"
-                  maxW="3xl"
-                  mx="auto"
-                  lineHeight="1.6"
-                >
-                  Each venue offers a unique ambiance surrounded by natural beauty, 
-                  with easy access to accommodation and resort facilities.
-                </Text>
-              </Box>
-              
-              <Grid 
-                templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
-                gap="6"
-              >
-                {venues.map((venue, index) => (
-                  <Box
-                    key={index}
-                    p={{ base: "6", md: "8" }}
-                    bg="rgba(255, 255, 255, 0.15)"
-                    backdropFilter="blur(10px) saturate(130%)"
-                    borderRadius="2xl"
-                    border="1px solid rgba(255, 255, 255, 0.2)"
-                    boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
-                  >
-                    <VStack align="start" gap="4">
-                      <VStack align="start" gap="2" w="full">
-                        <Heading 
-                          fontSize={{ base: "xl", md: "2xl" }}
-                          color="#1f576e"
-                          fontFamily="'Aparajita', serif"
-                        >
-                          {venue.name}
-                        </Heading>
-                        <HStack gap="4" wrap="wrap">
-                          <Text fontSize="sm" color="#2b5a72" fontWeight="600">
-                            📍 {venue.type}
-                          </Text>
-                          <Text fontSize="sm" color="#2b5a72" fontWeight="600">
-                            👥 {venue.capacity}
-                          </Text>
-                        </HStack>
-                      </VStack>
-                      
-                      <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
-                        {venue.description}
-                      </Text>
-                      
-                      <Box
-                        p="3"
-                        bg="rgba(232, 180, 184, 0.1)"
-                        borderRadius="lg"
-                        border="1px solid rgba(232, 180, 184, 0.2)"
-                        w="full"
-                      >
-                        <Text fontSize="sm" color="#1f576e" fontWeight="600">
-                          💒 Best For: {venue.bestFor}
-                        </Text>
-                      </Box>
-                    </VStack>
-                  </Box>
-                ))}
-              </Grid>
-            </VStack>
-          )}
         </motion.div>
 
         {/* Call to Action */}
