@@ -1779,6 +1779,46 @@ export default function Home() {
             </Text>
             <VStack gap="1" fontSize="xx-small" color="#666" align="stretch">
               <Text>
+                <a href="https://www.flaticon.com/free-icons/luxury" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Luxury icons by gravisio - Flaticon
+                </a>
+              </Text>
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/dinner-table" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Dinner table icons by Freepik - Flaticon
+                </a>
+              </Text>
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/breakfast" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Breakfast icons by justicon - Flaticon
+                </a>
+              </Text>
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/friends" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Friends icons by Freepik - Flaticon
+                </a>
+              </Text>
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/old-car" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Old car icons by Freepik - Flaticon
+                </a>
+              </Text>
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/romantic-dinner" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Romantic-dinner icons by Freepik - Flaticon
+                </a>
+              </Text>
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/high-tea" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  High tea icons by Freepik - Flaticon
+                </a>
+              </Text>
+              <Text>
+                <a href="https://www.flaticon.com/free-icons/namaste" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Namaste icons by Freepik - Flaticon
+                </a>
+              </Text>
+              <Text>
                 <a href="https://www.flaticon.com/free-icons/turmeric" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
                   Turmeric icons by juicy_fish - Flaticon
                 </a>
@@ -2050,9 +2090,9 @@ const DressCodePage = () => {
                   <Image 
                     src="/mehndi.png" 
                     alt="Mehndi hand with henna design" 
-                    width={24} 
-                    height={24}
-                    style={{ filter: 'brightness(0) saturate(100%) invert(74%) sepia(18%) saturate(466%) hue-rotate(314deg) brightness(96%) contrast(88%)' }}
+                    width={32} 
+                    height={32}
+                    style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
                   />
                   <Heading 
                     fontSize={{ base: "xl", md: "2xl" }}
@@ -2187,9 +2227,9 @@ const DressCodePage = () => {
                   <Image 
                     src="/turmeric.png" 
                     alt="Bowl of turmeric powder" 
-                    width={24} 
-                    height={24}
-                    style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                    width={32} 
+                    height={32}
+                    style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
                   />
                   <Heading 
                     fontSize={{ base: "xl", md: "2xl" }}
@@ -2323,7 +2363,7 @@ const DressCodePage = () => {
                     alt="Hindu wedding mandap" 
                     width={32} 
                     height={32}
-                    style={{ filter: 'brightness(0) saturate(100%) invert(74%) sepia(18%) saturate(466%) hue-rotate(314deg) brightness(96%) contrast(88%)' }}
+                    style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
                   />
                   <Heading 
                     fontSize={{ base: "xl", md: "2xl" }}
@@ -2597,7 +2637,7 @@ const DressCodePage = () => {
                     alt="Dancing couple" 
                     width={32} 
                     height={32}
-                    style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                    style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
                   />
                   <Heading 
                     fontSize={{ base: "xl", md: "2xl" }}
@@ -2736,6 +2776,146 @@ const WeddingInvitePage = () => {
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
   const [dragY, setDragY] = useState(0);
   const modalRef = useRef<HTMLDivElement>(null);
+
+  // Helper function to get icon for events
+  const getEventIcon = (eventName: string, size: number = 24) => {
+    const iconFilter = 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)';
+    
+    switch (eventName) {
+      case 'Check In':
+        return (
+          <Image 
+            src="/resort.png" 
+            alt="Resort check-in icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'Welcome Dinner':
+        return (
+          <Image 
+            src="/dinner-table.png" 
+            alt="Welcome dinner icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'Breakfast':
+        return (
+          <Image 
+            src="/breakfast.png" 
+            alt="Breakfast icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'Lunch':
+        return (
+          <Image 
+            src="/lunch.png" 
+            alt="Lunch icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'Baarat':
+        return (
+          <Image 
+            src="/car.png" 
+            alt="Baarat procession icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'Dinner':
+        return (
+          <Image 
+            src="/romantic-dinner.png" 
+            alt="Dinner celebration icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'High Tea':
+        return (
+          <Image 
+            src="/high-tea.png" 
+            alt="High tea icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'Checkout':
+        return (
+          <Image 
+            src="/namaste.png" 
+            alt="Checkout farewell icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'Mehndi':
+        return (
+          <Image 
+            src="/mehndi.png" 
+            alt="Mehndi icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'Haldi':
+        return (
+          <Image 
+            src="/turmeric.png" 
+            alt="Haldi icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'Wedding Pheras':
+        return (
+          <Image 
+            src="/hindu-wedding.png" 
+            alt="Wedding icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'Sangeet':
+        return (
+          <Image 
+            src="/dancing.png" 
+            alt="Sangeet icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      case 'After Party':
+        return (
+          <Image 
+            src="/dj.png" 
+            alt="After Party icon" 
+            width={size} 
+            height={size}
+            style={{ filter: iconFilter }}
+          />
+        );
+      default:
+        return <Text fontSize={`${size}px`}>{eventDescriptions[eventName as keyof typeof eventDescriptions]?.emoji || "🎉"}</Text>;
+    }
+  };
   
   
   // Event descriptions with fun and quirky content
@@ -3154,9 +3334,9 @@ const WeddingInvitePage = () => {
             
             <HStack gap={{ base: "2", md: "4" }} justify="center" wrap="wrap">
               {[
-                { day: 1, title: "Jan 14", subtitle: "Mehndi & Welcome", emoji: "🎨", color: "#2b5a72" },
-                { day: 2, title: "Jan 15", subtitle: "Haldi & Wedding", emoji: "💍", color: "#1f576e" },
-                { day: 3, title: "Jan 16", subtitle: "Sangeet & Party", emoji: "💃", color: "#1a4a5c" },
+                { day: 1, title: "Jan 14", subtitle: "Mehndi & Welcome", eventName: "Mehndi", color: "#2b5a72" },
+                { day: 2, title: "Jan 15", subtitle: "Haldi & Wedding", eventName: "Wedding Pheras", color: "#1f576e" },
+                { day: 3, title: "Jan 16", subtitle: "Sangeet & Party", eventName: "Sangeet", color: "#1a4a5c" },
                 { day: 4, title: "Jan 17", subtitle: "Farewell Brunch", emoji: "✈️", color: "#0f3a4a" }
               ].map((dayInfo, index) => {
                 const isSelected = selectedDay === dayInfo.day;
@@ -3388,9 +3568,9 @@ const WeddingInvitePage = () => {
                                   border="1px solid rgba(31, 87, 110, 0.2)"
                                   flexShrink="0"
                                 >
-                                  <Text fontSize={{ base: "2xl", md: "3xl" }}>
-                                    {eventData.emoji}
-                                  </Text>
+                                  <Box fontSize={{ base: "2xl", md: "3xl" }}>
+                                    {getEventIcon(event.title, 32)}
+                                  </Box>
                                 </Box>
                                 
                                 {/* Event Title with Signature Blue */}
@@ -3620,7 +3800,7 @@ const WeddingInvitePage = () => {
                     boxShadow="0 3px 12px rgba(31, 87, 110, 0.1)"
                     flexShrink="0"
                   >
-                    {eventDescriptions[selectedEvent.title as keyof typeof eventDescriptions]?.emoji || "🎉"}
+                    {getEventIcon(selectedEvent.title, 48)}
                   </Box>
                   
                   {/* Event Title - Center */}
