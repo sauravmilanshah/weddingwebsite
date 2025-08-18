@@ -2787,7 +2787,13 @@ const WeddingInvitePage = () => {
             alt="Resort check-in icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'Welcome Dinner':
@@ -2797,7 +2803,13 @@ const WeddingInvitePage = () => {
             alt="Welcome dinner icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'Breakfast':
@@ -2807,7 +2819,13 @@ const WeddingInvitePage = () => {
             alt="Breakfast icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'Lunch':
@@ -2817,7 +2835,13 @@ const WeddingInvitePage = () => {
             alt="Lunch icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'Baarat':
@@ -2827,7 +2851,13 @@ const WeddingInvitePage = () => {
             alt="Baarat procession icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'Dinner':
@@ -2837,7 +2867,13 @@ const WeddingInvitePage = () => {
             alt="Dinner celebration icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'High Tea':
@@ -2847,7 +2883,13 @@ const WeddingInvitePage = () => {
             alt="High tea icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'Checkout':
@@ -2857,7 +2899,13 @@ const WeddingInvitePage = () => {
             alt="Checkout farewell icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'Mehndi':
@@ -2867,7 +2915,13 @@ const WeddingInvitePage = () => {
             alt="Mehndi icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'Haldi':
@@ -2877,7 +2931,13 @@ const WeddingInvitePage = () => {
             alt="Haldi icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'Wedding Pheras':
@@ -2887,7 +2947,13 @@ const WeddingInvitePage = () => {
             alt="Wedding icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'Sangeet':
@@ -2897,7 +2963,13 @@ const WeddingInvitePage = () => {
             alt="Sangeet icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       case 'After Party':
@@ -2907,7 +2979,13 @@ const WeddingInvitePage = () => {
             alt="After Party icon" 
             width={size} 
             height={size}
-            style={{ filter: iconFilter }}
+            style={{ 
+              filter: iconFilter,
+              width: `${size}px`,
+              height: `${size}px`,
+              minWidth: `${size}px`,
+              minHeight: `${size}px`
+            }}
           />
         );
       default:
@@ -3335,7 +3413,7 @@ const WeddingInvitePage = () => {
                 { day: 1, title: "Jan 14", subtitle: "Mehndi & Welcome", eventName: "Mehndi", color: "#2b5a72" },
                 { day: 2, title: "Jan 15", subtitle: "Haldi & Wedding", eventName: "Wedding Pheras", color: "#1f576e" },
                 { day: 3, title: "Jan 16", subtitle: "Sangeet & Party", eventName: "Sangeet", color: "#1a4a5c" },
-                { day: 4, title: "Jan 17", subtitle: "Farewell Brunch", emoji: "✈️", color: "#0f3a4a" }
+                { day: 4, title: "Jan 17", subtitle: "Farewell & Departure", emoji: "✈️", color: "#0f3a4a" }
               ].map((dayInfo, index) => {
                 const isSelected = selectedDay === dayInfo.day;
                 
@@ -3656,10 +3734,10 @@ const WeddingInvitePage = () => {
         </VStack>
       </Container>
 
-      {/* Modern Event Details Modal */}
+      {/* Clean Drawer Modal */}
       {isEventModalOpen && selectedEvent && (
         <>
-          {/* Backdrop */}
+          {/* Simple Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -3671,14 +3749,13 @@ const WeddingInvitePage = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.3)",
-              backdropFilter: "blur(8px)",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
               zIndex: 9998
             }}
             onClick={() => setIsEventModalOpen(false)}
           />
           
-          {/* Modern Slide-up Modal */}
+          {/* Slide-up Drawer */}
           <motion.div
             ref={modalRef}
             initial={{ y: "100%" }}
@@ -3704,256 +3781,223 @@ const WeddingInvitePage = () => {
               left: 0,
               right: 0,
               zIndex: 9999,
-              maxHeight: "90vh"
+              maxHeight: "85vh"
             }}
           >
             <Box
-              bg="rgba(255, 255, 255, 0.18)"
-              backdropFilter="blur(8px) saturate(120%)"
-              borderTopRadius="28px"
-              boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
-              border="1px solid rgba(255, 255, 255, 0.25)"
-              p={0}
-              maxH="90vh"
+              bg="rgba(255, 255, 255, 0.25)"
+              backdropFilter="blur(20px) saturate(130%)"
+              borderTopRadius="24px"
+              boxShadow="0 -10px 50px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.5)"
+              border="1px solid rgba(255, 255, 255, 0.3)"
               overflow="hidden"
-              position="relative"
-              mx={{ base: "2", md: "6" }}
+              mx={{ base: "0", md: "4" }}
             >
-              {/* Luxury Handle bar */}
+              {/* Drag Handle */}
               <Box
-                w="60px"
-                h="6px"
-                bg="rgba(255, 255, 255, 0.35)"
+                w="40px"
+                h="4px"
+                bg="rgba(255, 255, 255, 0.6)"
                 borderRadius="full"
                 mx="auto"
-                my="6"
+                mt="3"
+                mb="4"
                 cursor="grab"
-                boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
-                border="1px solid rgba(255, 255, 255, 0.4)"
-                position="relative"
-                _active={{ cursor: "grabbing", transform: "scale(1.1)" }}
-                _hover={{ transform: "scale(1.05)", bg: "rgba(255, 255, 255, 0.4)" }}
+                boxShadow="0 2px 8px rgba(0, 0, 0, 0.1)"
+                _active={{ cursor: "grabbing", bg: "rgba(255, 255, 255, 0.8)" }}
+                _hover={{ bg: "rgba(255, 255, 255, 0.7)" }}
                 transition="all 0.2s ease"
-                css={{
-                  "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    top: "1px",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: "40px",
-                    height: "2px",
-                    background: "rgba(255,255,255,0.6)",
-                    borderRadius: "full"
-                  }
-                }}
               />
-              
-              {/* Balanced Header Section */}
-              <Box
-                bg="rgba(255, 255, 255, 0.18)"
-                backdropFilter="blur(8px) saturate(120%)"
-                p={{ base: "3", md: "4" }}
-                color="#1f576e"
-                position="relative"
-                overflow="hidden"
-                borderTopRadius="28px"
-                boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
-                border="1px solid rgba(255, 255, 255, 0.25)"
-              >
-                {/* Compact Close Button */}
-                <Button
-                  position="absolute"
-                  top="4"
-                  right="4"
-                  size="sm"
-                  variant="ghost"
-                  onClick={() => setIsEventModalOpen(false)}
-                  color="#1f576e"
-                  borderRadius="full"
-                  bg="rgba(255, 255, 255, 0.15)"
-                  w="8"
-                  h="8"
-                  fontSize="sm"
-                  _hover={{
-                    bg: "rgba(255, 255, 255, 0.25)",
-                    transform: "scale(1.1)"
-                  }}
-                  transition="all 0.2s ease"
-                  zIndex="2"
-                >
-                  ✕
-                </Button>
-                
-                {/* Single Line Header */}
-                <HStack w="full" justify="center" align="center" gap={{ base: "2", md: "3" }}>
-                  {/* Emoji */}
-                  <Box
-                    fontSize={{ base: "3xl", md: "4xl" }}
-                    bg="rgba(255, 255, 255, 0.18)"
-                    backdropFilter="blur(8px) saturate(120%)"
-                    borderRadius="xl"
-                    border="1px solid rgba(255, 255, 255, 0.25)"
-                    p={{ base: "2", md: "2.5" }}
-                    boxShadow="0 3px 12px rgba(31, 87, 110, 0.1)"
-                    flexShrink="0"
-                  >
-                    {getEventIcon(selectedEvent.title, 48)}
-                  </Box>
-                  
-                  {/* Event Title - Center */}
-                  <VStack flex="0.625" minW="0" textAlign="center" gap="0.5">
-                    <Heading 
-                      fontSize={{ base: "2xl", md: "3xl" }}
-                      color="#1f576e"
-                      fontFamily="'Bernhard Tango', cursive"
-                      fontWeight="700"
-                      textShadow="0 2px 4px rgba(255,255,255,0.8)"
-                      lineHeight="1.1"
-                      whiteSpace="nowrap"
-                      overflow="hidden"
-                      textOverflow="ellipsis"
+
+              {/* Header */}
+              <Box p="6" borderBottom="1px solid" borderColor="rgba(255, 255, 255, 0.4)">
+                <HStack justify="space-between" align="center">
+                  <HStack gap="4" flex="1">
+                    {/* Icon */}
+                    <Box
+                      w="20"
+                      h="20"
+                      bg="rgba(255, 255, 255, 0.2)"
+                      backdropFilter="blur(12px) saturate(120%)"
+                      borderRadius="full"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      border="1px solid rgba(255, 255, 255, 0.3)"
+                      boxShadow="0 4px 12px rgba(0, 0, 0, 0.1)"
+                      minW="20"
+                      minH="20"
+                      flexShrink="0"
                     >
-                      {selectedEvent.title}
-                    </Heading>
-                    <Text
-                      fontSize={{ base: "md", md: "lg" }}
-                      color="#2b5a72"
-                      fontFamily="'Aparajita', serif"
-                      fontWeight="600"
-                      textShadow="0 1px 2px rgba(255,255,255,0.8)"
-                      lineHeight="1.3"
-                      whiteSpace="nowrap"
-                      overflow="hidden"
-                      textOverflow="ellipsis"
-                    >
-                      {eventDescriptions[selectedEvent.title as keyof typeof eventDescriptions]?.title || selectedEvent.title}
-                    </Text>
-                  </VStack>
+                      {getEventIcon(selectedEvent.title, 40)}
+                    </Box>
+                    
+                    {/* Title & Time - Responsive Layout */}
+                    <Box flex="1" minW="0">
+                      {/* Desktop: Title and Time in same line */}
+                      <HStack 
+                        align="center" 
+                        display={{ base: "none", md: "flex" }}
+                        gap="4"
+                      >
+                        <Heading 
+                          fontSize="3xl"
+                          color="#1f576e"
+                          fontFamily="'Bernhard Tango', cursive"
+                          textShadow="0 2px 4px rgba(255,255,255,0.8)"
+                        >
+                          {selectedEvent.title}
+                        </Heading>
+                        <Box
+                          bg="#1f576e"
+                          borderRadius="full"
+                          px="4"
+                          py="2"
+                          boxShadow="0 4px 12px rgba(31, 87, 110, 0.3)"
+                        >
+                          <Text
+                            fontSize="md"
+                            color="white"
+                            fontFamily="'Aparajita', serif"
+                            fontWeight="600"
+                            textAlign="center"
+                            whiteSpace="nowrap"
+                          >
+                            {new Date(selectedEvent.since).toLocaleTimeString('en-US', {
+                              hour: 'numeric',
+                              minute: '2-digit',
+                              hour12: true
+                            })} - {new Date(selectedEvent.till).toLocaleTimeString('en-US', {
+                              hour: 'numeric', 
+                              minute: '2-digit',
+                              hour12: true
+                            })}
+                          </Text>
+                        </Box>
+                      </HStack>
+
+                      {/* Mobile: Title and Time stacked */}
+                      <VStack 
+                        align="start" 
+                        gap="2" 
+                        display={{ base: "flex", md: "none" }}
+                      >
+                        <Heading 
+                          fontSize="2xl"
+                          color="#1f576e"
+                          fontFamily="'Bernhard Tango', cursive"
+                          textShadow="0 2px 4px rgba(255,255,255,0.8)"
+                        >
+                          {selectedEvent.title}
+                        </Heading>
+                        <Box
+                          bg="#1f576e"
+                          borderRadius="full"
+                          px="4"
+                          py="2"
+                          boxShadow="0 4px 12px rgba(31, 87, 110, 0.3)"
+                        >
+                          <Text
+                            fontSize="sm"
+                            color="white"
+                            fontFamily="'Aparajita', serif"
+                            fontWeight="600"
+                            textAlign="center"
+                            whiteSpace="nowrap"
+                          >
+                            {new Date(selectedEvent.since).toLocaleTimeString('en-US', {
+                              hour: 'numeric',
+                              minute: '2-digit',
+                              hour12: true
+                            })} - {new Date(selectedEvent.till).toLocaleTimeString('en-US', {
+                              hour: 'numeric', 
+                              minute: '2-digit',
+                              hour12: true
+                            })}
+                          </Text>
+                        </Box>
+                      </VStack>
+                    </Box>
+                  </HStack>
                   
-                  {/* Time Badge */}
-                  <Box
-                    bg="rgba(255, 255, 255, 0.18)"
-                    backdropFilter="blur(8px) saturate(120%)"
+                  {/* Close Button */}
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => setIsEventModalOpen(false)}
+                    color="#1f576e"
                     borderRadius="full"
-                    border="1px solid rgba(255, 255, 255, 0.18)"
-                    px={{ base: "2.5", md: "3" }}
-                    py={{ base: "1.5", md: "2" }}
-                    boxShadow="0 3px 12px rgba(31, 87, 110, 0.1)"
-                    flexShrink="0"
+                    bg="rgba(255, 255, 255, 0.2)"
+                    backdropFilter="blur(12px) saturate(120%)"
+                    border="1px solid rgba(255, 255, 255, 0.3)"
+                    w="10"
+                    h="10"
+                    fontSize="xl"
+                    _hover={{
+                      bg: "rgba(255, 255, 255, 0.3)",
+                      transform: "scale(1.05)"
+                    }}
+                    transition="all 0.2s ease"
                   >
-                    <Text 
-                      fontSize={{ base: "xs", md: "sm" }}
-                      color="#1f576e"
-                      fontFamily="'Aparajita', serif"
-                      fontWeight="700"
-                      textShadow="0 1px 2px rgba(255,255,255,0.8)"
-                      textAlign="center"
-                      whiteSpace="nowrap"
-                    >
-                      {new Date(selectedEvent.since).toLocaleTimeString('en-US', {
-                        hour: 'numeric',
-                        minute: '2-digit',
-                        hour12: true
-                      })} - {new Date(selectedEvent.till).toLocaleTimeString('en-US', {
-                        hour: 'numeric', 
-                        minute: '2-digit',
-                        hour12: true
-                      })}
-                    </Text>
-                  </Box>
+                    ✕
+                  </Button>
                 </HStack>
               </Box>
               
-              {/* Content Section */}
-              <Box 
-                p={{ base: "4", md: "5" }} 
-                maxH="60vh" 
-                overflow="auto"
-                bg="transparent"
-                position="relative"
-              >
-                <VStack gap="4" align="stretch">
-                  {/* Description */}
-                  {selectedEvent.description && (
-                    <Box>
-                      <Heading
-                        fontSize={{ base: "xl", md: "xl" }}
-                        color="#1f576e"
-                        fontFamily="'Aparajita', serif"
-                        fontWeight="700"
-                        mb="3"
-                        textShadow="0 2px 4px rgba(255,255,255,0.8)"
-                      >
-                        What to Expect
-                      </Heading>
-                      <Box
-                        p="3"
-                        bg="rgba(255, 255, 255, 0.18)"
-                        backdropFilter="blur(8px) saturate(120%)"
-                        borderRadius="xl"
-                        border="1px solid rgba(255, 255, 255, 0.25)"
-                        boxShadow="0 3px 12px 0 rgba(31, 38, 135, 0.15)"
-                        position="relative"
-                        overflow="hidden"
-                        _hover={{
-                          bg: "rgba(255, 255, 255, 0.25)",
-                          boxShadow: "0 6px 20px -2px rgba(31, 38, 135, 0.25)",
-                          transform: "translateY(-1px)",
-                        }}
-                        transition="all 0.3s ease"
-                      >
-                        {/* Decorative element */}
-                        <Box
-                          position="absolute"
-                          top="0"
-                          left="0"
-                          w="4px"
-                          h="100%"
-                          bg="rgba(255, 255, 255, 0.35)"
-                          borderRadius="0 3px 3px 0"
-                        />
-                        <Text 
-                          fontSize={{ base: "lg", md: "lg" }}
-                          color="#1f576e"
-                          lineHeight="1.6"
-                          fontFamily="'Aparajita', serif"
-                          fontWeight="600"
-                          pl="4"
-                          textShadow="0 1px 2px rgba(255,255,255,0.8)"
-                        >
-                          {selectedEvent.description}
-                        </Text>
-                      </Box>
-                    </Box>
-                  )}
-                  
-                  {/* Action Button */}
-                  <Flex justify="center" mt="5">
-                    <Button
-                      size="md"
-                      bg="linear-gradient(135deg, #C19A6C, #E8B4B8)"
-                      color="white"
+              {/* Content */}
+              <Box p="6" maxH="60vh" overflow="auto">
+                {selectedEvent.description && (
+                  <VStack gap="4" align="stretch">
+                    <Heading
+                      fontSize={{ base: "xl", md: "2xl" }}
+                      color="#1f576e"
                       fontFamily="'Aparajita', serif"
-                      fontWeight="600"
-                      fontSize="md"
-                      px="6"
-                      py="3"
-                      borderRadius="xl"
-                      onClick={() => setIsEventModalOpen(false)}
-                      boxShadow="0 4px 12px rgba(193, 154, 108, 0.3), 0 2px 6px rgba(193, 154, 108, 0.2)"
-                      border="1px solid rgba(255, 255, 255, 0.2)"
-                      _hover={{
-                        bg: "linear-gradient(135deg, #B8916A, #D1A4A8)",
-                        transform: "translateY(-1px)",
-                        boxShadow: "0 6px 18px rgba(193, 154, 108, 0.4), 0 3px 8px rgba(193, 154, 108, 0.25)"
-                      }}
-                      transition="all 0.3s ease"
+                      fontWeight="700"
+                      textShadow="0 2px 4px rgba(255,255,255,0.8)"
                     >
-                      Can&apos;t wait! 🎉
-                    </Button>
-                  </Flex>
-                </VStack>
+                      What to Expect
+                    </Heading>
+                    <Text 
+                      fontSize={{ base: "lg", md: "xl" }}
+                      color="#1f576e"
+                      lineHeight="1.6"
+                      fontFamily="'Aparajita', serif"
+                      bg="rgba(255, 255, 255, 0.2)"
+                      backdropFilter="blur(12px) saturate(120%)"
+                      border="1px solid rgba(255, 255, 255, 0.3)"
+                      p="5"
+                      borderRadius="16px"
+                      textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                      boxShadow="0 4px 16px rgba(0, 0, 0, 0.05)"
+                    >
+                      {selectedEvent.description}
+                    </Text>
+                    
+                    {/* Action Button */}
+                    <Flex justify="center" mt="6">
+                      <Button
+                        bg="#C19A6C"
+                        color="white"
+                        fontFamily="'Aparajita', serif"
+                        fontWeight="600"
+                        fontSize={{ base: "lg", md: "xl" }}
+                        px="10"
+                        py="4"
+                        borderRadius="full"
+                        onClick={() => setIsEventModalOpen(false)}
+                        boxShadow="0 4px 12px rgba(193, 154, 108, 0.3)"
+                        _hover={{
+                          bg: "#B8916A",
+                          transform: "translateY(-1px)",
+                          boxShadow: "0 6px 16px rgba(193, 154, 108, 0.4)"
+                        }}
+                        transition="all 0.2s ease"
+                      >
+                        Perfect! 💫
+                      </Button>
+                    </Flex>
+                  </VStack>
+                )}
               </Box>
             </Box>
           </motion.div>
