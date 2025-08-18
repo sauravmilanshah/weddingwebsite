@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { 
   Box, 
   Container, 
@@ -13,74 +14,74 @@ import {
   VStack,
   Grid
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 
 // Constants  
 const SCROLL_THRESHOLD = 50;
 const COUNTDOWN_UPDATE_INTERVAL = 1000;
 const WEDDING_DATE = '2026-01-14T00:00:00';
 
+const PETAL_TYPES = [
+  { type: 'white', colors: ['#ffffff', '#f8fafc', '#f1f5f9'], weight: 40 },
+  { type: 'pink', colors: ['#ff69b4', '#f472b6', '#ec4899'], weight: 30 },
+  { type: 'red', colors: ['#dc143c', '#ef4444', '#dc2626'], weight: 30 }
+];
+
 const IndianWeddingFlowerShower = () => {
+  const [isClient, setIsClient] = useState(false);
   const [showPetals, setShowPetals] = useState(true);
+  const [petals, setPetals] = useState<Array<{ id: string; x: number; y: number; rotation: number; type: string; color: string; size: number; swayAmplitude: number; swayDirection: number }>>([]);
 
   useEffect(() => {
-    // Stop the animation after 5 seconds
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    // Stop creating new petals after 6 seconds
     const timer = setTimeout(() => {
       setShowPetals(false);
-    }, 5000);
+    }, 6000);
 
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    if (!showPetals) return;
-
-    const flowerTypes = [
-      { type: 'white-petal', colors: ['white'], weight: 40 },
-      { type: 'pink-petal', colors: ['pink'], weight: 30 },
-      { type: 'red-petal', colors: ['red'], weight: 30 }
-    ];
+    if (!showPetals || !isClient) return;
 
     const createPetal = () => {
-      const petal = document.createElement('div');
-      
       // Select flower type based on weight
       const rand = Math.random() * 100;
       let selectedFlower;
-      if (rand < 40) selectedFlower = flowerTypes[0]; // white
-      else if (rand < 70) selectedFlower = flowerTypes[1]; // pink  
-      else selectedFlower = flowerTypes[2]; // red
+      if (rand < 40) selectedFlower = PETAL_TYPES[0]; // white
+      else if (rand < 70) selectedFlower = PETAL_TYPES[1]; // pink  
+      else selectedFlower = PETAL_TYPES[2]; // red
 
       const color = selectedFlower.colors[Math.floor(Math.random() * selectedFlower.colors.length)];
-      const isSmall = Math.random() > 0.7; // 30% chance of small petals for intensity
-      const driftDirection = Math.random() > 0.6 ? (Math.random() > 0.5 ? 'drift-left' : 'drift-right') : '';
+      const isSmall = Math.random() > 0.7;
       
-      petal.className = `flower-petal ${selectedFlower.type} ${color} ${isSmall ? 'small' : ''} ${driftDirection}`;
-      petal.style.left = Math.random() * 100 + 'vw';
-      petal.style.animationDuration = (Math.random() * 2.5 + 1.5) + 's'; // Faster fall
-      petal.style.animationDelay = Math.random() * 1 + 's'; // Less delay
+      const swayAmplitude = 15 + Math.random() * 25; // Gentler sway (15-40px)
+      const swayDirection = Math.random() > 0.5 ? 1 : -1; // Random initial direction
       
-      // Add some rotation variation
-      petal.style.transform = `rotate(${Math.random() * 360}deg)`;
-      
-      document.body.appendChild(petal);
+      const newPetal = {
+        id: `petal-${Date.now()}-${Math.random()}`,
+        x: Math.random() * window.innerWidth,
+        y: -50,
+        rotation: Math.random() * 360,
+        type: selectedFlower.type,
+        color: color,
+        size: isSmall ? 0.6 : 1,
+        swayAmplitude,
+        swayDirection
+      };
 
-      // Remove petal after animation
-      setTimeout(() => {
-        if (petal.parentNode) {
-          petal.parentNode.removeChild(petal);
-        }
-      }, 6000);
+      setPetals(prev => [...prev, newPetal]);
     };
 
-    // MAXIMUM intensity - create petals every 25ms for first 2 seconds, then every 50ms
-    // Absolutely massive shower for first 2 seconds (40 petals per second!)
-    const interval1 = setInterval(createPetal, 25);
+    // Extra intense shower - create petals every 12.5ms for first 2 seconds, then every 25ms
+    const interval1 = setInterval(createPetal, 12.5);
     
     setTimeout(() => {
       clearInterval(interval1);
-      // Intense shower for remaining 3 seconds (20 petals per second)
-      const interval2 = setInterval(createPetal, 50);
+      const interval2 = setInterval(createPetal, 25);
       
       setTimeout(() => {
         clearInterval(interval2);
@@ -90,9 +91,65 @@ const IndianWeddingFlowerShower = () => {
     return () => {
       clearInterval(interval1);
     };
-  }, [showPetals]);
+  }, [showPetals, isClient]);
 
-  return null;
+  const handlePetalComplete = (petalId: string) => {
+    setPetals(prev => prev.filter(p => p.id !== petalId));
+  };
+
+  if (!isClient) {
+    return null;
+  }
+
+  return (
+    <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 1000 }}>
+      {petals.map((petal) => (
+        <motion.div
+          key={petal.id}
+          initial={{ 
+            x: petal.x, 
+            y: petal.y, 
+            rotate: petal.rotation,
+            scale: petal.size,
+            opacity: 0
+          }}
+          animate={{ 
+            x: petal.x + petal.swayDirection * petal.swayAmplitude,
+            y: window.innerHeight + 50,
+            rotate: petal.rotation + 720, // Two full rotations
+            opacity: [0, 0.9, 0.9, 0]
+          }}
+          transition={{
+            duration: Math.random() * 3 + 4, // 4-7 seconds for gentle fall
+            ease: "linear",
+            x: {
+              type: "spring",
+              damping: 2,
+              stiffness: 20,
+              mass: 2
+            },
+            opacity: {
+              times: [0, 0.1, 0.9, 1],
+              duration: Math.random() * 3 + 4
+            }
+          }}
+          onAnimationComplete={() => handlePetalComplete(petal.id)}
+          className="absolute"
+          style={{
+            width: 10,
+            height: 14,
+            borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+            backgroundColor: petal.color,
+            boxShadow: petal.type === 'white' 
+              ? '0 2px 4px rgba(0, 0, 0, 0.1), inset 1px 1px 2px rgba(255, 255, 255, 0.8)'
+              : petal.type === 'pink'
+              ? '0 2px 4px rgba(255, 105, 180, 0.4)'
+              : '0 2px 4px rgba(220, 20, 60, 0.4)'
+          }}
+        />
+      ))}
+    </div>
+  );
 };
 
 const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setCurrentPage: (page: string) => void }) => {
@@ -379,6 +436,7 @@ const Navigation = ({ currentPage, setCurrentPage }: { currentPage: string; setC
 };
 
 const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
+  const [isClient, setIsClient] = useState(false);
   const targetTime = useMemo(() => targetDate.getTime(), [targetDate]);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -386,6 +444,10 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
     minutes: 0,
     seconds: 0
   });
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const calculateTimeLeft = useCallback(() => {
     const now = Date.now();
@@ -402,10 +464,11 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
   }, [targetTime]);
 
   useEffect(() => {
+    if (!isClient) return;
     calculateTimeLeft();
     const timer = setInterval(calculateTimeLeft, COUNTDOWN_UPDATE_INTERVAL);
     return () => clearInterval(timer);
-  }, [calculateTimeLeft]);
+  }, [calculateTimeLeft, isClient]);
 
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
     <VStack gap={{ base: "1", md: "2" }}>
@@ -455,6 +518,23 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
       </Text>
     </VStack>
   );
+
+  if (!isClient) {
+    return (
+      <HStack 
+        gap={{ base: "2", sm: "4", md: "6" }}
+        justify="center"
+        role="timer"
+        aria-live="polite"
+        aria-label="Wedding countdown"
+      >
+        <TimeUnit value={0} label="Days" />
+        <TimeUnit value={0} label="Hours" />
+        <TimeUnit value={0} label="Minutes" />
+        <TimeUnit value={0} label="Seconds" />
+      </HStack>
+    );
+  }
 
   return (
     <HStack 
