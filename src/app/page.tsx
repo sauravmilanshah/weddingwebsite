@@ -1819,6 +1819,11 @@ export default function Home() {
                 </a>
               </Text>
               <Text>
+                <a href="https://www.flaticon.com/free-icons/location" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
+                  Location icons by Freepik - Flaticon
+                </a>
+              </Text>
+              <Text>
                 <a href="https://www.flaticon.com/free-icons/idea" target="_blank" rel="noopener noreferrer" style={{ color: "#1f576e", textDecoration: "none" }}>
                   Idea icons by Good Ware - Flaticon
                 </a>
@@ -2096,9 +2101,15 @@ const DressCodePage = () => {
                   <Image 
                     src="/mehndi.png" 
                     alt="Mehndi hand with henna design" 
-                    width={32} 
-                    height={32}
-                    style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
+                    width={40} 
+                    height={40}
+                    style={{ 
+                      filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)',
+                      width: '40px',
+                      height: '40px',
+                      minWidth: '40px',
+                      minHeight: '40px'
+                    }}
                   />
                   <Heading 
                     fontSize={{ base: "2xl", md: "3xl" }}
@@ -2128,15 +2139,15 @@ const DressCodePage = () => {
                 color="#2b5a72"
                 lineHeight="1.7"
               >
-                Think sophisticated fusion with a playful twist! We&apos;re talking rich jewel tones, elegant silhouettes with an Indian flair, and outfits that can transition from henna artistry to dinner dancing.{' '}
+                Rich jewel tones and elegant silhouettes with an Indian flair. Outfits that transition from henna artistry to dinner dancing.{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   Darker colors work best
                 </Text>
-                {' '}as they won&apos;t show henna stains, and{' '}
+                {' '}as they won&apos;t show henna stains.{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   Indo-western styles
                 </Text>
-                {' '}give you the perfect blend of comfort and cultural celebration.
+                {' '}give you comfort and cultural celebration.
               </Text>
               
               <VStack align="start" gap="3" w="full">
@@ -2145,7 +2156,7 @@ const DressCodePage = () => {
                   color="#2b5a72"
                   lineHeight="1.7"
                 >
-                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Jodhpuri suits or bandgalas with darker jewel tones, kurta bundis with dhoti pants, or embroidered shirts with palazzo pants.
+                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Jodhpuri suits with darker jewel tones, kurta bundis with dhoti pants.
                 </Text>
                 
                 <Text 
@@ -2153,18 +2164,9 @@ const DressCodePage = () => {
                   color="#2b5a72"
                   lineHeight="1.7"
                 >
-                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Flowing palazzo pants with embroidered kurtas, stylish dhoti pants with crop tops, or elegant sarees with contemporary blouses.
+                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Palazzo pants with embroidered kurtas, dhoti pants with crop tops, or elegant sarees.
                 </Text>
               </VStack>
-              
-              <Text 
-                fontSize={{ base: "md", md: "lg" }}
-                color="#2b5a72"
-                lineHeight="1.7"
-                fontStyle="italic"
-              >
-                The goal? Look effortlessly chic while getting your hands beautifully decorated!
-              </Text>
               
               {/* Mood Board Link */}
               <Box 
@@ -2179,9 +2181,15 @@ const DressCodePage = () => {
                     <Image 
                       src="/lightbulb.png" 
                       alt="Lightbulb inspiration icon" 
-                      width={24} 
-                      height={24}
-                      style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                      width={32} 
+                      height={32}
+                      style={{ 
+                        filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)',
+                        width: '32px',
+                        height: '32px',
+                        minWidth: '32px',
+                        minHeight: '32px'
+                      }}
                     />
                     <Text 
                       fontSize="md" 
@@ -2232,9 +2240,15 @@ const DressCodePage = () => {
                   <Image 
                     src="/turmeric.png" 
                     alt="Bowl of turmeric powder" 
-                    width={32} 
-                    height={32}
-                    style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
+                    width={40} 
+                    height={40}
+                    style={{ 
+                      filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)',
+                      width: '40px',
+                      height: '40px',
+                      minWidth: '40px',
+                      minHeight: '40px'
+                    }}
                   />
                   <Heading 
                     fontSize={{ base: "2xl", md: "3xl" }}
@@ -2264,9 +2278,13 @@ const DressCodePage = () => {
                 color="#2b5a72"
                 lineHeight="1.7"
               >
-                Embrace the Mediterranean coastal vibe with effortless elegance! Picture yourself strolling through a Spanish courtyard - light, flowing fabrics that catch the breeze, natural textures, and that relaxed sophistication that says{' '}
+                Mediterranean coastal vibe with effortless elegance!{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
-                  &apos;vacation chic meets cultural celebration.&apos;
+                  Light, flowing fabrics
+                </Text>
+                {' '}that catch the breeze, natural textures, and relaxed sophistication.{' '}
+                <Text as="span" fontWeight="600" color="#1f576e">
+                  Vacation chic meets cultural celebration.
                 </Text>
               </Text>
               
@@ -2276,7 +2294,7 @@ const DressCodePage = () => {
                   color="#2b5a72"
                   lineHeight="1.7"
                 >
-                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Linen pants with crisp shirts or Spanish-inspired kurta bundis. Light colors, breathable fabrics, effortlessly dapper.
+                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Linen pants with crisp shirts or kurta bundis. Light colors, breathable fabrics.
                 </Text>
                 
                 <Text 
@@ -2284,18 +2302,9 @@ const DressCodePage = () => {
                   color="#2b5a72"
                   lineHeight="1.7"
                 >
-                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Summer dresses that flow with movement or light kurtis in soft, natural fabrics.
+                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Summer dresses that flow or light kurtis in soft fabrics.
                 </Text>
               </VStack>
-              
-              <Text 
-                fontSize={{ base: "md", md: "lg" }}
-                color="#2b5a72"
-                lineHeight="1.7"
-                fontStyle="italic"
-              >
-                The goal? Look like you belong in a dreamy Spanish villa while celebrating this joyful turmeric ceremony!
-              </Text>
               
               {/* Mood Board Link */}
               <Box 
@@ -2310,9 +2319,15 @@ const DressCodePage = () => {
                     <Image 
                       src="/lightbulb.png" 
                       alt="Lightbulb inspiration icon" 
-                      width={24} 
-                      height={24}
-                      style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                      width={32} 
+                      height={32}
+                      style={{ 
+                        filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)',
+                        width: '32px',
+                        height: '32px',
+                        minWidth: '32px',
+                        minHeight: '32px'
+                      }}
                     />
                     <Text 
                       fontSize="md" 
@@ -2363,9 +2378,15 @@ const DressCodePage = () => {
                   <Image 
                     src="/hindu-wedding.png" 
                     alt="Hindu wedding mandap" 
-                    width={32} 
-                    height={32}
-                    style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
+                    width={40} 
+                    height={40}
+                    style={{ 
+                      filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)',
+                      width: '40px',
+                      height: '40px',
+                      minWidth: '40px',
+                      minHeight: '40px'
+                    }}
                   />
                   <Heading 
                     fontSize={{ base: "2xl", md: "3xl" }}
@@ -2395,15 +2416,14 @@ const DressCodePage = () => {
                 color="#2b5a72"
                 lineHeight="1.7"
               >
-                Step into the sacred circle of eternal love with timeless Indian elegance! This is the moment where traditions come alive - think classic silhouettes, rich fabrics, and those{' '}
+                Timeless Indian elegance for the sacred ceremony. Classic silhouettes, rich fabrics, and{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   traditional light colors
                 </Text>
-                {' '}that have blessed countless generations of couples. Picture yourself as part of a beautiful tapestry of culture, where every thread tells a story of heritage and{' '}
+                {' '}that honor heritage with{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
-                  formal reverence
+                  formal reverence.
                 </Text>
-                {' '}for this most sacred of ceremonies.
               </Text>
               
               <VStack align="start" gap="3" w="full">
@@ -2412,7 +2432,7 @@ const DressCodePage = () => {
                   color="#2b5a72"
                   lineHeight="1.7"
                 >
-                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Classic sherwanis in ivory, cream, or soft gold, traditional achkans with silk churidars, or elegant kurta pajamas in pastel tones with rich embroidery.
+                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Sherwanis in ivory or cream, achkans with silk churidars.
                 </Text>
                 
                 <Text 
@@ -2420,18 +2440,9 @@ const DressCodePage = () => {
                   color="#2b5a72"
                   lineHeight="1.7"
                 >
-                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Traditional sarees in light silks, lehengas in soft pastels with intricate work, or elegant anarkalis in ivory, blush, or champagne with traditional embellishments.
+                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Traditional sarees in light silks, lehengas in soft pastels, or anarkalis in ivory and blush.
                 </Text>
               </VStack>
-              
-              <Text 
-                fontSize={{ base: "md", md: "lg" }}
-                color="#2b5a72"
-                lineHeight="1.7"
-                fontStyle="italic"
-              >
-                The goal? Honor the sacred traditions while looking absolutely radiant in colors that symbolize new beginnings and pure love!
-              </Text>
               
               {/* Mood Board Link */}
               <Box 
@@ -2446,9 +2457,15 @@ const DressCodePage = () => {
                     <Image 
                       src="/lightbulb.png" 
                       alt="Lightbulb inspiration icon" 
-                      width={24} 
-                      height={24}
-                      style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                      width={32} 
+                      height={32}
+                      style={{ 
+                        filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)',
+                        width: '32px',
+                        height: '32px',
+                        minWidth: '32px',
+                        minHeight: '32px'
+                      }}
                     />
                     <Text 
                       fontSize="md" 
@@ -2499,9 +2516,15 @@ const DressCodePage = () => {
                   <Image 
                     src="/dj.png" 
                     alt="DJ with headphones" 
-                    width={32} 
-                    height={32}
-                    style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
+                    width={40} 
+                    height={40}
+                    style={{ 
+                      filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)',
+                      width: '40px',
+                      height: '40px',
+                      minWidth: '40px',
+                      minHeight: '40px'
+                    }}
                   />
                   <Heading 
                     fontSize={{ base: "2xl", md: "3xl" }}
@@ -2531,14 +2554,14 @@ const DressCodePage = () => {
                 color="#2b5a72"
                 lineHeight="1.7"
               >
-                Time to turn up the heat and dance the night away! Picture yourself stepping into a chic club - think sleek silhouettes, bold statement pieces, and that perfect balance of{' '}
+                Chic club vibes - sleek silhouettes, bold statement pieces, and{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   sophisticated edge
                 </Text>
-                {' '}meets high-energy nightlife. We&apos;re talking outfits that can handle the dance floor while still looking effortlessly cool under those{' '}
+                {' '}meets high-energy nightlife. Outfits that handle the dance floor under{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
-                  neon lights
-                </Text>. This is your moment to embrace that chic clubbing aesthetic where fashion meets function!
+                  neon lights.
+                </Text>
               </Text>
               
               <VStack align="start" gap="3" w="full">
@@ -2547,7 +2570,7 @@ const DressCodePage = () => {
                   color="#2b5a72"
                   lineHeight="1.7"
                 >
-                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Stylish shirts with cool jackets, well-fitted dark pants or trendy chinos, statement accessories, and comfortable yet stylish shoes perfect for dancing the night away.
+                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Stylish shirts with cool jackets, dark pants, and comfortable dance shoes.
                 </Text>
                 
                 <Text 
@@ -2555,18 +2578,9 @@ const DressCodePage = () => {
                   color="#2b5a72"
                   lineHeight="1.7"
                 >
-                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Bodycon dresses with interesting textures, chic jumpsuits or co-ord sets, bold accessories that catch the light, and comfortable heels or trendy sneakers that can handle the dance floor.
+                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Bodycon dresses, chic jumpsuits, bold accessories, and comfortable heels or trendy sneakers.
                 </Text>
               </VStack>
-              
-              <Text 
-                fontSize={{ base: "md", md: "lg" }}
-                color="#2b5a72"
-                lineHeight="1.7"
-                fontStyle="italic"
-              >
-                The goal? Look effortlessly cool while you dance, laugh, and celebrate into the early hours - think nightlife glamour with serious style!
-              </Text>
               
               {/* Mood Board Link */}
               <Box 
@@ -2581,9 +2595,15 @@ const DressCodePage = () => {
                     <Image 
                       src="/lightbulb.png" 
                       alt="Lightbulb inspiration icon" 
-                      width={24} 
-                      height={24}
-                      style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                      width={32} 
+                      height={32}
+                      style={{ 
+                        filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)',
+                        width: '32px',
+                        height: '32px',
+                        minWidth: '32px',
+                        minHeight: '32px'
+                      }}
                     />
                     <Text 
                       fontSize="md" 
@@ -2634,9 +2654,15 @@ const DressCodePage = () => {
                   <Image 
                     src="/dancing.png" 
                     alt="Dancing couple" 
-                    width={32} 
-                    height={32}
-                    style={{ filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)' }}
+                    width={40} 
+                    height={40}
+                    style={{ 
+                      filter: 'brightness(0) saturate(100%) invert(16%) sepia(29%) saturate(1686%) hue-rotate(170deg) brightness(96%) contrast(88%)',
+                      width: '40px',
+                      height: '40px',
+                      minWidth: '40px',
+                      minHeight: '40px'
+                    }}
                   />
                   <Heading 
                     fontSize={{ base: "2xl", md: "3xl" }}
@@ -2666,15 +2692,15 @@ const DressCodePage = () => {
                 color="#2b5a72"
                 lineHeight="1.7"
               >
-                Get ready for an evening of music, dance, and pure celebration! The Sangeet is where black tie elegance meets festivity - think{' '}
+                Black tie elegance meets festivity - think{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   sophisticated glamour
                 </Text>
-                {' '}with rich, darker tones that command attention. Picture yourself moving gracefully through the evening in outfits that exude formal elegance while honoring the celebratory spirit. We&apos;re talking about that perfect balance of{' '}
+                {' '}with rich, darker tones. The perfect balance of{' '}
                 <Text as="span" fontWeight="600" color="#1f576e">
                   black tie sophistication
                 </Text>
-                {' '}and festive energy, where every step you take adds to the magic of this musical celebration!
+                {' '}and festive energy.
               </Text>
               
               <VStack align="start" gap="3" w="full">
@@ -2683,7 +2709,7 @@ const DressCodePage = () => {
                   color="#2b5a72"
                   lineHeight="1.7"
                 >
-                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Sharp blazers with ties in dark, rich colors for a polished black tie look, or elegant Indian formal wear like bandhgalas in deep jewel tones with sophisticated styling.
+                  <Text as="span" fontWeight="600" color="#1f576e">For the gentlemen:</Text> Sharp blazers with ties in dark colors, or bandhgalas in deep jewel tones.
                 </Text>
                 
                 <Text 
@@ -2691,18 +2717,9 @@ const DressCodePage = () => {
                   color="#2b5a72"
                   lineHeight="1.7"
                 >
-                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Flowing long gowns in luxurious dark fabrics with elegant draping, or sophisticated sarees in rich, darker silks with intricate work and graceful styling.
+                  <Text as="span" fontWeight="600" color="#1f576e">For the ladies:</Text> Long gowns in dark fabrics with elegant draping, or sophisticated sarees in rich silks.
                 </Text>
               </VStack>
-              
-              <Text 
-                fontSize={{ base: "md", md: "lg" }}
-                color="#2b5a72"
-                lineHeight="1.7"
-                fontStyle="italic"
-              >
-                The goal? Strike the perfect pose between black tie elegance and festive celebration - think sophisticated glamour meets cultural richness in beautiful dark tones!
-              </Text>
               
               {/* Mood Board Link */}
               <Box 
@@ -2717,9 +2734,15 @@ const DressCodePage = () => {
                     <Image 
                       src="/lightbulb.png" 
                       alt="Lightbulb inspiration icon" 
-                      width={24} 
-                      height={24}
-                      style={{ filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)' }}
+                      width={32} 
+                      height={32}
+                      style={{ 
+                        filter: 'brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(466%) hue-rotate(21deg) brightness(96%) contrast(88%)',
+                        width: '32px',
+                        height: '32px',
+                        minWidth: '32px',
+                        minHeight: '32px'
+                      }}
                     />
                     <Text 
                       fontSize="md" 
@@ -2770,6 +2793,7 @@ const WeddingInvitePage = () => {
     description: string;
     since: string;
     till: string;
+    location?: string;
   } | null>(null);
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
   const [dragY, setDragY] = useState(0);
@@ -3086,6 +3110,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-14T13:00:00",
       till: "2026-01-14T16:00:00",
       description: eventDescriptions["Check In"]?.description,
+      location: "South Reception",
       color: "#2b5a72"
     },
     {
@@ -3095,6 +3120,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-14T16:30:00",
       till: "2026-01-14T19:30:00",
       description: eventDescriptions["Mehndi"]?.description,
+      location: "Lakeside Lawn",
       color: "#2b5a72"
     },
     {
@@ -3104,6 +3130,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-14T19:30:00",
       till: "2026-01-15T00:30:00",
       description: eventDescriptions["Welcome Dinner"]?.description,
+      location: "Lakeside Lawn",
       color: "#2b5a72"
     },
     // Day 2 Events
@@ -3114,6 +3141,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-15T07:00:00", 
       till: "2026-01-15T10:00:00",
       description: eventDescriptions["Breakfast"]?.description,
+      location: "The Veranda",
       color: "#1f576e"
     },
     {
@@ -3123,6 +3151,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-15T10:30:00",
       till: "2026-01-15T13:00:00", 
       description: eventDescriptions["Haldi"]?.description,
+      location: "Splash Infinity Pool",
       color: "#1f576e"
     },
     {
@@ -3132,6 +3161,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-15T13:00:00",
       till: "2026-01-15T16:00:00",
       description: eventDescriptions["Lunch"]?.description,
+      location: "Splash Infinity Pool",
       color: "#1f576e"
     },
     {
@@ -3140,7 +3170,8 @@ const WeddingInvitePage = () => {
       title: "Baarat",
       since: "2026-01-15T16:30:00",
       till: "2026-01-15T18:00:00",
-      description: eventDescriptions["Baarat"]?.description, 
+      description: eventDescriptions["Baarat"]?.description,
+      location: "Hill top", 
       color: "#1f576e"
     },
     {
@@ -3150,6 +3181,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-15T18:30:00",
       till: "2026-01-15T20:30:00",
       description: eventDescriptions["Wedding Pheras"]?.description,
+      location: "Hill top",
       color: "#1f576e"
     },
     {
@@ -3159,6 +3191,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-15T20:30:00",
       till: "2026-01-16T00:30:00",
       description: eventDescriptions["Dinner"]?.description,
+      location: "Hill top",
       color: "#1f576e"
     },
     {
@@ -3168,6 +3201,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-16T00:30:00",
       till: "2026-01-16T05:00:00",
       description: eventDescriptions["After Party"]?.description,
+      location: "Common House Micro Brewery",
       color: "#1f576e"
     },
     // Day 3 Events
@@ -3178,6 +3212,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-16T07:00:00",
       till: "2026-01-16T10:00:00",
       description: eventDescriptions["Breakfast"]?.description,
+      location: "The Veranda",
       color: "#1a4a5c"
     },
     {
@@ -3187,6 +3222,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-16T13:00:00",
       till: "2026-01-16T16:00:00",
       description: eventDescriptions["Lunch"]?.description,
+      location: "Splash Infinity Pool",
       color: "#1a4a5c"
     },
     {
@@ -3196,6 +3232,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-16T17:00:00",
       till: "2026-01-16T19:00:00",
       description: eventDescriptions["High Tea"]?.description,
+      location: "The Den",
       color: "#1a4a5c"
     },
     {
@@ -3205,6 +3242,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-16T20:30:00",
       till: "2026-01-17T00:30:00",
       description: eventDescriptions["Sangeet"]?.description,
+      location: "Oleander Farms Garden",
       color: "#1a4a5c"
     },
     {
@@ -3214,6 +3252,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-17T00:30:00",
       till: "2026-01-17T05:00:00",
       description: eventDescriptions["After Party"]?.description,
+      location: "Common House",
       color: "#1a4a5c"
     },
     // Day 4 Events  
@@ -3224,6 +3263,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-17T07:00:00",
       till: "2026-01-17T10:00:00",
       description: eventDescriptions["Breakfast"]?.description,
+      location: "The Veranda",
       color: "#0f3a4a"
     },
     {
@@ -3233,6 +3273,7 @@ const WeddingInvitePage = () => {
       since: "2026-01-17T10:00:00", 
       till: "2026-01-17T12:00:00",
       description: eventDescriptions["Checkout"]?.description,
+      location: "South Reception",
       color: "#0f3a4a"
     }
   ], [eventDescriptions]);
@@ -3277,6 +3318,7 @@ const WeddingInvitePage = () => {
     description: string;
     since: string;
     till: string;
+    location?: string;
   }) => {
     setSelectedEvent(event);
     setIsEventModalOpen(true);
@@ -3501,8 +3543,6 @@ const WeddingInvitePage = () => {
                 <VStack gap="4" align="stretch" w="100%">
                     {weddingEpg.map((event, index) => {
                       const isCurrentEvent = currentEvent?.id === event.id;
-                      const eventTime = new Date(event.since);
-                      const endTime = new Date(event.till);
                       const eventData = eventDescriptions[event.title as keyof typeof eventDescriptions] || { emoji: "🎉", title: event.title };
                       
                       return (
@@ -3542,62 +3582,6 @@ const WeddingInvitePage = () => {
                             }}
                             overflow="hidden"
                           >
-                            {/* Time Bubble - Top Right */}
-                            <Box
-                              position="absolute"
-                              top={{ base: "4", md: "5" }}
-                              right={{ base: "4", md: "5" }}
-                              px={{ base: "3", md: "4" }}
-                              py={{ base: "2", md: "2.5" }}
-                              bg={isCurrentEvent 
-                                ? "linear-gradient(135deg, #C19A6C, #E8B4B8)" 
-                                : "rgba(31, 87, 110, 0.9)"
-                              }
-                              borderRadius="full"
-                              backdropFilter="blur(12px)"
-                              boxShadow="0 4px 16px rgba(0, 0, 0, 0.15)"
-                              border="1px solid rgba(255, 255, 255, 0.2)"
-                              zIndex="2"
-                            >
-                              <VStack gap="0" align="center">
-                                <Text
-                                  fontSize={{ base: "xs", md: "sm" }}
-                                  fontWeight="bold"
-                                  color="white"
-                                  fontFamily="'Aparajita', serif"
-                                  lineHeight="1"
-                                  textShadow="0 1px 2px rgba(0,0,0,0.2)"
-                                >
-                                  {eventTime.toLocaleTimeString('en-US', {
-                                    hour: 'numeric',
-                                    minute: '2-digit',
-                                    hour12: true
-                                  })}
-                                </Text>
-                                <Text
-                                  fontSize="2xs"
-                                  color="rgba(255, 255, 255, 0.8)"
-                                  fontFamily="'Aparajita', serif"
-                                  lineHeight="1"
-                                >
-                                  to
-                                </Text>
-                                <Text
-                                  fontSize={{ base: "xs", md: "sm" }}
-                                  fontWeight="bold"
-                                  color="white"
-                                  fontFamily="'Aparajita', serif"
-                                  lineHeight="1"
-                                  textShadow="0 1px 2px rgba(0,0,0,0.2)"
-                                >
-                                  {endTime.toLocaleTimeString('en-US', {
-                                    hour: 'numeric',
-                                    minute: '2-digit',
-                                    hour12: true
-                                  })}
-                                </Text>
-                              </VStack>
-                            </Box>
 
                             {/* Happening Now Badge */}
                             {isCurrentEvent && (
@@ -3629,52 +3613,226 @@ const WeddingInvitePage = () => {
 
                             
                             {/* Main Content Area */}
-                            <VStack align="flex-start" gap={{ base: "4", md: "5" }} w="100%" pr={{ base: "16", md: "20" }}>
-                              {/* Event Header - Left Side */}
-                              <HStack gap={{ base: "4", md: "5" }} align="center" w="100%">
-                                {/* Emoji with enhanced styling */}
-                                <Box
-                                  w={{ base: "12", md: "14" }}
-                                  h={{ base: "12", md: "14" }}
-                                  bg="rgba(31, 87, 110, 0.1)"
-                                  borderRadius="xl"
-                                  display="flex"
-                                  alignItems="center"
-                                  justifyContent="center"
-                                  border="1px solid rgba(31, 87, 110, 0.2)"
-                                  flexShrink="0"
+                            <VStack align="flex-start" gap={{ base: "4", md: "5" }} w="100%">
+                              {/* Event Header with Location - Responsive Layout */}
+                              <Box w="100%">
+                                {/* Desktop: All in one line */}
+                                <Flex 
+                                  justify="space-between" 
+                                  align="center" 
+                                  w="100%"
+                                  display={{ base: "none", md: "flex" }}
+                                  gap="4"
                                 >
-                                  <Box fontSize={{ base: "2xl", md: "3xl" }}>
-                                    {getEventIcon(event.title, 32)}
+                                  {/* Left: Icon + Title + Location */}
+                                  <HStack gap="5" align="center" flex="1" minW="0">
+                                    {/* Emoji with enhanced styling */}
+                                    <Box
+                                      w="14"
+                                      h="14"
+                                      bg="rgba(31, 87, 110, 0.1)"
+                                      borderRadius="xl"
+                                      display="flex"
+                                      alignItems="center"
+                                      justifyContent="center"
+                                      border="1px solid rgba(31, 87, 110, 0.2)"
+                                      flexShrink="0"
+                                    >
+                                      <Box fontSize="3xl">
+                                        {getEventIcon(event.title, 32)}
+                                      </Box>
+                                    </Box>
+                                    
+                                    {/* Event Title */}
+                                    <Text
+                                      fontSize={{ md: "3xl", lg: "4xl" }}
+                                      fontFamily="'Bernhard Tango', cursive"
+                                      fontWeight="normal"
+                                      color={isCurrentEvent ? "#C19A6C" : "#1f576e"}
+                                      lineHeight="1.1"
+                                      textShadow="0 2px 6px rgba(255,255,255,0.8)"
+                                      letterSpacing="-0.02em"
+                                      flexShrink="0"
+                                    >
+                                      {event.title}
+                                    </Text>
+                                    
+                                    {/* Location Badge */}
+                                    {event.location && (
+                                      <Box
+                                        bg="rgba(255, 255, 255, 0.2)"
+                                        backdropFilter="blur(8px) saturate(110%)"
+                                        borderRadius="full"
+                                        px="3"
+                                        py="1.5"
+                                        border="1px solid rgba(255, 255, 255, 0.3)"
+                                        boxShadow="0 2px 8px rgba(0, 0, 0, 0.1)"
+                                        flexShrink="0"
+                                      >
+                                        <HStack gap="1.5" align="center">
+                                          <Image
+                                            src="/location.png"
+                                            alt="Location"
+                                            width={12}
+                                            height={12}
+                                            style={{
+                                              width: '12px',
+                                              height: '12px',
+                                              filter: 'brightness(0) saturate(100%) invert(13%) sepia(47%) saturate(1235%) hue-rotate(188deg) brightness(91%) contrast(93%)'
+                                            }}
+                                          />
+                                          <Text
+                                            fontSize="xs"
+                                            color="#1f576e"
+                                            fontFamily="'Inter', sans-serif"
+                                            fontWeight="600"
+                                            textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                                          >
+                                            {event.location}
+                                          </Text>
+                                        </HStack>
+                                      </Box>
+                                    )}
+                                  </HStack>
+                                  
+                                  {/* Right: Time Badge */}
+                                  <Box
+                                    bg="linear-gradient(135deg, #1f576e, #2b5a72)"
+                                    borderRadius="full"
+                                    px="4"
+                                    py="2"
+                                    border="1px solid rgba(255, 255, 255, 0.2)"
+                                    boxShadow="0 2px 8px rgba(31, 87, 110, 0.3)"
+                                    flexShrink="0"
+                                  >
+                                    <Text
+                                      fontSize="xs"
+                                      color="white"
+                                      fontFamily="'Inter', sans-serif"
+                                      fontWeight="600"
+                                      textTransform="uppercase"
+                                      letterSpacing="0.5px"
+                                      textShadow="0 1px 2px rgba(0,0,0,0.3)"
+                                      textAlign="center"
+                                    >
+                                      {eventData.time}
+                                    </Text>
                                   </Box>
-                                </Box>
-                                
-                                {/* Event Title with Signature Blue */}
-                                <VStack align="flex-start" gap="1" flex="1">
-                                  <Text
-                                    fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
-                                    fontFamily="'Bernhard Tango', cursive"
-                                    fontWeight="normal"
-                                    color={isCurrentEvent ? "#C19A6C" : "#1f576e"}
-                                    lineHeight="1.1"
-                                    textShadow="0 2px 6px rgba(255,255,255,0.8)"
-                                    letterSpacing="-0.02em"
+                                </Flex>
+
+                                {/* Mobile: Stacked layout */}
+                                <VStack 
+                                  align="flex-start" 
+                                  gap="3" 
+                                  w="100%"
+                                  display={{ base: "flex", md: "none" }}
+                                >
+                                  {/* Row 1: Icon + Title */}
+                                  <HStack gap="4" align="center" w="100%">
+                                    {/* Emoji with enhanced styling */}
+                                    <Box
+                                      w="12"
+                                      h="12"
+                                      bg="rgba(31, 87, 110, 0.1)"
+                                      borderRadius="xl"
+                                      display="flex"
+                                      alignItems="center"
+                                      justifyContent="center"
+                                      border="1px solid rgba(31, 87, 110, 0.2)"
+                                      flexShrink="0"
+                                    >
+                                      <Box fontSize="2xl">
+                                        {getEventIcon(event.title, 32)}
+                                      </Box>
+                                    </Box>
+                                    
+                                    {/* Event Title */}
+                                    <Text
+                                      fontSize="2xl"
+                                      fontFamily="'Bernhard Tango', cursive"
+                                      fontWeight="normal"
+                                      color={isCurrentEvent ? "#C19A6C" : "#1f576e"}
+                                      lineHeight="1.1"
+                                      textShadow="0 2px 6px rgba(255,255,255,0.8)"
+                                      letterSpacing="-0.02em"
+                                      flex="1"
+                                    >
+                                      {event.title}
+                                    </Text>
+                                  </HStack>
+
+                                  {/* Row 2: Location + Time */}
+                                  <Flex 
+                                    justify="space-between" 
+                                    align="center" 
+                                    w="100%" 
+                                    pl="16"
+                                    gap="3"
+                                    flexWrap="wrap"
                                   >
-                                    {event.title}
-                                  </Text>
-                                  <Text
-                                    fontSize={{ base: "sm", md: "md" }}
-                                    color="#2b5a72"
-                                    fontFamily="'Aparajita', serif"
-                                    fontWeight="bold"
-                                    textTransform="uppercase"
-                                    letterSpacing="0.1em"
-                                    textShadow="0 1px 3px rgba(255,255,255,0.8)"
-                                  >
-                                    {eventData.title || event.title}
-                                  </Text>
+                                    {/* Location Badge */}
+                                    {event.location && (
+                                      <Box
+                                        bg="rgba(255, 255, 255, 0.2)"
+                                        backdropFilter="blur(8px) saturate(110%)"
+                                        borderRadius="full"
+                                        px="3"
+                                        py="1.5"
+                                        border="1px solid rgba(255, 255, 255, 0.3)"
+                                        boxShadow="0 2px 8px rgba(0, 0, 0, 0.1)"
+                                        flexShrink="0"
+                                      >
+                                        <HStack gap="1.5" align="center">
+                                          <Image
+                                            src="/location.png"
+                                            alt="Location"
+                                            width={12}
+                                            height={12}
+                                            style={{
+                                              width: '12px',
+                                              height: '12px',
+                                              filter: 'brightness(0) saturate(100%) invert(13%) sepia(47%) saturate(1235%) hue-rotate(188deg) brightness(91%) contrast(93%)'
+                                            }}
+                                          />
+                                          <Text
+                                            fontSize="2xs"
+                                            color="#1f576e"
+                                            fontFamily="'Inter', sans-serif"
+                                            fontWeight="600"
+                                            textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                                          >
+                                            {event.location}
+                                          </Text>
+                                        </HStack>
+                                      </Box>
+                                    )}
+                                    
+                                    {/* Time Badge */}
+                                    <Box
+                                      bg="linear-gradient(135deg, #1f576e, #2b5a72)"
+                                      borderRadius="full"
+                                      px="3"
+                                      py="1.5"
+                                      border="1px solid rgba(255, 255, 255, 0.2)"
+                                      boxShadow="0 2px 8px rgba(31, 87, 110, 0.3)"
+                                      flexShrink="0"
+                                    >
+                                      <Text
+                                        fontSize="2xs"
+                                        color="white"
+                                        fontFamily="'Inter', sans-serif"
+                                        fontWeight="600"
+                                        textTransform="uppercase"
+                                        letterSpacing="0.5px"
+                                        textShadow="0 1px 2px rgba(0,0,0,0.3)"
+                                        textAlign="center"
+                                      >
+                                        {eventData.time}
+                                      </Text>
+                                    </Box>
+                                  </Flex>
                                 </VStack>
-                              </HStack>
+                              </Box>
                               
                               {/* Description Content */}
                               {event.description && (
@@ -3835,46 +3993,88 @@ const WeddingInvitePage = () => {
                     {/* Title & Time - Responsive Layout */}
                     <Box flex="1" minW="0">
                       {/* Desktop: Title and Time in same line */}
-                      <HStack 
-                        align="center" 
+                      <VStack 
+                        align="start" 
                         display={{ base: "none", md: "flex" }}
-                        gap="4"
+                        gap="2"
                       >
-                        <Heading 
-                          fontSize="3xl"
-                          color="#1f576e"
-                          fontFamily="'Bernhard Tango', cursive"
-                          textShadow="0 2px 4px rgba(255,255,255,0.8)"
-                        >
-                          {selectedEvent.title}
-                        </Heading>
-                        <Box
-                          bg="#1f576e"
-                          borderRadius="full"
-                          px="4"
-                          py="2"
-                          boxShadow="0 4px 12px rgba(31, 87, 110, 0.3)"
-                        >
-                          <Text
-                            fontSize="md"
-                            color="white"
-                            fontFamily="'Aparajita', serif"
-                            fontWeight="600"
-                            textAlign="center"
-                            whiteSpace="nowrap"
+                        <HStack align="center" gap="4" justify="space-between" w="100%">
+                          {/* Left: Title + Location */}
+                          <HStack gap="4" align="center" flex="1" minW="0">
+                            <Heading 
+                              fontSize="3xl"
+                              color="#1f576e"
+                              fontFamily="'Bernhard Tango', cursive"
+                              textShadow="0 2px 4px rgba(255,255,255,0.8)"
+                              flexShrink="0"
+                            >
+                              {selectedEvent.title}
+                            </Heading>
+                            
+                            {/* Location Badge next to heading */}
+                            {selectedEvent.location && (
+                              <Box
+                                bg="rgba(255, 255, 255, 0.2)"
+                                backdropFilter="blur(8px) saturate(110%)"
+                                borderRadius="full"
+                                px="3"
+                                py="1.5"
+                                border="1px solid rgba(255, 255, 255, 0.3)"
+                                boxShadow="0 2px 8px rgba(0, 0, 0, 0.1)"
+                                flexShrink="0"
+                              >
+                                <HStack gap="1.5" align="center">
+                                  <Image
+                                    src="/location.png"
+                                    alt="Location"
+                                    width={14}
+                                    height={14}
+                                    style={{
+                                      width: '14px',
+                                      height: '14px',
+                                      filter: 'brightness(0) saturate(100%) invert(13%) sepia(47%) saturate(1235%) hue-rotate(188deg) brightness(91%) contrast(93%)'
+                                    }}
+                                  />
+                                  <Text
+                                    fontSize="sm"
+                                    color="#1f576e"
+                                    fontFamily="'Inter', sans-serif"
+                                    fontWeight="600"
+                                    textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                                  >
+                                    {selectedEvent.location}
+                                  </Text>
+                                </HStack>
+                              </Box>
+                            )}
+                          </HStack>
+                          
+                          {/* Right: Time Badge */}
+                          <Box
+                            bg="linear-gradient(135deg, #1f576e, #2b5a72)"
+                            borderRadius="full"
+                            px="4"
+                            py="2"
+                            border="1px solid rgba(255, 255, 255, 0.2)"
+                            boxShadow="0 2px 8px rgba(31, 87, 110, 0.3)"
+                            flexShrink="0"
                           >
-                            {new Date(selectedEvent.since).toLocaleTimeString('en-US', {
-                              hour: 'numeric',
-                              minute: '2-digit',
-                              hour12: true
-                            })} - {new Date(selectedEvent.till).toLocaleTimeString('en-US', {
-                              hour: 'numeric', 
-                              minute: '2-digit',
-                              hour12: true
-                            })}
-                          </Text>
-                        </Box>
-                      </HStack>
+                            <Text
+                              fontSize="sm"
+                              color="white"
+                              fontFamily="'Inter', sans-serif"
+                              fontWeight="600"
+                              textTransform="uppercase"
+                              letterSpacing="0.5px"
+                              textShadow="0 1px 2px rgba(0,0,0,0.3)"
+                              textAlign="center"
+                            >
+                              {eventDescriptions[selectedEvent.title as keyof typeof eventDescriptions]?.time || 
+                               `${new Date(selectedEvent.since).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })} - ${new Date(selectedEvent.till).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}`}
+                            </Text>
+                          </Box>
+                        </HStack>
+                      </VStack>
 
                       {/* Mobile: Title and Time stacked */}
                       <VStack 
@@ -3882,38 +4082,78 @@ const WeddingInvitePage = () => {
                         gap="2" 
                         display={{ base: "flex", md: "none" }}
                       >
-                        <Heading 
-                          fontSize="2xl"
-                          color="#1f576e"
-                          fontFamily="'Bernhard Tango', cursive"
-                          textShadow="0 2px 4px rgba(255,255,255,0.8)"
-                        >
-                          {selectedEvent.title}
-                        </Heading>
+                        {/* Title + Location row */}
+                        <HStack gap="3" align="center" flexWrap="wrap">
+                          <Heading 
+                            fontSize="2xl"
+                            color="#1f576e"
+                            fontFamily="'Bernhard Tango', cursive"
+                            textShadow="0 2px 4px rgba(255,255,255,0.8)"
+                            flexShrink="0"
+                          >
+                            {selectedEvent.title}
+                          </Heading>
+                          
+                          {/* Location Badge next to heading */}
+                          {selectedEvent.location && (
+                            <Box
+                              bg="rgba(255, 255, 255, 0.2)"
+                              backdropFilter="blur(8px) saturate(110%)"
+                              borderRadius="full"
+                              px="3"
+                              py="1.5"
+                              border="1px solid rgba(255, 255, 255, 0.3)"
+                              boxShadow="0 2px 8px rgba(0, 0, 0, 0.1)"
+                              flexShrink="0"
+                            >
+                              <HStack gap="1.5" align="center">
+                                <Image
+                                  src="/location.png"
+                                  alt="Location"
+                                  width={12}
+                                  height={12}
+                                  style={{
+                                    width: '12px',
+                                    height: '12px',
+                                    filter: 'brightness(0) saturate(100%) invert(13%) sepia(47%) saturate(1235%) hue-rotate(188deg) brightness(91%) contrast(93%)'
+                                  }}
+                                />
+                                <Text
+                                  fontSize="xs"
+                                  color="#1f576e"
+                                  fontFamily="'Inter', sans-serif"
+                                  fontWeight="600"
+                                  textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                                >
+                                  {selectedEvent.location}
+                                </Text>
+                              </HStack>
+                            </Box>
+                          )}
+                        </HStack>
+                        
+                        {/* Time Badge */}
                         <Box
-                          bg="#1f576e"
+                          bg="linear-gradient(135deg, #1f576e, #2b5a72)"
                           borderRadius="full"
-                          px="4"
-                          py="2"
-                          boxShadow="0 4px 12px rgba(31, 87, 110, 0.3)"
+                          px="3"
+                          py="1.5"
+                          border="1px solid rgba(255, 255, 255, 0.2)"
+                          boxShadow="0 2px 8px rgba(31, 87, 110, 0.3)"
+                          alignSelf="flex-start"
                         >
                           <Text
-                            fontSize="sm"
+                            fontSize="xs"
                             color="white"
-                            fontFamily="'Aparajita', serif"
+                            fontFamily="'Inter', sans-serif"
                             fontWeight="600"
+                            textTransform="uppercase"
+                            letterSpacing="0.5px"
+                            textShadow="0 1px 2px rgba(0,0,0,0.3)"
                             textAlign="center"
-                            whiteSpace="nowrap"
                           >
-                            {new Date(selectedEvent.since).toLocaleTimeString('en-US', {
-                              hour: 'numeric',
-                              minute: '2-digit',
-                              hour12: true
-                            })} - {new Date(selectedEvent.till).toLocaleTimeString('en-US', {
-                              hour: 'numeric', 
-                              minute: '2-digit',
-                              hour12: true
-                            })}
+                            {eventDescriptions[selectedEvent.title as keyof typeof eventDescriptions]?.time || 
+                             `${new Date(selectedEvent.since).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })} - ${new Date(selectedEvent.till).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}`}
                           </Text>
                         </Box>
                       </VStack>
