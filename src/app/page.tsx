@@ -4345,7 +4345,7 @@ const DressCodePage = () => {
                     Get inspired by Mediterranean elegance and Spanish coastal style!
                   </Text>
                   <Button
-                    onClick={() => window.open('https://pin.it/3fmALZdZj', '_blank')}
+                    onClick={() => window.open('https://es.pinterest.com/shivaniwedssaurav/haldi/?invite_code=065740bff7984db59a0ac767467974a3&sender=1024569121385495413', '_blank')}
                     size="sm"
                     px="6"
                     py="3"
