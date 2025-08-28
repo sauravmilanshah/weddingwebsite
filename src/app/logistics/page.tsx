@@ -1084,7 +1084,7 @@ export default function LogisticsPage() {
                                 position="relative"
                               >
                                 <iframe
-                                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.2951623!2d73.2940524!3d18.9148418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7fb6826b24a5f%3A0x54850d6bd73b6698!2sOleander%20Farms%20Luxury%20Resort%20in%20Karjat!5e0!3m2!1sen!2sin!4v1735317600000!5m2!1sen!2sin"
+                                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d968777.477318!2d73.2940524!3d18.9148418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f5!3m3!1m2!1s0x3be7fb6826b24a5f%3A0x54850d6bd73b6698!2sOleander%20Farms%20Luxury%20Resort%20in%20Karjat!5e0!3m2!1sen!2sin!4v1735317600000!5m2!1sen!2sin"
                                   width="100%"
                                   height="100%"
                                   style={{ border: 0 }}
