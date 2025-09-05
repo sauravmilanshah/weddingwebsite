@@ -9,7 +9,8 @@ export const NAVIGATION_ITEMS = [
   { name: 'Dress Code', href: '/dress-code' },
   { name: 'Logistics', href: '/logistics' },
   { name: 'Things to do at Oleander', href: '/oleander' },
-  { name: 'Travel Tips for Mumbai', href: '/travel-tips' }
+  { name: 'Travel Tips for Mumbai', href: '/travel-tips' },
+  { name: 'RSVP', href: '/rsvp' }
 ];
 
 // Flower Petal Types for Animation
