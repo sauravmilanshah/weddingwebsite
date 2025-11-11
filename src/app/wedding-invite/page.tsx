@@ -103,14 +103,14 @@ export default function WeddingInvitePage() {
             }}
           />
         );
-      case 'Baarat':
+      case 'Baraat':
         return (
-          <Image 
-            src="/car.png" 
-            alt="Baarat procession icon" 
-            width={size} 
+          <Image
+            src="/car.png"
+            alt="Baraat procession icon"
+            width={size}
             height={size}
-            style={{ 
+            style={{
               filter: iconFilter,
               width: `${size}px`,
               height: `${size}px`,
@@ -119,7 +119,7 @@ export default function WeddingInvitePage() {
             }}
           />
         );
-      case 'Dinner':
+      case 'Dinner & Cocktail':
         return (
           <Image 
             src="/romantic-dinner.png" 
@@ -257,79 +257,79 @@ export default function WeddingInvitePage() {
   const eventDescriptions = useMemo(() => ({
     "Check In": {
       title: "The Great Arrival!",
-      description: "Welcome to paradise! Check into your rooms and get ready for an amazing 4-day celebration. Pro tip: The lobby has amazing welcome drinks!",
+      description: "Check into your room and get ready for 3 days of pure celebration! Your wedding adventure officially begins here. If the drive made you hungry, grab some lunch! PS: We may have left you a little something to start the party!",
       emoji: "🏨",
       time: "1:00 PM - 4:00 PM"
     },
     "Mehndi": {
       title: "Henna Magic Time!",
-      description: "Get your hands decorated with beautiful henna designs while enjoying music, snacks, and lots of laughter. The more intricate, the better!",
-      emoji: "🎨", 
+      description: "Time for henna, music, and pure joy! Get your hands beautifully decorated, then dance, drink, and celebrate while the designs set. The more intricate the mehndi, the longer you have to party!",
+      emoji: "🎨",
       time: "4:30 PM - 7:30 PM"
     },
     "Welcome Dinner": {
       title: "Let's Feast Together!",
-      description: "Kick off the celebration with a delicious dinner featuring Indian delicacies. Come hungry and ready to mingle!",
+      description: "Let's begin with a Sufi night under the stars! Indulge in authentic Indian delicacies while mystical melodies transport you. Come hungry for food, thirsty for drinks, and ready for some serious soul-stirring music!",
       emoji: "🍽️",
       time: "7:30 PM - 12:30 AM"
     },
     "Breakfast": {
-      title: "Fuel Up for Fun!", 
-      description: "Start your day right with some delicious breakfast! You'll need all the energy you can get for the day ahead.",
+      title: "Fuel Up for Fun!",
+      description: "Morning debrief session! Load up on breakfast while rehashing all the best moments from last night. Fair warning: the gossip might be spicier than the chai!",
       emoji: "☕",
       time: "7:00 AM - 10:00 AM"
     },
     "Haldi": {
       title: "Time to Get Messy!",
-      description: "Time to get messy! This turmeric ceremony will leave everyone glowing (and slightly yellow). Wear clothes you don't mind getting stained!",
+      description: "Haldi con sabor español! Turmeric ceremony meets Spanish brunch party - expect golden glow, incredible food, and energy like there's no mañana. Embrace the beautiful chaos!",
       emoji: "💛",
       time: "10:30 AM - 1:00 PM"
     },
     "Lunch": {
       title: "Refuel & Relax",
-      description: "Take a break from all the festivities and enjoy a hearty lunch. Perfect time to rest up before the main events!",
+      description: "After that Spanish Haldi fiesta, you've definitely worked up an appetite! Grab some lunch, catch your breath, and get ready - because the real party starts tonight!",
       emoji: "🥘",
       time: "1:00 PM - 4:00 PM"
     },
-    "Baarat": {
+    "Baraat": {
       title: "The Grand Procession!",
-      description: "Join the groom's epic procession! Expect dancing, music, and maybe even a horse. This is where the real party begins!",
+      description: "Join the groom's epic baraat! Expect a live band, DJ dropping beats, and a crowd that's ready to party hard. Let's give Saurav the send-off he deserves into this new adventure!",
       emoji: "🐎",
       time: "4:30 PM - 6:00 PM"
     },
     "Wedding Pheras": {
       title: "The Sacred Moment",
-      description: "Witness the beautiful ceremony as Saurav and Shivani take their vows around the sacred fire. Bring tissues - it's going to be emotional!",
+      description: "It's happening! Witness the beautiful ceremony as Saurav and Shivani become partners for life. Grab some flower petals and get ready to celebrate this magical moment. (Tissues optional but recommended!)",
       emoji: "💍",
       time: "6:30 PM - 8:30 PM"
     },
-    "Dinner": {
+    "Dinner & Cocktail": {
       title: "Celebration Feast!",
-      description: "Celebrate the newlyweds with an incredible dinner spread! Dance, eat, and make memories that will last a lifetime.",
+      description: "Time to feast and celebrate! Enjoy incredible food and cocktails, witness an amazing live performance, and dance the night away. Warning: You will definitely be in someone's Instagram story!",
       emoji: "🍽️",
       time: "8:30 PM - 12:30 AM"
     },
     "Sangeet": {
       title: "Dance Like Nobody's Watching!",
-      description: "The ultimate dance party! Come ready to show off your moves (or learn some new ones). The dance floor will be calling your name!",
+      description: "Get glammed up for the night! Friends and cousins take the stage with performances that are equal parts impressive and potentially embarrassing. Grab a drink, enjoy the show, and prepare to witness some brave dance attempts!",
       emoji: "💃",
       time: "8:30 PM - 12:30 AM"
     },
     "After Party": {
       title: "Keep the Party Going!",
-      description: "For the night owls who aren't ready to call it a night! Keep dancing and celebrating until the sun comes up.",  
+      description: "Still standing? Perfect! Shots are mandatory, being tipsy is encouraged, and dancing until sunrise is the only agenda. Sleep is for tomorrow!",
       emoji: "🕺",
       time: "12:30 AM - 5:00 AM"
     },
     "High Tea": {
       title: "Elegant Afternoon Delight",
-      description: "Enjoy a sophisticated high tea with delicious snacks and conversations. Perfect for those who love a more refined gathering!",
-      emoji: "🫖", 
+      description: "Your afternoon rescue mission! For those who need serious caffeine to survive the day, we've got coffee, tea, and snacks. Take a breather, refuel, and get ready for the last big night!",
+      emoji: "🫖",
       time: "5:00 PM - 7:00 PM"
     },
     "Checkout": {
       title: "Until We Meet Again!",
-      description: "All good things must come to an end. Check out and take with you all the beautiful memories we've created together!",
+      description: "Time to say goodbye! We hope the memories from these 3 days stay with you forever (even if some details are a bit fuzzy). Don't worry - you've got all of Saturday to recover before real life kicks in!",
       emoji: "👋",
       time: "10:00 AM - 12:00 PM"
     }
@@ -402,11 +402,11 @@ export default function WeddingInvitePage() {
     {
       day: 2,
       id: "baarat",
-      title: "Baarat",
+      title: "Baraat",
       since: "2026-01-15T16:30:00",
       till: "2026-01-15T18:00:00",
-      description: eventDescriptions["Baarat"]?.description,
-      location: "Hill top", 
+      description: eventDescriptions["Baraat"]?.description,
+      location: "Hill top",
       color: "#1f576e"
     },
     {
@@ -422,10 +422,10 @@ export default function WeddingInvitePage() {
     {
       day: 2,
       id: "dinner1",
-      title: "Dinner",
+      title: "Dinner & Cocktail",
       since: "2026-01-15T20:30:00",
       till: "2026-01-16T00:30:00",
-      description: eventDescriptions["Dinner"]?.description,
+      description: eventDescriptions["Dinner & Cocktail"]?.description,
       location: "Hill top",
       color: "#1f576e"
     },
@@ -446,17 +446,17 @@ export default function WeddingInvitePage() {
       title: "Breakfast",
       since: "2026-01-16T07:00:00",
       till: "2026-01-16T10:00:00",
-      description: eventDescriptions["Breakfast"]?.description,
+      description: "Morning after the BIG night! Load up on breakfast while processing everything - the vows, the dancing, the after party chaos. One more day of celebration to go!",
       location: "The Veranda",
       color: "#1a4a5c"
     },
     {
       day: 3,
       id: "lunch2",
-      title: "Lunch", 
+      title: "Lunch",
       since: "2026-01-16T13:00:00",
       till: "2026-01-16T16:00:00",
-      description: eventDescriptions["Lunch"]?.description,
+      description: "Lunch and leisure time! Food is there if you want it, otherwise explore the venue, enjoy the amenities, or do absolutely nothing. Just be ready for tonight's grand finale!",
       location: "Splash Infinity Pool",
       color: "#1a4a5c"
     },
@@ -481,23 +481,23 @@ export default function WeddingInvitePage() {
       color: "#1a4a5c"
     },
     {
-      day: 3, 
+      day: 3,
       id: "after-party2",
       title: "After Party",
       since: "2026-01-17T00:30:00",
       till: "2026-01-17T05:00:00",
-      description: eventDescriptions["After Party"]?.description,
+      description: "Round two! We knew you couldn't do this just once. Attempt to recreate last night's magic, except this is your final shot at dancing until sunrise. No pressure!",
       location: "Common House",
       color: "#1a4a5c"
     },
-    // Day 4 Events  
+    // Day 4 Events
     {
       day: 4,
       id: "breakfast3",
       title: "Breakfast",
       since: "2026-01-17T07:00:00",
       till: "2026-01-17T10:00:00",
-      description: eventDescriptions["Breakfast"]?.description,
+      description: "The final breakfast! One last meal together before you head home. Discuss last night's performances, who danced the hardest, and start planning your recovery week!",
       location: "The Veranda",
       color: "#0f3a4a"
     },

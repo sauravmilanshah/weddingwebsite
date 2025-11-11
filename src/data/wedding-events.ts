@@ -2,7 +2,7 @@
 export const eventDescriptions = {
   "Check In": {
     title: "Welcome to Our Celebration!",
-    description: "Check into your room and get settled! Your wedding celebration experience officially begins here. Don't forget to grab your welcome package!",
+    description: "Check into your room and get ready for 3 days of pure celebration! Your wedding adventure officially begins here. If the drive made you hungry, grab some lunch! PS: We may have left you a little something to start the party!",
     emoji: "🏨",
     time: "1:00 PM - 4:00 PM"
   },
@@ -36,9 +36,9 @@ export const eventDescriptions = {
     emoji: "🥘",
     time: "1:00 PM - 4:00 PM"
   },
-  "Baarat": {
+  "Baraat": {
     title: "The Grand Procession!",
-    description: "Join the groom's epic procession! Expect dancing, music, and maybe even a horse. This is where the real party begins!",
+    description: "Join the groom's epic baraat! Expect a live band, DJ dropping beats, and a crowd that's ready to party hard. Let's give Saurav the send-off he deserves into this new adventure!",
     emoji: "🐎",
     time: "4:30 PM - 6:00 PM"
   },
@@ -48,11 +48,11 @@ export const eventDescriptions = {
     emoji: "💍",
     time: "6:30 PM - 8:30 PM"
   },
-  "Dinner": {
+  "Dinner & Cocktail": {
     title: "Celebration Feast!",
-    description: "Celebrate the newlyweds with an incredible dinner spread! Dance, eat, and make memories that will last a lifetime.",
+    description: "Time to feast and celebrate! Enjoy incredible food and cocktails, witness an amazing live performance, and dance the night away. Warning: You will definitely be in someone's Instagram story!",
     emoji: "🍽️",
-    time: "8:30 PM - 12:30 PM"
+    time: "8:30 PM - 12:30 AM"
   },
   "Sangeet": {
     title: "Dance Like Nobody's Watching!",
@@ -147,11 +147,11 @@ export const allWeddingEvents = [
   {
     day: 2,
     id: "baarat",
-    title: "Baarat",
+    title: "Baraat",
     since: "2026-01-15T16:30:00",
     till: "2026-01-15T18:00:00",
-    description: eventDescriptions["Baarat"]?.description,
-    location: "Hill top", 
+    description: eventDescriptions["Baraat"]?.description,
+    location: "Hill top",
     color: "#1f576e"
   },
   {
@@ -167,10 +167,10 @@ export const allWeddingEvents = [
   {
     day: 2,
     id: "dinner1",
-    title: "Dinner",
+    title: "Dinner & Cocktail",
     since: "2026-01-15T20:30:00",
     till: "2026-01-16T00:30:00",
-    description: eventDescriptions["Dinner"]?.description,
+    description: eventDescriptions["Dinner & Cocktail"]?.description,
     location: "Hill top",
     color: "#1f576e"
   },
@@ -257,8 +257,8 @@ export const getEventIcon = (eventName: string, size: number = 24) => {
     'Welcome Dinner': '/dinner-table.png',
     'Breakfast': '/breakfast.png',
     'Lunch': '/lunch.png',
-    'Baarat': '/car.png',
-    'Dinner': '/romantic-dinner.png',
+    'Baraat': '/car.png',
+    'Dinner & Cocktail': '/romantic-dinner.png',
     'High Tea': '/high-tea.png',
     'Checkout': '/namaste.png',
     'Mehndi': '/mehndi.png',
