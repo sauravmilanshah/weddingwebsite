@@ -3,6 +3,7 @@
 import { useState, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import Navigation from '@/components/shared/Navigation';
 import BackgroundWrapper from '@/components/shared/BackgroundWrapper';
 import { 
@@ -553,6 +554,21 @@ export default function WeddingInvitePage() {
     setIsEventModalOpen(true);
   };
 
+  // Map event names to dress code sections
+  const getDressCodeLink = (eventTitle: string): string | null => {
+    const mappings: Record<string, string> = {
+      'Mehndi': '/dress-code#mehndi-welcome',
+      'Welcome Dinner': '/dress-code#mehndi-welcome',
+      'Haldi': '/dress-code#haldi',
+      'Baraat': '/dress-code#wedding-pheras',
+      'Wedding Pheras': '/dress-code#wedding-pheras',
+      'Dinner & Cocktail': '/dress-code#after-party',
+      'Sangeet': '/dress-code#sangeet',
+      'After Party': '/dress-code#after-party'
+    };
+    return mappings[eventTitle] || null;
+  };
+
   return (
     <BackgroundWrapper backgroundImage="/background2.png">
       {/* Navigation */}
@@ -809,12 +825,11 @@ export default function WeddingInvitePage() {
                               _hover={{
                                 transform: "translateY(-2px)",
                                 boxShadow: isCurrentEvent 
-                                  ? "0 12px 30px rgba(193, 154, 108, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5)" 
+                                  ? "0 12px 30px rgba(193, 154, 108, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5)"
                                   : "0 12px 32px rgba(31, 87, 110, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4)"
                               }}
                               overflow="hidden"
                             >
-
                               {/* Happening Now Badge */}
                               {isCurrentEvent && (
                                 <Box
@@ -1090,24 +1105,43 @@ export default function WeddingInvitePage() {
                                       }}
                                     >
                                       {event.description}
+                                      {getDressCodeLink(event.title) && (
+                                        <>
+                                          {" "}
+                                          <Link
+                                            href={getDressCodeLink(event.title)!}
+                                            onClick={(e) => e.stopPropagation()}
+                                          >
+                                            <Text
+                                              as="span"
+                                              color="#1f576e"
+                                              textDecoration="underline"
+                                              cursor="pointer"
+                                              _hover={{ color: "#C19A6C" }}
+                                              transition="color 0.2s ease"
+                                            >
+                                              See what to wear.
+                                            </Text>
+                                          </Link>
+                                        </>
+                                      )}
                                     </Text>
                                   </Box>
                                 )}
 
                                 {/* Click for details hint */}
                                 <Box
-                                  pl={{ base: "16", md: "19" }}
                                   w="100%"
-                                  pt="2"
+                                  pt="3"
+                                  display="flex"
+                                  justifyContent="center"
                                 >
                                   <Text
-                                    fontSize="xs"
-                                    color={isCurrentEvent ? "#C19A6C" : "#1f576e"}
+                                    fontSize="2xs"
+                                    color={isCurrentEvent ? "#C19A6C" : "#2b5a72"}
                                     fontFamily="'Aparajita', serif"
-                                    fontWeight="bold"
-                                    textTransform="uppercase"
-                                    letterSpacing="0.5px"
-                                    textShadow="0 1px 2px rgba(255,255,255,0.8)"
+                                    fontStyle="italic"
+                                    opacity="0.7"
                                   >
                                     Click for details
                                   </Text>
@@ -1444,7 +1478,7 @@ export default function WeddingInvitePage() {
                       >
                         {selectedEvent.description}
                       </Text>
-                      
+
                       {/* Action Button */}
                       <Flex justify="center" mt="6">
                         <Button

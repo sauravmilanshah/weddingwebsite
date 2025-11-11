@@ -64,12 +64,14 @@ export default function DressCodePage() {
             
             {/* Mehendi & Welcome Dinner */}
             <Box
+              id="mehndi-welcome"
               p={{ base: "6", md: "8" }}
               bg="rgba(255, 255, 255, 0.15)"
               backdropFilter="blur(10px) saturate(130%)"
               borderRadius="2xl"
               border="1px solid rgba(255, 255, 255, 0.2)"
               boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+              scrollMarginTop="200px"
             >
               <VStack align="start" gap="6">
                 <VStack align="start" gap="3" w="full">
@@ -203,12 +205,14 @@ export default function DressCodePage() {
 
             {/* Haldi */}
             <Box
+              id="haldi"
               p={{ base: "6", md: "8" }}
               bg="rgba(255, 255, 255, 0.15)"
               backdropFilter="blur(10px) saturate(130%)"
               borderRadius="2xl"
               border="1px solid rgba(255, 255, 255, 0.2)"
               boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+              scrollMarginTop="200px"
             >
               <VStack align="start" gap="6">
                 <VStack align="start" gap="3" w="full">
@@ -341,12 +345,14 @@ export default function DressCodePage() {
 
             {/* Wedding Pheras */}
             <Box
+              id="wedding-pheras"
               p={{ base: "6", md: "8" }}
               bg="rgba(255, 255, 255, 0.15)"
               backdropFilter="blur(10px) saturate(130%)"
               borderRadius="2xl"
               border="1px solid rgba(255, 255, 255, 0.2)"
               boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+              scrollMarginTop="200px"
             >
               <VStack align="start" gap="6">
                 <VStack align="start" gap="3" w="full">
@@ -479,12 +485,14 @@ export default function DressCodePage() {
 
             {/* After Party */}
             <Box
+              id="after-party"
               p={{ base: "6", md: "8" }}
               bg="rgba(255, 255, 255, 0.15)"
               backdropFilter="blur(10px) saturate(130%)"
               borderRadius="2xl"
               border="1px solid rgba(255, 255, 255, 0.2)"
               boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+              scrollMarginTop="200px"
             >
               <VStack align="start" gap="6">
                 <VStack align="start" gap="3" w="full">
@@ -617,12 +625,14 @@ export default function DressCodePage() {
 
             {/* Sangeet */}
             <Box
+              id="sangeet"
               p={{ base: "6", md: "8" }}
               bg="rgba(255, 255, 255, 0.15)"
               backdropFilter="blur(10px) saturate(130%)"
               borderRadius="2xl"
               border="1px solid rgba(255, 255, 255, 0.2)"
               boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+              scrollMarginTop="200px"
             >
               <VStack align="start" gap="6">
                 <VStack align="start" gap="3" w="full">
