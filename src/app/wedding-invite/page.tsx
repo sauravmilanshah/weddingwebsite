@@ -1083,50 +1083,53 @@ export default function WeddingInvitePage() {
                                 
                                 {/* Description Content */}
                                 {event.description && (
-                                  <Box
-                                    pl={{ base: "16", md: "19" }}
-                                    w="100%"
-                                    flex="1"
-                                    display="flex"
-                                    alignItems="flex-start"
-                                  >
-                                    <Text
-                                      fontSize={{ base: "lg", md: "xl" }}
-                                      color={isCurrentEvent ? "#1f576e" : "#2b5a72"}
-                                      fontFamily="'Aparajita', serif"
-                                      lineHeight="1.5"
-                                      fontWeight="bold"
-                                      textShadow="0 2px 4px rgba(255,255,255,0.8)"
-                                      overflow="hidden"
-                                      display="-webkit-box"
-                                      css={{
-                                        WebkitLineClamp: 3,
-                                        WebkitBoxOrient: "vertical"
-                                      }}
+                                  <VStack align="flex-start" gap="2" w="100%">
+                                    <Box
+                                      pl={{ base: "16", md: "19" }}
+                                      w="100%"
+                                      flex="1"
+                                      display="flex"
+                                      alignItems="flex-start"
                                     >
-                                      {event.description}
-                                      {getDressCodeLink(event.title) && (
-                                        <>
-                                          {" "}
-                                          <Link
-                                            href={getDressCodeLink(event.title)!}
-                                            onClick={(e) => e.stopPropagation()}
+                                      <Text
+                                        fontSize={{ base: "lg", md: "xl" }}
+                                        color={isCurrentEvent ? "#1f576e" : "#2b5a72"}
+                                        fontFamily="'Aparajita', serif"
+                                        lineHeight="1.5"
+                                        fontWeight="bold"
+                                        textShadow="0 2px 4px rgba(255,255,255,0.8)"
+                                        overflow="hidden"
+                                        display="-webkit-box"
+                                        css={{
+                                          WebkitLineClamp: 3,
+                                          WebkitBoxOrient: "vertical"
+                                        }}
+                                      >
+                                        {event.description}
+                                      </Text>
+                                    </Box>
+                                    {getDressCodeLink(event.title) && (
+                                      <Box pl={{ base: "16", md: "19" }}>
+                                        <Link
+                                          href={getDressCodeLink(event.title)!}
+                                          onClick={(e) => e.stopPropagation()}
+                                        >
+                                          <Text
+                                            fontSize={{ base: "sm", md: "md" }}
+                                            color="#1f576e"
+                                            fontFamily="'Aparajita', serif"
+                                            textDecoration="underline"
+                                            cursor="pointer"
+                                            fontWeight="600"
+                                            _hover={{ color: "#C19A6C" }}
+                                            transition="color 0.2s ease"
                                           >
-                                            <Text
-                                              as="span"
-                                              color="#1f576e"
-                                              textDecoration="underline"
-                                              cursor="pointer"
-                                              _hover={{ color: "#C19A6C" }}
-                                              transition="color 0.2s ease"
-                                            >
-                                              See what to wear.
-                                            </Text>
-                                          </Link>
-                                        </>
-                                      )}
-                                    </Text>
-                                  </Box>
+                                            See what to wear →
+                                          </Text>
+                                        </Link>
+                                      </Box>
+                                    )}
+                                  </VStack>
                                 )}
 
                                 {/* Click for details hint */}
