@@ -33,22 +33,22 @@ const HeroSection = () => {
         role="main"
       >
         <Container maxW={{ base: "100%", sm: "xl", md: "2xl" }} px={{ base: "4", md: "6" }}>
-          <Box 
+          <Box
             p={{ base: "4", md: "8" }}
             textAlign="center"
-            bg="rgba(255, 255, 255, 0.1)"
+            bg="rgba(255, 255, 255, 0.08)"
             borderRadius="3xl"
             border="1px solid"
-            borderColor="rgba(255, 255, 255, 0.2)"
-            boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.2)"
+            borderColor="rgba(255, 255, 255, 0.15)"
+            boxShadow="0 4px 16px 0 rgba(31, 38, 135, 0.15)"
             transition="all 0.3s ease"
             css={{
-              backdropFilter: "blur(4px) saturate(110%)",
-              WebkitBackdropFilter: "blur(4px) saturate(110%)"
+              backdropFilter: "blur(3px) saturate(110%)",
+              WebkitBackdropFilter: "blur(3px) saturate(110%)"
             }}
             _hover={{
-              bg: "rgba(255, 255, 255, 0.15)",
-              boxShadow: "0 20px 40px -5px rgba(31, 38, 135, 0.5)",
+              bg: "rgba(255, 255, 255, 0.12)",
+              boxShadow: "0 20px 40px -5px rgba(31, 38, 135, 0.3)",
               transform: "translateY(-2px)",
             }}
           >
