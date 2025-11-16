@@ -1,13 +1,14 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Navigation from '@/components/shared/Navigation';
 import BackgroundWrapper from '@/components/shared/BackgroundWrapper';
-import { 
-  Box, 
-  Container, 
-  Heading, 
+import {
+  Box,
+  Container,
+  Heading,
   Text,
   VStack,
   HStack,
@@ -15,6 +16,12 @@ import {
 } from '@chakra-ui/react';
 
 export default function DressCodePage() {
+  const [activeTab, setActiveTab] = useState('dress-code');
+
+  const tabs = [
+    { id: 'dress-code', name: 'Dress Code Guide', icon: '👗' },
+    { id: 'shopping', name: 'Where to Shop', icon: '🛍️' }
+  ];
   return (
     <BackgroundWrapper backgroundImage="/background2.png">
       {/* Navigation */}
@@ -54,13 +61,56 @@ export default function DressCodePage() {
             </Box>
           </motion.div>
 
-          {/* Events */}
+          {/* Tab Navigation */}
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
-            <VStack gap="8" align="stretch" w="full" maxW="4xl">
+            <HStack
+              gap="2"
+              justify="center"
+              wrap="wrap"
+              mb="8"
+              px={{ base: "4", md: "0" }}
+            >
+              {tabs.map((tab) => (
+                <Button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  variant={activeTab === tab.id ? "solid" : "ghost"}
+                  bg={activeTab === tab.id ? "rgba(232, 180, 184, 0.2)" : "rgba(255, 255, 255, 0.1)"}
+                  color={activeTab === tab.id ? "#1f576e" : "#2b5a72"}
+                  border="1px solid"
+                  borderColor={activeTab === tab.id ? "rgba(232, 180, 184, 0.4)" : "rgba(255, 255, 255, 0.2)"}
+                  backdropFilter="blur(8px) saturate(120%)"
+                  borderRadius="full"
+                  px={{ base: "3", md: "4" }}
+                  py="2"
+                  fontSize={{ base: "sm", md: "md" }}
+                  fontWeight="600"
+                  _hover={{
+                    bg: "rgba(232, 180, 184, 0.15)",
+                    transform: "translateY(-1px)",
+                    boxShadow: "0 4px 12px rgba(232, 180, 184, 0.2)"
+                  }}
+                  transition="all 0.3s ease"
+                >
+                  <Text mr="1">{tab.icon}</Text>
+                  {tab.name}
+                </Button>
+              ))}
+            </HStack>
+          </motion.div>
+
+          {/* Content */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+          >
+            {activeTab === 'dress-code' && (
+              <VStack gap="8" align="stretch" w="full" maxW="4xl">
             
             {/* Mehendi & Welcome Dinner */}
             <Box
@@ -764,7 +814,261 @@ export default function DressCodePage() {
               </VStack>
             </Box>
 
-            </VStack>
+              </VStack>
+            )}
+
+            {/* Shopping Tab Content */}
+            {activeTab === 'shopping' && (
+              <VStack gap="8" align="stretch" w="full" maxW="4xl">
+                <Box
+              p={{ base: "6", md: "8" }}
+              bg="rgba(255, 255, 255, 0.15)"
+              backdropFilter="blur(10px) saturate(130%)"
+              borderRadius="2xl"
+              border="1px solid rgba(255, 255, 255, 0.2)"
+              boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+            >
+              <VStack align="start" gap="6">
+                <VStack align="center" gap="3" w="full">
+                  <Heading
+                    fontSize={{ base: "2xl", md: "3xl" }}
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                    textAlign="center"
+                  >
+                    Where to Shop
+                  </Heading>
+                  <Text
+                    fontSize={{ base: "md", md: "lg" }}
+                    color="#2b5a72"
+                    textAlign="center"
+                    maxW="2xl"
+                  >
+                    Trusted online stores that ship Indian wedding attire worldwide
+                  </Text>
+                </VStack>
+
+                {/* Premium Designer Stores */}
+                <Box w="full">
+                  <Text
+                    fontSize="lg"
+                    color="#1f576e"
+                    fontWeight="600"
+                    mb="4"
+                  >
+                    Premium Designer Collections
+                  </Text>
+                  <VStack gap="3" align="stretch">
+                    <Box
+                      p="4"
+                      bg="rgba(193, 154, 108, 0.08)"
+                      borderRadius="lg"
+                      border="1px solid rgba(193, 154, 108, 0.15)"
+                    >
+                      <Text fontSize="lg" color="#1f576e" fontWeight="600" mb="2">
+                        Aashni + Co
+                      </Text>
+                      <Text fontSize="sm" color="#2b5a72" mb="2">
+                        Luxury designer wear from 400+ top brands like Sabyasachi. Custom tailoring, style consultations, worldwide shipping in 2-3 weeks.
+                      </Text>
+                      <Button
+                        onClick={() => window.open('https://aashniandco.com', '_blank')}
+                        size="xs"
+                        variant="plain"
+                        color="#C19A6C"
+                        _hover={{ textDecoration: 'underline' }}
+                      >
+                        Visit Website →
+                      </Button>
+                    </Box>
+
+                    <Box
+                      p="4"
+                      bg="rgba(193, 154, 108, 0.08)"
+                      borderRadius="lg"
+                      border="1px solid rgba(193, 154, 108, 0.15)"
+                    >
+                      <Text fontSize="lg" color="#1f576e" fontWeight="600" mb="2">
+                        Anita Dongre
+                      </Text>
+                      <Text fontSize="sm" color="#2b5a72" mb="2">
+                        Renowned luxury designer specializing in lehengas & sherwanis. Premium craftsmanship with stylist support and custom fittings.
+                      </Text>
+                      <Button
+                        onClick={() => window.open('https://anitadongre.com', '_blank')}
+                        size="xs"
+                        variant="plain"
+                        _hover={{ textDecoration: 'underline' }}
+                        color="#C19A6C"
+                      >
+                        Visit Website →
+                      </Button>
+                    </Box>
+
+                    <Box
+                      p="4"
+                      bg="rgba(193, 154, 108, 0.08)"
+                      borderRadius="lg"
+                      border="1px solid rgba(193, 154, 108, 0.15)"
+                    >
+                      <Text fontSize="lg" color="#1f576e" fontWeight="600" mb="2">
+                        Pernia&apos;s Pop-Up Shop
+                      </Text>
+                      <Text fontSize="sm" color="#2b5a72" mb="2">
+                        Wide collection of designer & Indo-Western fusion. Video shopping assistance, size guidance, perfect for first-time buyers. Ships in 2-4 weeks.
+                      </Text>
+                      <Button
+                        onClick={() => window.open('https://perniaspopupshop.com', '_blank')}
+                        size="xs"
+                        variant="plain"
+                        _hover={{ textDecoration: 'underline' }}
+                        color="#C19A6C"
+                      >
+                        Visit Website →
+                      </Button>
+                    </Box>
+                  </VStack>
+                </Box>
+
+                {/* Contemporary & Traditional */}
+                <Box w="full">
+                  <Text
+                    fontSize="lg"
+                    color="#1f576e"
+                    fontWeight="600"
+                    mb="4"
+                  >
+                    Contemporary & Traditional
+                  </Text>
+                  <VStack gap="3" align="stretch">
+                    <Box
+                      p="4"
+                      bg="rgba(232, 180, 184, 0.08)"
+                      borderRadius="lg"
+                      border="1px solid rgba(232, 180, 184, 0.15)"
+                    >
+                      <Text fontSize="lg" color="#1f576e" fontWeight="600" mb="2">
+                        FabIndia
+                      </Text>
+                      <Text fontSize="sm" color="#2b5a72" mb="2">
+                        India&apos;s most trusted ethnic brand for traditional clothing. Ships worldwide via DHL/FedEx in ~10 business days.
+                      </Text>
+                      <Button
+                        onClick={() => window.open('https://fabindia.com', '_blank')}
+                        size="xs"
+                        variant="plain"
+                        _hover={{ textDecoration: 'underline' }}
+                        color="#E8B4B8"
+                      >
+                        Visit Website →
+                      </Button>
+                    </Box>
+
+                    <Box
+                      p="4"
+                      bg="rgba(232, 180, 184, 0.08)"
+                      borderRadius="lg"
+                      border="1px solid rgba(232, 180, 184, 0.15)"
+                    >
+                      <Text fontSize="lg" color="#1f576e" fontWeight="600" mb="2">
+                        Inddus
+                      </Text>
+                      <Text fontSize="sm" color="#2b5a72" mb="2">
+                        Contemporary ethnic wear combining modern styling with tradition. Popular internationally, ships globally within 3 weeks.
+                      </Text>
+                      <Button
+                        onClick={() => window.open('https://inddus.com', '_blank')}
+                        size="xs"
+                        variant="plain"
+                        _hover={{ textDecoration: 'underline' }}
+                        color="#E8B4B8"
+                      >
+                        Visit Website →
+                      </Button>
+                    </Box>
+
+                    <Box
+                      p="4"
+                      bg="rgba(232, 180, 184, 0.08)"
+                      borderRadius="lg"
+                      border="1px solid rgba(232, 180, 184, 0.15)"
+                    >
+                      <Text fontSize="lg" color="#1f576e" fontWeight="600" mb="2">
+                        Neerus
+                      </Text>
+                      <Text fontSize="sm" color="#2b5a72" mb="2">
+                        Quality ethnic and bridal wear with worldwide shipping. Customer support assists with sizing and customization for international buyers.
+                      </Text>
+                      <Button
+                        onClick={() => window.open('https://neerus.com', '_blank')}
+                        size="xs"
+                        variant="plain"
+                        _hover={{ textDecoration: 'underline' }}
+                        color="#E8B4B8"
+                      >
+                        Visit Website →
+                      </Button>
+                    </Box>
+                  </VStack>
+                </Box>
+
+                {/* Rental Option */}
+                <Box w="full">
+                  <Text
+                    fontSize="lg"
+                    color="#1f576e"
+                    fontWeight="600"
+                    mb="4"
+                  >
+                    Sustainable Rental Option
+                  </Text>
+                  <Box
+                    p="4"
+                    bg="rgba(166, 176, 166, 0.08)"
+                    borderRadius="lg"
+                    border="1px solid rgba(166, 176, 166, 0.15)"
+                  >
+                    <Text fontSize="lg" color="#1f576e" fontWeight="600" mb="2">
+                      All Borrow (Rental)
+                    </Text>
+                    <Text fontSize="sm" color="#2b5a72" mb="2">
+                      Rent designer Indian ethnic wear internationally. Pre-pleated sarees, adjustable fits. Free 2-day shipping in USA/Canada. Perfect for one-time events!
+                    </Text>
+                    <Button
+                      onClick={() => window.open('https://allborrow.com', '_blank')}
+                      size="xs"
+                      variant="plain"
+                        _hover={{ textDecoration: 'underline' }}
+                      color="#A6B0A6"
+                    >
+                      Visit Website →
+                    </Button>
+                  </Box>
+                </Box>
+
+                {/* Shipping Tips */}
+                <Box
+                  p="4"
+                  bg="rgba(245, 245, 240, 0.2)"
+                  borderRadius="lg"
+                  border="1px solid rgba(245, 245, 240, 0.3)"
+                  borderLeft="4px solid rgba(193, 154, 108, 0.5)"
+                  w="full"
+                >
+                  <Text fontSize="sm" color="#1f576e" fontWeight="600" mb="2">
+                    💡 Shopping Tips for International Guests:
+                  </Text>
+                  <Text fontSize="sm" color="#2b5a72">
+                    • Order 4-6 weeks before the wedding to allow for shipping and alterations<br/>
+                    • Most stores offer video consultations for sizing help<br/>
+                    • Check return policies - most accept international returns<br/>
+                    • Consider customs duties in your budget (varies by country)
+                  </Text>
+                </Box>
+              </VStack>
+            </Box>
+              </VStack>
+            )}
           </motion.div>
         </Container>
       </Box>
