@@ -165,9 +165,92 @@ export default function LogisticsPage() {
             {/* Before You Travel Section */}
             {activeSection === 'before-travel' && (
               <VStack gap="8" align="stretch">
+                {/* RSVP Process - MOVED TO TOP */}
+                <Box>
+                  <Heading
+                    fontSize={{ base: "2xl", md: "3xl" }}
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                    mb="6"
+                    textAlign="center"
+                  >
+                    RSVP Process
+                  </Heading>
+                  <Box
+                    maxW="2xl"
+                    mx="auto"
+                    p={{ base: "6", md: "8" }}
+                    bg="rgba(255, 255, 255, 0.15)"
+                    backdropFilter="blur(10px) saturate(130%)"
+                    borderRadius="2xl"
+                    border="1px solid rgba(255, 255, 255, 0.2)"
+                    boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+                  >
+                    <VStack align="start" gap="6">
+                      {/* Header Section */}
+                      <VStack align="start" gap="2" w="full">
+                        <Heading
+                          fontSize={{ base: "2xl", md: "3xl" }}
+                          color="#1f576e"
+                          fontFamily="'Aparajita', serif"
+                          fontWeight="bold"
+                        >
+                          WhatsApp & Forms
+                        </Heading>
+                        <Text
+                          fontSize="lg"
+                          color="#1f576e"
+                          fontWeight="600"
+                          opacity="0.8"
+                        >
+                          💬 Personal conversation with us
+                        </Text>
+                      </VStack>
+
+                      {/* Details Section */}
+                      <Box
+                        p="4"
+                        bg="rgba(255, 255, 255, 0.1)"
+                        backdropFilter="blur(5px)"
+                        borderRadius="xl"
+                        border="1px solid rgba(255, 255, 255, 0.15)"
+                        w="full"
+                      >
+                        <VStack align="start" gap="3" w="full">
+                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                            We&apos;ll reach out to you via WhatsApp to connect personally and share details about the celebrations!
+                          </Text>
+                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                            <strong>What we&apos;ll share:</strong> Google Form link for dietary preferences, arrival details, and special requests
+                          </Text>
+                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                            <strong>Please complete:</strong> The form helps us ensure everything is perfect for your stay!
+                          </Text>
+                        </VStack>
+                      </Box>
+
+                      {/* Highlight Section */}
+                      <Box
+                        p="4"
+                        bgGradient="linear(to-r, rgba(232, 180, 184, 0.1), rgba(193, 154, 108, 0.1))"
+                        borderRadius="xl"
+                        border="1px solid rgba(232, 180, 184, 0.2)"
+                        w="full"
+                      >
+                        <HStack gap="3" align="center">
+                          <Text fontSize="2xl">💕</Text>
+                          <Text fontSize="sm" color="#1f576e" fontWeight="600">
+                            We can&apos;t wait to connect and help plan your perfect trip!
+                          </Text>
+                        </HStack>
+                      </Box>
+                    </VStack>
+                  </Box>
+                </Box>
+
                 {/* Visa Requirements */}
                 <Box>
-                  <Heading 
+                  <Heading
                     fontSize={{ base: "2xl", md: "3xl" }}
                     color="#1f576e"
                     fontFamily="'Aparajita', serif"
@@ -398,160 +481,6 @@ export default function LogisticsPage() {
                   </Grid>
                 </Box>
 
-                {/* RSVP Process */}
-                <Box>
-                  <Heading 
-                    fontSize={{ base: "2xl", md: "3xl" }}
-                    color="#1f576e"
-                    fontFamily="'Aparajita', serif"
-                    mb="6"
-                    textAlign="center"
-                  >
-                    RSVP Process
-                  </Heading>
-                  <Grid 
-                    templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
-                    gap="6"
-                  >
-                    <Box
-                      p={{ base: "6", md: "8" }}
-                      bg="rgba(255, 255, 255, 0.15)"
-                      backdropFilter="blur(10px) saturate(130%)"
-                      borderRadius="2xl"
-                      border="1px solid rgba(255, 255, 255, 0.2)"
-                      boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
-                    >
-                      <VStack align="start" gap="6">
-                        {/* Header Section */}
-                        <VStack align="start" gap="2" w="full">
-                          <Heading 
-                            fontSize={{ base: "2xl", md: "3xl" }}
-                            color="#1f576e"
-                            fontFamily="'Aparajita', serif"
-                            fontWeight="bold"
-                          >
-                            WhatsApp RSVP
-                          </Heading>
-                          <Text 
-                            fontSize="lg" 
-                            color="#1f576e" 
-                            fontWeight="600" 
-                            opacity="0.8"
-                          >
-                            💬 Personal conversation with us
-                          </Text>
-                        </VStack>
-                        
-                        {/* Details Section */}
-                        <Box
-                          p="4"
-                          bg="rgba(255, 255, 255, 0.1)"
-                          backdropFilter="blur(5px)"
-                          borderRadius="xl"
-                          border="1px solid rgba(255, 255, 255, 0.15)"
-                          w="full"
-                        >
-                          <VStack align="start" gap="3" w="full">
-                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
-                              We&apos;ll reach out to you personally via WhatsApp to chat about all the details and make sure everything is perfect for your stay!
-                            </Text>
-                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
-                              <strong>We&apos;ll ask about:</strong> Number of guests, dietary preferences, and arrival coordination
-                            </Text>
-                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
-                              <strong>Please share:</strong> All details that&apos;ll help us make your experience magical!
-                            </Text>
-                          </VStack>
-                        </Box>
-                        
-                        {/* Highlight Section */}
-                        <Box
-                          p="4"
-                          bgGradient="linear(to-r, rgba(232, 180, 184, 0.1), rgba(193, 154, 108, 0.1))"
-                          borderRadius="xl"
-                          border="1px solid rgba(232, 180, 184, 0.2)"
-                          w="full"
-                        >
-                          <HStack gap="3" align="center">
-                            <Text fontSize="2xl">💕</Text>
-                            <Text fontSize="sm" color="#1f576e" fontWeight="600">
-                              We can&apos;t wait to hear from you and help plan your perfect trip!
-                            </Text>
-                          </HStack>
-                        </Box>
-                      </VStack>
-                    </Box>
-
-                    <Box
-                      p={{ base: "6", md: "8" }}
-                      bg="rgba(255, 255, 255, 0.15)"
-                      backdropFilter="blur(10px) saturate(130%)"
-                      borderRadius="2xl"
-                      border="1px solid rgba(255, 255, 255, 0.2)"
-                      boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
-                    >
-                      <VStack align="start" gap="6">
-                        {/* Header Section */}
-                        <VStack align="start" gap="2" w="full">
-                          <Heading 
-                            fontSize={{ base: "2xl", md: "3xl" }}
-                            color="#1f576e"
-                            fontFamily="'Aparajita', serif"
-                            fontWeight="bold"
-                          >
-                            Transportation Options
-                          </Heading>
-                          <Text 
-                            fontSize="lg" 
-                            color="#1f576e" 
-                            fontWeight="600" 
-                            opacity="0.8"
-                          >
-                            🚗 Getting to the venue
-                          </Text>
-                        </VStack>
-                        
-                        {/* Details Section */}
-                        <Box
-                          p="4"
-                          bg="rgba(255, 255, 255, 0.1)"
-                          backdropFilter="blur(5px)"
-                          borderRadius="xl"
-                          border="1px solid rgba(255, 255, 255, 0.15)"
-                          w="full"
-                        >
-                          <VStack align="start" gap="3" w="full">
-                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
-                              <strong>Let us pick you up!</strong> We&apos;re organizing comfortable shuttle service from Mumbai Airport - just let us know your flight details
-                            </Text>
-                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
-                              <strong>Prefer your own ride?</strong> Perfect! Many guests enjoy the scenic 1-hour drive from Mumbai (68-71km)
-                            </Text>
-                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
-                              <strong>Flying into Pune?</strong> That works too! It&apos;s a beautiful 1.5-hour drive through the countryside (104km)
-                            </Text>
-                          </VStack>
-                        </Box>
-                        
-                        {/* Highlight Section */}
-                        <Box
-                          p="4"
-                          bgGradient="linear(to-r, rgba(166, 176, 166, 0.1), rgba(193, 154, 108, 0.1))"
-                          borderRadius="xl"
-                          border="1px solid rgba(166, 176, 166, 0.2)"
-                          w="full"
-                        >
-                          <HStack gap="3" align="center">
-                            <Text fontSize="2xl">🌟</Text>
-                            <Text fontSize="sm" color="#1f576e" fontWeight="600">
-                              The sooner you let us know, the better we can plan for your perfect experience!
-                            </Text>
-                          </HStack>
-                        </Box>
-                      </VStack>
-                    </Box>
-                  </Grid>
-                </Box>
               </VStack>
             )}
 
@@ -1017,6 +946,89 @@ export default function LogisticsPage() {
                     </Box>
                   </Grid>
 
+                </Box>
+
+                {/* Transportation Options */}
+                <Box>
+                  <Heading
+                    fontSize={{ base: "2xl", md: "3xl" }}
+                    color="#1f576e"
+                    fontFamily="'Aparajita', serif"
+                    mb="6"
+                    textAlign="center"
+                  >
+                    Transportation Options
+                  </Heading>
+                  <Box
+                    maxW="2xl"
+                    mx="auto"
+                    p={{ base: "6", md: "8" }}
+                    bg="rgba(255, 255, 255, 0.15)"
+                    backdropFilter="blur(10px) saturate(130%)"
+                    borderRadius="2xl"
+                    border="1px solid rgba(255, 255, 255, 0.2)"
+                    boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+                  >
+                    <VStack align="start" gap="6">
+                      {/* Header Section */}
+                      <VStack align="start" gap="2" w="full">
+                        <Heading
+                          fontSize={{ base: "2xl", md: "3xl" }}
+                          color="#1f576e"
+                          fontFamily="'Aparajita', serif"
+                          fontWeight="bold"
+                        >
+                          Getting to the Venue
+                        </Heading>
+                        <Text
+                          fontSize="lg"
+                          color="#1f576e"
+                          fontWeight="600"
+                          opacity="0.8"
+                        >
+                          🚗 Multiple convenient options
+                        </Text>
+                      </VStack>
+
+                      {/* Details Section */}
+                      <Box
+                        p="4"
+                        bg="rgba(255, 255, 255, 0.1)"
+                        backdropFilter="blur(5px)"
+                        borderRadius="xl"
+                        border="1px solid rgba(255, 255, 255, 0.15)"
+                        w="full"
+                      >
+                        <VStack align="start" gap="3" w="full">
+                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                            <strong>Let us pick you up!</strong> We&apos;re organizing comfortable shuttle service from Mumbai Airport - just let us know your flight details
+                          </Text>
+                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                            <strong>Prefer your own ride?</strong> Perfect! Many guests enjoy the scenic 2-hour drive from Mumbai (68-71km)
+                          </Text>
+                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                            <strong>Flying into Pune?</strong> That works too! It&apos;s a beautiful 1.5-hour drive through the countryside (104km)
+                          </Text>
+                        </VStack>
+                      </Box>
+
+                      {/* Highlight Section */}
+                      <Box
+                        p="4"
+                        bgGradient="linear(to-r, rgba(166, 176, 166, 0.1), rgba(193, 154, 108, 0.1))"
+                        borderRadius="xl"
+                        border="1px solid rgba(166, 176, 166, 0.2)"
+                        w="full"
+                      >
+                        <HStack gap="3" align="center">
+                          <Text fontSize="2xl">🎭</Text>
+                          <Text fontSize="sm" color="#1f576e" fontWeight="600">
+                            The venue is only 2 hours from Mumbai - arrive relaxed and ready to celebrate!
+                          </Text>
+                        </HStack>
+                      </Box>
+                    </VStack>
+                  </Box>
                 </Box>
               </VStack>
             )}
