@@ -928,7 +928,7 @@ export default function LogisticsPage() {
                         >
                           <VStack align="start" gap="3" w="full">
                             <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
-                              <strong>Current Rate:</strong> 1 USD ≈ ₹83-84.50
+                              <strong>Current Rate:</strong> 1 EUR ≈ ₹102-104
                             </Text>
                             <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
                               <strong>Best Methods:</strong> Airport forex counters or major bank branches
