@@ -948,7 +948,7 @@ export default function LogisticsPage() {
 
                 </Box>
 
-                {/* Transportation Options */}
+                {/* Transportation & Travel Assistance */}
                 <Box>
                   <Heading
                     fontSize={{ base: "2xl", md: "3xl" }}
@@ -957,78 +957,162 @@ export default function LogisticsPage() {
                     mb="6"
                     textAlign="center"
                   >
-                    Transportation Options
+                    Transportation & Travel Assistance
                   </Heading>
-                  <Box
-                    maxW="2xl"
-                    mx="auto"
-                    p={{ base: "6", md: "8" }}
-                    bg="rgba(255, 255, 255, 0.15)"
-                    backdropFilter="blur(10px) saturate(130%)"
-                    borderRadius="2xl"
-                    border="1px solid rgba(255, 255, 255, 0.2)"
-                    boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+                  <Grid
+                    templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+                    gap="6"
                   >
-                    <VStack align="start" gap="6">
-                      {/* Header Section */}
-                      <VStack align="start" gap="2" w="full">
-                        <Heading
-                          fontSize={{ base: "2xl", md: "3xl" }}
-                          color="#1f576e"
-                          fontFamily="'Aparajita', serif"
-                          fontWeight="bold"
-                        >
-                          Getting to the Venue
-                        </Heading>
-                        <Text
-                          fontSize="lg"
-                          color="#1f576e"
-                          fontWeight="600"
-                          opacity="0.8"
-                        >
-                          🚗 Multiple convenient options
-                        </Text>
-                      </VStack>
-
-                      {/* Details Section */}
-                      <Box
-                        p="4"
-                        bg="rgba(255, 255, 255, 0.1)"
-                        backdropFilter="blur(5px)"
-                        borderRadius="xl"
-                        border="1px solid rgba(255, 255, 255, 0.15)"
-                        w="full"
-                      >
-                        <VStack align="start" gap="3" w="full">
-                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
-                            <strong>Let us pick you up!</strong> We&apos;re organizing comfortable shuttle service from Mumbai Airport - just let us know your flight details
-                          </Text>
-                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
-                            <strong>Prefer your own ride?</strong> Perfect! Many guests enjoy the scenic 2-hour drive from Mumbai (68-71km)
-                          </Text>
-                          <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
-                            <strong>Flying into Pune?</strong> That works too! It&apos;s a beautiful 1.5-hour drive through the countryside (104km)
+                    {/* Transportation Options */}
+                    <Box
+                      p={{ base: "6", md: "8" }}
+                      bg="rgba(255, 255, 255, 0.15)"
+                      backdropFilter="blur(10px) saturate(130%)"
+                      borderRadius="2xl"
+                      border="1px solid rgba(255, 255, 255, 0.2)"
+                      boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+                    >
+                      <VStack align="start" gap="6">
+                        {/* Header Section */}
+                        <VStack align="start" gap="2" w="full">
+                          <Heading
+                            fontSize={{ base: "2xl", md: "3xl" }}
+                            color="#1f576e"
+                            fontFamily="'Aparajita', serif"
+                            fontWeight="bold"
+                          >
+                            Getting to the Venue
+                          </Heading>
+                          <Text
+                            fontSize="lg"
+                            color="#1f576e"
+                            fontWeight="600"
+                            opacity="0.8"
+                          >
+                            🚗 Multiple convenient options
                           </Text>
                         </VStack>
-                      </Box>
 
-                      {/* Highlight Section */}
-                      <Box
-                        p="4"
-                        bgGradient="linear(to-r, rgba(166, 176, 166, 0.1), rgba(193, 154, 108, 0.1))"
-                        borderRadius="xl"
-                        border="1px solid rgba(166, 176, 166, 0.2)"
-                        w="full"
-                      >
-                        <HStack gap="3" align="center">
-                          <Text fontSize="2xl">🎭</Text>
-                          <Text fontSize="sm" color="#1f576e" fontWeight="600">
-                            The venue is only 2 hours from Mumbai - arrive relaxed and ready to celebrate!
+                        {/* Details Section */}
+                        <Box
+                          p="4"
+                          bg="rgba(255, 255, 255, 0.1)"
+                          backdropFilter="blur(5px)"
+                          borderRadius="xl"
+                          border="1px solid rgba(255, 255, 255, 0.15)"
+                          w="full"
+                        >
+                          <VStack align="start" gap="3" w="full">
+                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                              <strong>Let us pick you up!</strong> We&apos;re organizing comfortable shuttle service from Mumbai Airport - just let us know your flight details
+                            </Text>
+                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                              <strong>Prefer your own ride?</strong> Perfect! Many guests enjoy the scenic 2-hour drive from Mumbai (68-71km)
+                            </Text>
+                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                              <strong>Flying into Pune?</strong> That works too! It&apos;s a beautiful 1.5-hour drive through the countryside (104km)
+                            </Text>
+                          </VStack>
+                        </Box>
+
+                        {/* Highlight Section */}
+                        <Box
+                          p="4"
+                          bgGradient="linear(to-r, rgba(166, 176, 166, 0.1), rgba(193, 154, 108, 0.1))"
+                          borderRadius="xl"
+                          border="1px solid rgba(166, 176, 166, 0.2)"
+                          w="full"
+                        >
+                          <HStack gap="3" align="center">
+                            <Text fontSize="2xl">🎭</Text>
+                            <Text fontSize="sm" color="#1f576e" fontWeight="600">
+                              The venue is only 2 hours from Mumbai - arrive relaxed and ready to celebrate!
+                            </Text>
+                          </HStack>
+                        </Box>
+                      </VStack>
+                    </Box>
+
+                    {/* Travel Agent Assistance */}
+                    <Box
+                      p={{ base: "6", md: "8" }}
+                      bg="rgba(255, 255, 255, 0.15)"
+                      backdropFilter="blur(10px) saturate(130%)"
+                      borderRadius="2xl"
+                      border="1px solid rgba(255, 255, 255, 0.2)"
+                      boxShadow="0 8px 32px rgba(31, 87, 110, 0.1)"
+                    >
+                      <VStack align="start" gap="6">
+                        {/* Header Section */}
+                        <VStack align="start" gap="2" w="full">
+                          <Heading
+                            fontSize={{ base: "2xl", md: "3xl" }}
+                            color="#1f576e"
+                            fontFamily="'Aparajita', serif"
+                            fontWeight="bold"
+                          >
+                            Alifiya Karachiwala
+                          </Heading>
+                          <Text
+                            fontSize="lg"
+                            color="#1f576e"
+                            fontWeight="600"
+                            opacity="0.8"
+                          >
+                            ✈️ Your Travel Planning Partner
                           </Text>
-                        </HStack>
-                      </Box>
-                    </VStack>
-                  </Box>
+                        </VStack>
+
+                        {/* Details Section */}
+                        <Box
+                          p="4"
+                          bg="rgba(255, 255, 255, 0.1)"
+                          backdropFilter="blur(5px)"
+                          borderRadius="xl"
+                          border="1px solid rgba(255, 255, 255, 0.15)"
+                          w="full"
+                        >
+                          <VStack align="start" gap="3" w="full">
+                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                              <strong>Services:</strong> Flight bookings, pan-India excursions, car rentals, and all transportation needs
+                            </Text>
+                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                              <strong>Contact:</strong>{' '}
+                              <a
+                                href="tel:+919820188682"
+                                style={{
+                                  color: '#E8B4B8',
+                                  textDecoration: 'underline',
+                                  fontWeight: '600'
+                                }}
+                              >
+                                +91 98201 88682
+                              </a>
+                            </Text>
+                            <Text fontSize="md" color="#2b5a72" lineHeight="1.6">
+                              <strong>International guests:</strong> WhatsApp preferred for easy communication
+                            </Text>
+                          </VStack>
+                        </Box>
+
+                        {/* Highlight Section */}
+                        <Box
+                          p="4"
+                          bgGradient="linear(to-r, rgba(232, 180, 184, 0.1), rgba(193, 154, 108, 0.1))"
+                          borderRadius="xl"
+                          border="1px solid rgba(232, 180, 184, 0.2)"
+                          w="full"
+                        >
+                          <HStack gap="3" align="center">
+                            <Text fontSize="2xl">💬</Text>
+                            <Text fontSize="sm" color="#1f576e" fontWeight="600">
+                              Alifiya can help arrange your entire trip - from flights to local sightseeing!
+                            </Text>
+                          </HStack>
+                        </Box>
+                      </VStack>
+                    </Box>
+                  </Grid>
                 </Box>
               </VStack>
             )}
