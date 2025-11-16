@@ -767,8 +767,9 @@ export default function WeddingInvitePage() {
               >
                 <Link href="/dress-code">
                   <Box
-                    px={{ base: "5", md: "8" }}
-                    py={{ base: "3", md: "4" }}
+                    px={{ base: "8", md: "12", lg: "16" }}
+                    py={{ base: "4", md: "5" }}
+                    mx={{ base: "4", md: "6" }}
                     bg="rgba(255, 255, 255, 0.18)"
                     borderRadius="full"
                     border="2px dashed #C19A6C"
@@ -776,7 +777,8 @@ export default function WeddingInvitePage() {
                     cursor="pointer"
                     display="inline-flex"
                     alignItems="center"
-                    gap="3"
+                    justifyContent="center"
+                    gap="2"
                     _hover={{
                       bg: "rgba(255, 255, 255, 0.25)",
                       transform: "translateY(-2px)",
@@ -792,15 +794,9 @@ export default function WeddingInvitePage() {
                       fontFamily="'Aparajita', serif"
                       fontWeight="bold"
                       textShadow="0 2px 4px rgba(255,255,255,0.8)"
+                      textAlign="center"
                     >
-                      Confused about what to wear? We&apos;ve got you covered!
-                    </Text>
-                    <Text
-                      fontSize={{ base: "2xl", md: "3xl" }}
-                      role="img"
-                      aria-label="dress"
-                    >
-                      👗
+                      👗 Confused about what to wear? Click here to see our dress code guide!
                     </Text>
                   </Box>
                 </Link>
