@@ -601,7 +601,7 @@ export default function DressCodePage() {
                       Get inspired by sleek nightlife fashion and chic club aesthetics!
                     </Text>
                     <Button
-                      onClick={() => window.open('[MOOD_BOARD_URL]', '_blank')}
+                      onClick={() => window.open('https://pin.it/4Gzx93npg', '_blank')}
                       size="sm"
                       px="6"
                       py="3"
