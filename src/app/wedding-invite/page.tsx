@@ -554,20 +554,6 @@ export default function WeddingInvitePage() {
     setIsEventModalOpen(true);
   };
 
-  // Map event names to dress code sections
-  const getDressCodeLink = (eventTitle: string): string | null => {
-    const mappings: Record<string, string> = {
-      'Mehndi': '/dress-code#mehndi-welcome',
-      'Welcome Dinner': '/dress-code#mehndi-welcome',
-      'Haldi': '/dress-code#haldi',
-      'Baraat': '/dress-code#wedding-pheras',
-      'Wedding Pheras': '/dress-code#wedding-pheras',
-      'Dinner & Cocktail': '/dress-code#after-party',
-      'Sangeet': '/dress-code#sangeet',
-      'After Party': '/dress-code#after-party'
-    };
-    return mappings[eventTitle] || null;
-  };
 
   return (
     <BackgroundWrapper backgroundImage="/background2.png">
@@ -765,6 +751,60 @@ export default function WeddingInvitePage() {
                   );
                 })}
               </HStack>
+
+              {/* Quirky Dress Code Link */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "-8px",
+                  marginBottom: "16px"
+                }}
+              >
+                <Link href="/dress-code">
+                  <Box
+                    px={{ base: "5", md: "8" }}
+                    py={{ base: "3", md: "4" }}
+                    bg="rgba(255, 255, 255, 0.18)"
+                    borderRadius="full"
+                    border="2px dashed #C19A6C"
+                    backdropFilter="blur(6px) saturate(110%)"
+                    cursor="pointer"
+                    display="inline-flex"
+                    alignItems="center"
+                    gap="3"
+                    _hover={{
+                      bg: "rgba(255, 255, 255, 0.25)",
+                      transform: "translateY(-2px)",
+                      boxShadow: "0 8px 24px rgba(193, 154, 108, 0.25)",
+                      borderStyle: "solid"
+                    }}
+                    transition="all 0.3s ease"
+                    boxShadow="0 4px 12px rgba(31, 87, 110, 0.1)"
+                  >
+                    <Text
+                      fontSize={{ base: "lg", md: "xl" }}
+                      color="#1f576e"
+                      fontFamily="'Aparajita', serif"
+                      fontWeight="bold"
+                      textShadow="0 2px 4px rgba(255,255,255,0.8)"
+                    >
+                      Confused about what to wear? We&apos;ve got you covered!
+                    </Text>
+                    <Text
+                      fontSize={{ base: "2xl", md: "3xl" }}
+                      role="img"
+                      aria-label="dress"
+                    >
+                      👗
+                    </Text>
+                  </Box>
+                </Link>
+              </motion.div>
 
               {/* Main Timeline - Constrained Width on Desktop */}
               <motion.div
@@ -1108,27 +1148,6 @@ export default function WeddingInvitePage() {
                                         {event.description}
                                       </Text>
                                     </Box>
-                                    {getDressCodeLink(event.title) && (
-                                      <Box pl={{ base: "16", md: "19" }}>
-                                        <Link
-                                          href={getDressCodeLink(event.title)!}
-                                          onClick={(e) => e.stopPropagation()}
-                                        >
-                                          <Text
-                                            fontSize={{ base: "sm", md: "md" }}
-                                            color="#1f576e"
-                                            fontFamily="'Aparajita', serif"
-                                            textDecoration="underline"
-                                            cursor="pointer"
-                                            fontWeight="600"
-                                            _hover={{ color: "#C19A6C" }}
-                                            transition="color 0.2s ease"
-                                          >
-                                            See what to wear →
-                                          </Text>
-                                        </Link>
-                                      </Box>
-                                    )}
                                   </VStack>
                                 )}
 
