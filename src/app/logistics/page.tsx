@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Navigation from '@/components/shared/Navigation';
 import BackgroundWrapper from '@/components/shared/BackgroundWrapper';
 import { 
@@ -851,7 +852,11 @@ export default function LogisticsPage() {
                           <HStack gap="3" align="center" justify="center">
                             <Text fontSize="2xl">👗</Text>
                             <Text fontSize="md" color="#2b5a72" textAlign="center">
-                              <strong>Wedding Attire:</strong> Visit our Dress Code Guide for outfit inspiration and guidelines!
+                              <strong>Wedding Attire:</strong> Visit our{' '}
+                              <Link href="/dress-code" style={{ color: '#E8B4B8', textDecoration: 'underline', fontWeight: '600' }}>
+                                Dress Code Guide
+                              </Link>{' '}
+                              for outfit inspiration and guidelines!
                             </Text>
                           </HStack>
                         </Box>
