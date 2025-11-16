@@ -22,7 +22,7 @@ export default function TravelTipsPage() {
     { id: 'hotels', name: 'Hotels', icon: '🏨' },
     { id: 'restaurants', name: 'Restaurants', icon: '🍽️' },
     { id: 'shopping', name: 'Shopping & Landmarks', icon: '🛍️' },
-    { id: 'experiences', name: 'Unique Experiences', icon: '🎭' },
+    { id: 'experiences', name: 'Experiences', icon: '🎭' },
     { id: 'practical', name: 'Practical Tips', icon: '✈️' }
   ];
 
@@ -292,6 +292,57 @@ export default function TravelTipsPage() {
           location: "Colaba, Mumbai 400001",
           description: "Iconic shopping and walking area with street vendors and cafes",
           tip: "Great for people watching and street food"
+        }
+      ]
+    },
+    {
+      category: "Premium Cinema",
+      items: [
+        {
+          name: "INOX Insignia",
+          location: "CR2 Mall, Nariman Point, Mumbai 400021",
+          description: "Ultra-luxury cinema with recliner seating, gourmet menu with table service. Shows Bollywood blockbusters and Hollywood releases",
+          tip: "Book on INOX app or BookMyShow. ₹900-1,200 per ticket. Ideal for South Bombay hotels"
+        },
+        {
+          name: "PVR Director's Cut",
+          location: "Phoenix Palladium, Lower Parel, Mumbai 400013",
+          description: "Plush reclining seats, signature gourmet menu, wine list, exclusive lounge. Mix of Bollywood and Hollywood with subtitled options",
+          tip: "20-30 min from South Bombay. Book on BookMyShow. ₹950-1,500 per ticket"
+        }
+      ]
+    },
+    {
+      category: "Evening Entertainment",
+      items: [
+        {
+          name: "NCPA (National Centre for Performing Arts)",
+          location: "NCPA Marg, Nariman Point, Mumbai 400021",
+          description: "Iconic waterfront arts complex with classical music, concerts, theatre, dance. Walking distance from top hotels",
+          tip: "Shows usually 7-9 PM. Book on NCPA website. ₹400-3,000 depending on event"
+        },
+        {
+          name: "Canvas Laugh Club",
+          location: "Kamala Mills, Lower Parel, Mumbai 400013",
+          description: "Mumbai's leading comedy club with English and Hindi stand-up by top Indian comics and international acts",
+          tip: "Show times 7:30 PM or 9:30 PM. Book on BookMyShow. ₹800-1,200 per ticket"
+        }
+      ]
+    },
+    {
+      category: "Family-Friendly Activities",
+      items: [
+        {
+          name: "Sunset Boat Ride",
+          location: "Gateway of India, Apollo Bunder, Colaba, Mumbai 400001",
+          description: "Private sunset cruises on Arabian Sea with Mumbai skyline views. Safe, picturesque, highly photogenic for all ages",
+          tip: "2-hour duration, departure 4-6 PM. Book at BookMySailing.com or BoatBookingIndia.com. ₹2,500-5,000 per person"
+        },
+        {
+          name: "Victoria Gardens & Zoo",
+          location: "Dr. Ambedkar Road, Byculla, Mumbai 400027",
+          description: "Historic botanical garden with recently renovated zoo, shaded trails, rare species in updated enclosures. Green respite in the city",
+          tip: "10 min from South Bombay. Open 9 AM-6 PM. Entry ₹100 adults, ₹50 children. Less crowded weekdays"
         }
       ]
     }
