@@ -175,6 +175,51 @@ export default function TravelTipsPage() {
           description: "Panoramic ocean views, Mediterranean-inspired menu"
         }
       ]
+    },
+    {
+      category: "Contemporary & Trendy Dining",
+      places: [
+        {
+          name: "Bombay Canteen",
+          location: "Kamala Mills, Lower Parel",
+          description: "Inventive Indian cuisine with artisanal cocktails in a lively contemporary space. Experimental takes on regional classics with seasonal produce"
+        },
+        {
+          name: "Koko",
+          location: "Lower Parel",
+          description: "Chic Asian gastropub with Pan Asian and Japanese cuisine, innovative cocktails. Signature sushi, prawn tempura, dim sum by Michelin-starred chef"
+        },
+        {
+          name: "145 Cafe & Bar",
+          location: "Kala Ghoda/Fort",
+          description: "Stylish bar and café featuring Mexican, Chinese, Indian fusion. Weekend brunch hotspot with pool table and striking decor"
+        }
+      ]
+    },
+    {
+      category: "Cafes & Desserts",
+      places: [
+        {
+          name: "Kala Ghoda Cafe",
+          location: "Kala Ghoda",
+          description: "Beloved since 2009, eclectic European and Parsi comfort food. Organic coffee, homemade pastries, cozy cafe plus elegant wine bar"
+        },
+        {
+          name: "Naturals Ice Cream",
+          location: "Colaba",
+          description: "Legendary Mumbai chain famous for fresh, seasonal fruit ice creams. Must-try: Sitaphal, Tender Coconut, Coffee Almond"
+        }
+      ]
+    },
+    {
+      category: "South Indian (Worth the Trip)",
+      places: [
+        {
+          name: "Tanjore Tiffin Room",
+          location: "Versova, Andheri West",
+          description: "South Indian delicacies with modern twist. Note: Not in South Bombay but worth the journey for variety of gravies and Tamil Nadu heritage decor"
+        }
+      ]
     }
   ];
 
